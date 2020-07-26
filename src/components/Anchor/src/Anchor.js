@@ -1,15 +1,17 @@
 import React from 'react'
-import { Anchor } from 'grommet'
+import { Anchor, ThemeContext } from 'grommet'
 import { Link } from 'gatsby'
 
 const EnhancedAnchor = ({ path, label, children, ...rest }) => {
   return (
-    <Anchor
-      path={path}
-      label={label || children}
-      {...rest}
-      as={RoutedAnchor}
-    />
+    <ThemeContext.Extend>
+      <Anchor
+        path={path}
+        label={label || children}
+        {...rest}
+        as={RoutedAnchor}
+      />
+    </ThemeContext.Extend>
   )
 }
 

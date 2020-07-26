@@ -1,10 +1,12 @@
 import React from 'react'
 import { Box, Heading, ThemeContext } from 'grommet'
-import { PageNav } from '../'
+import { LanguageBar } from '../..'
 
-const Layout = () => {
+const PageHeader = ({ languageBar, ...rest }) => {
   return (
-    <Box justify="center">
+    <Box
+      {...rest}
+    >
       <Heading level={1} alignSelf="center" margin={{ top: "none", bottom: "medium" }}>Amy & Martin</Heading>
       <ThemeContext.Extend value={{
           heading: {
@@ -33,10 +35,20 @@ const Layout = () => {
             <Heading level={2} margin="none" color="dark-2">SQUAW VALLEY, CA</Heading>
           </Box>
         </Box>
+        {
+          languageBar && (
+            <LanguageBar 
+              margin={{ top: "large" }}
+            />
+          )
+        }
       </ThemeContext.Extend>
-      <PageNav />
     </Box>
   )
 }
 
-export default Layout
+PageHeader.defaultProps = {
+  languageBar: false
+}
+
+export default PageHeader

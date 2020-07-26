@@ -1,35 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Text } from 'grommet'
-import { Anchor } from '../../'
 
 const LanguageBar = (props) => {
+  const [active, setActive] = useState()
 
-  const Option = ({ label, path }) => {
+  const Option = ({ label, LanguageCode }) => {
     return (
-      <Anchor path={path}>
-        <Box 
-          round="small"
-          background="light-1"
-          border={{ size: "xsmall", color: "brand" }}
-          pad={{ horizontal: "large", vertical: "medium" }}
+      <Box 
+        round="xsmall"
+        background={LanguageCode === active ? "brand" : undefined}
+        border={{ size: "xsmall", color: "brand" }}
+        pad={{ horizontal: "large", vertical: "xsmall" }}
+        onClick={() => console.log(LanguageCode)}
+        onMouseEnter={() => setActive(LanguageCode)}
+        onMouseLeave={() => setActive()}
+      >
+        <Text
+          weight={500}
+          color={LanguageCode === active ? "white" : "brand"}
         >
-          <Text
-            weight={500}
-            size="xlarge"
-            color="brand"
-          >
-            {label}
-          </Text>
-        </Box>
-      </Anchor>
+          {label}
+        </Text>
+      </Box>
     )
   }
 
   return (
-    <Box direction="row" justify="center" gap="medium" {...props}>
-      <Option label="EN" path="/en" />
-      <Option label="CN" path="/cn" />
-      <Option label="PL" path="/pl" />
+    <Box 
+      direction="row" 
+      justify="center" 
+      gap="medium" 
+      {...props}
+    >
+      <Option label="English" LanguageCode="en" />
+      <Option label="Mandarin" LanguageCode="cn" />
+      <Option label="Polish" LanguageCode="pl" />
     </Box>
   )
 }

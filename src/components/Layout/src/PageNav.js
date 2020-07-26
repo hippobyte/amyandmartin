@@ -2,14 +2,19 @@ import React from 'react'
 import { Box } from 'grommet'
 import { Anchor } from '../..'
 
-const PageNav = ({ children }) => {
+const PageNav = (props) => {
   return (
-    <Box direction="row" justify="center" gap="small" margin={{ top: "medium" }}>
-      <Anchor label="Home" path="/" />
-      <Anchor label="Our Story" path="/" />
-      <Anchor label="Travel" path="/" />
-      <Anchor label="Things to Do" path="/" />
-      <Anchor label="Photos" path="/" />
+    <Box 
+      direction="row" 
+      gap="large" 
+      border={{ side: "between", size: "xsmall", color: "brand" }} 
+      {...props}
+    >
+      <Anchor color="dark-2" label="Home" path="/" />
+      <Anchor color="dark-2" label="Our Story" path="/" />
+      <Anchor color="dark-2" label="Travel" path="/" />
+      <Anchor color="dark-2" label="Things to Do" path="/" />
+      <Anchor color="dark-2" label="Photos" path="/" />
     </Box>
   )
 }

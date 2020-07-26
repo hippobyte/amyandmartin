@@ -1,8 +1,29 @@
+const colors = {
+  brand: '#1273ea'
+}
+
 export const theme = {
   anchor: {
+    fontWeight: 500,
     textDecoration: 'none',
     hover: {
       textDecoration: 'none'
+    },
+    extend: {
+      boxShadow: 'none',
+      transition: 'color 0.3s',
+      '&:hover': {
+        color: colors.brand
+      }
+    }
+  },
+  box: {
+    extend: {
+      transition: 'all 0.3s',
+      '&.active.brand': {
+        color: 'white',
+        background: colors.brand
+      }
     }
   },
   global: {
@@ -10,7 +31,7 @@ export const theme = {
       family: 'Ubuntu',
     },
     colors: {
-      brand: '#355f93'
+      brand: colors.brand
     }
   },
   heading: {

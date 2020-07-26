@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Grid, Grommet } from 'grommet'
-import { PageHeader } from '../index'
+import { PageHeader, PageNav } from '../index'
 import { Image } from '../../index'
 import { theme } from '../../../style'
 
@@ -28,10 +28,29 @@ const PageLayout = ({ children }) => {
 
   return (
     <Grommet theme={theme} full>
-      <Grid columns={{ count: 2, size: "50%" }} row={{ count: 1, size: "full" }} fill>
-        <Box justify="center" align="center">
-          <PageHeader />
-          {children}
+      <Grid 
+        columns={{ count: 2, size: "50%" }} 
+        row={{ count: 1, size: "full" }} 
+        fill
+      >
+        <Box
+          pad="medium"
+        >
+          <PageNav 
+            justify="start"
+            alignSelf="center"
+          />
+          <PageHeader 
+            flex="grow"
+            justify="center"
+            margin={{ top: "xlarge" }}
+            languageBar={true}
+          />
+          <Box
+            flex="grow"
+          >
+            {children}
+          </Box>
         </Box>
         <Box background="light-1">
           <Image 

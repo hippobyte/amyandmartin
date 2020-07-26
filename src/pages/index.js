@@ -4,9 +4,7 @@ import { LanguageBar, PageLayout } from '../components'
 const Home = () => {
   return (
     <PageLayout>
-      <LanguageBar
-        margin={{ top: "large" }}
-      />
+
     </PageLayout>
   )
 }
