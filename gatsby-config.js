@@ -29,8 +29,16 @@ module.exports = {
         name: `media`
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/content/options`,
+        name: `options`
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-netlify-cms`
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-transformer-json`
   ]
 }

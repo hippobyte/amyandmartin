@@ -1,41 +1,60 @@
 import React, { useState } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Text } from 'grommet'
 
 const LanguageBar = (props) => {
   const [active, setActive] = useState()
+  const request = useStaticQuery(graphql`
+    query LanguageOptions {
+      allOptionsJson(filter: {templateKey: {eq: "site-settings"}}) {
+        edges {
+          node {
+            code
+            title
+            description
+          }
+        }
+      }
+    }
+  `)
 
-  const Option = ({ label, LanguageCode }) => {
+  const data = request.allOptionsJson.edges.map(item => item.node)  
+
+  const Option = ({ title, description, code }) => {
     return (
       <Box 
-        round="xsmall"
-        background={LanguageCode === active ? "brand" : undefined}
-        border={{ size: "xsmall", color: "brand" }}
-        pad={{ horizontal: "large", vertical: "xsmall" }}
-        onClick={() => console.log(LanguageCode)}
-        onMouseEnter={() => setActive(LanguageCode)}
+        onClick={() => console.log(code)}
+        onMouseEnter={() => setActive(code)}
         onMouseLeave={() => setActive()}
       >
         <Text
           weight={500}
-          color={LanguageCode === active ? "white" : "brand"}
         >
-          {label}
+          {code === active  ? description : title}
         </Text>
       </Box>
     )
   }
 
   return (
-    <Box 
-      direction="row" 
-      justify="center" 
-      gap="medium" 
-      {...props}
-    >
-      <Option label="English" LanguageCode="en" />
-      <Option label="Mandarin" LanguageCode="cn" />
-      <Option label="Polish" LanguageCode="pl" />
-    </Box>
+    <>
+    {
+      data.length > 0 && (
+        <Box 
+          direction="row" 
+          justify="center" 
+          gap="medium" 
+          {...props}
+        >
+          {
+            data.map(item => (
+              <Option {...item} />
+            ))
+          }
+        </Box>
+      )
+    }
+    </>
   )
 }
 

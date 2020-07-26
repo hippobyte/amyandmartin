@@ -1,5 +1,5 @@
 import React from 'react'
-import { LanguageBar, PageLayout } from '../components'
+import { PageLayout } from '../components'
 
 const Home = () => {
   return (

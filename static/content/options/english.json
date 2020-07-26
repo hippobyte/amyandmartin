@@ -2,5 +2,6 @@
   "templateKey": "site-settings",
   "title": "English",
   "description": "English",
-  "code": "en"
+  "code": "en",
+  "order": 0
 }

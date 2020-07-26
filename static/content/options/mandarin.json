@@ -2,5 +2,6 @@
   "templateKey": "site-settings",
   "title": "Mandarin",
   "description": "普通话",
-  "code": "cn"
+  "code": "cn",
+  "order": 1
 }

@@ -2,5 +2,6 @@
   "templateKey": "site-settings",
   "title": "Polish",
   "description": "Polski",
-  "code": "pl"
+  "code": "pl",
+  "order": 2
 }
