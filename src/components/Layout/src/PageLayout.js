@@ -9,15 +9,19 @@ const PageLayout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
       allFile(filter: {relativePath: {in: [
-        "amymartin.jpeg"
+        "martinamyhome.jpeg"
       ]}}) {
         images: edges {
           node {
             relativePath
             childImageSharp {
-              fluid(grayscale: true, cropFocus: CENTER){
-                aspectRatio
-                ...GatsbyImageSharpFluid_withWebp
+              fluid {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+                originalImg
+                originalName
               }
             }
           }
@@ -55,7 +59,7 @@ const PageLayout = ({ children }) => {
         <Box background="light-1">
           <Image 
             data={data} 
-            path="amymartin.jpeg" 
+            path="martinamyhome.jpeg" 
             style={{ 
               height: "100%"
             }} 

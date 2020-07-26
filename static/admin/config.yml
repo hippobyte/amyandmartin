@@ -199,14 +199,13 @@ collections:
     create: true
     slug: "{{slug}}"
     summary: "{{title}} - {{description}}"
-    sortableFields: ['title', 'description', 'code  ', 'commit_date']
+    sortableFields: ['title', 'description', commit_date']
     fields: [
       {label: "Template Key", name: "templateKey", widget: "hidden", default: "options-language"},
       {label: "Language", name: "title", widget: "string"},
-      {label: "Code", name: "code", widget: "string"},
       {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
       {label: "Translations", name: "translations", widget: "list", summary: '{{fields.translatedTitle}}', minimize_collapsed: true, fields: [
-        {label: "Language", name: "languageCode", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+        {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
         {label: "Translation", name: "translation", widget: "string"},
       ]}
     ]

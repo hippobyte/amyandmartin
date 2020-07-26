@@ -4,33 +4,40 @@ import { Box, Text } from 'grommet'
 
 const LanguageBar = (props) => {
   const [active, setActive] = useState()
+
   const request = useStaticQuery(graphql`
     query LanguageOptions {
-      allOptionsJson(filter: {templateKey: {eq: "site-settings"}}) {
+      allOptionsJson(filter: {templateKey: {eq: "site-settings"}}, sort: {fields: order, order: ASC}) {
         edges {
           node {
-            code
             title
             description
+            translations {
+              languageTitle
+              translation
+            }
           }
         }
       }
     }
   `)
 
-  const data = request.allOptionsJson.edges.map(item => item.node)  
+  const translate = () => {
+    const item = request.allOptionsJson.edges.map(item => item.node).find(item => item.title === active)  
+    return item && item.translations.map(item => ({ title: item.languageTitle, description: item.translation }))
+  }
 
-  const Option = ({ title, description, code }) => {
+  const data = active ? translate() : request.allOptionsJson.edges.map(item => item.node)
+
+  const Option = ({ title, description }) => {
     return (
       <Box 
-        onClick={() => console.log(code)}
-        onMouseEnter={() => setActive(code)}
-        onMouseLeave={() => setActive()}
+        onClick={() => setActive(title)}
       >
         <Text
           weight={500}
         >
-          {code === active  ? description : title}
+          {active ? description : title}
         </Text>
       </Box>
     )

@@ -11,7 +11,7 @@ const PageNav = (props) => {
       {...props}
     >
       <Anchor color="dark-2" label="Home" path="/" />
-      <Anchor color="dark-2" label="Our Story" path="/" />
+      <Anchor color="dark-2" label="Our Story" path="/our-story" />
       <Anchor color="dark-2" label="Travel" path="/" />
       <Anchor color="dark-2" label="Things to Do" path="/" />
       <Anchor color="dark-2" label="Photos" path="/" />

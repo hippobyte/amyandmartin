@@ -8,10 +8,11 @@ const Image = ({ data, path, alt, style }) => {
     return imageNode && imageNode.node.childImageSharp.fluid
   }
 
+  console.log(data, path)
+
   return (
     <Img 
       key={path}
-      className={fluidImage().aspectRatio}
       alt={alt}
       fluid={fluidImage()} 
       style={style}

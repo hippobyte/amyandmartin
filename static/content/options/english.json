@@ -2,18 +2,17 @@
   "templateKey": "site-settings",
   "title": "English",
   "description": "English",
-  "code": "en",
   "translations": [
     {
-      "languageCode": "English",
+      "languageTitle": "English",
       "translation": "English"
     },
     {
-      "languageCode": "Mandarin",
+      "languageTitle": "Mandarin",
       "translation": "Mandarin"
     },
     {
-      "languageCode": "Polish",
+      "languageTitle": "Polish",
       "translation": "Polish"
     }
   ],
