@@ -1,21 +1,22 @@
 import React from 'react'
-import { Box, Grommet, Heading } from 'grommet'
+import { Box, Grommet } from 'grommet'
+import { PageHeader } from '../index'
 import { theme } from '../../../style'
 
-const Layout = ({ children }) => {
+const PageLayout = ({ children }) => {
   return (
     <Grommet theme={theme} full>
       <Box 
-        border={{ size: "xsmall", color: "light-5" }}
+        border={{ size: "xsmall", color: "brand" }}
         round="small"
         margin={{ horizontal: "xlarge", vertical: "large" }}
         pad={{ horizontal: "large", vertical: "medium" }}
       >
-        <Heading level={1}>Martin & Amy</Heading>
+        <PageHeader />
         {children}
       </Box>
     </Grommet>
   )
 }
 
-export default Layout
+export default PageLayout

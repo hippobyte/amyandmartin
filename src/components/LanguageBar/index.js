@@ -1,0 +1,1 @@
+export { default as LanguageBar } from './src/LanguageBar'

@@ -1,11 +1,13 @@
 import React from 'react'
-import { Layout } from '../components'
+import { LanguageBar, PageLayout } from '../components'
 
 const Home = () => {
   return (
-    <Layout>
-      
-    </Layout>
+    <PageLayout>
+      <LanguageBar
+        margin={{ top: "large" }}
+      />
+    </PageLayout>
   )
 }
 

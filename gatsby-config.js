@@ -17,7 +17,7 @@ module.exports = {
       options: {
         fonts: [
           `Ubuntu\:400,500,700`,
-          `Forum\:400`
+          `Poiret+One\:400`
         ],
         display: 'swap'
       }
