@@ -7,6 +7,14 @@
     {
       "languageCode": "English",
       "translation": "English"
+    },
+    {
+      "languageCode": "Mandarin",
+      "translation": "Mandarin"
+    },
+    {
+      "languageCode": "Polish",
+      "translation": "Polish"
     }
   ],
   "order": 0
