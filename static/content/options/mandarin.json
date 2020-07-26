@@ -3,5 +3,19 @@
   "title": "Mandarin",
   "description": "普通话",
   "code": "cn",
-  "order": 1
+  "order": 1,
+  "translations": [
+    {
+      "languageCode": "Mandarin",
+      "translation": "普通话"
+    },
+    {
+      "languageCode": "English",
+      "translation": "普通"
+    },
+    {
+      "languageCode": "Polish",
+      "translation": "普"
+    }
+  ]
 }
