@@ -2,5 +2,12 @@
   "templateKey": "site-settings",
   "title": "English",
   "description": "English",
-  "code": "en"
+  "code": "en",
+  "translations": [
+    {
+      "languageCode": "English",
+      "translation": "English"
+    }
+  ],
+  "order": 0
 }
