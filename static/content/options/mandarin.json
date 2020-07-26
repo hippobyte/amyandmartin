@@ -2,5 +2,20 @@
   "templateKey": "site-settings",
   "title": "Mandarin",
   "description": "普通话",
-  "code": "cn"
+  "code": "cn",
+  "order": 1,
+  "translations": [
+    {
+      "languageCode": "Mandarin",
+      "translation": "普通话"
+    },
+    {
+      "languageCode": "English",
+      "translation": "普通"
+    },
+    {
+      "languageCode": "Polish",
+      "translation": "普"
+    }
+  ]
 }
