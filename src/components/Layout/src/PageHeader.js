@@ -25,9 +25,13 @@ const Layout = () => {
             }
           }
         }}>
-        <Box direction="row" justify="center" border="between" gap="medium">
-          <Heading level={2} margin="none" color="dark-2">SEPTEMBER 18, 2020</Heading>
-          <Heading level={2} margin="none" color="dark-2">SQUAW VALLEY, CA</Heading>
+        <Box direction="row" justify="center" wrap>
+          <Box pad={{ horizontal: "xsmall" }}>
+            <Heading level={2} margin="none" color="dark-2">SEPTEMBER 18, 2020</Heading>
+          </Box>
+          <Box pad={{ horizontal: "xsmall" }}>
+            <Heading level={2} margin="none" color="dark-2">SQUAW VALLEY, CA</Heading>
+          </Box>
         </Box>
       </ThemeContext.Extend>
       <PageNav />

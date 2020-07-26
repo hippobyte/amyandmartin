@@ -1,4 +1,10 @@
 export const theme = {
+  anchor: {
+    textDecoration: 'none',
+    hover: {
+      textDecoration: 'none'
+    }
+  },
   global: {
     font: {
       family: 'Ubuntu',

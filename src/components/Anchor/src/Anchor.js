@@ -1,7 +1,19 @@
 import React from 'react'
+import { Anchor } from 'grommet'
 import { Link } from 'gatsby'
 
-const Anchor = (props) => {
+const EnhancedAnchor = ({ path, label, children, ...rest }) => {
+  return (
+    <Anchor
+      path={path}
+      label={label || children}
+      {...rest}
+      as={RoutedAnchor}
+    />
+  )
+}
+
+const RoutedAnchor = (props) => {
   const { 
     a11yTitle, alignSelf, color, disabled, gridArea, href, icon, label, margin, reverse, size, 
     onClick, onBlur, onFocus, className, 'aria-label': ariaLabel, to, path,
@@ -20,9 +32,9 @@ const Anchor = (props) => {
       onFocus={onFocus}
       {...rest}
     >
-      {children || label}
+      {children}
     </Link>
   )
 }
 
-export default Anchor
+export default EnhancedAnchor
