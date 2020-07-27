@@ -3,6 +3,8 @@
   "title": "Polish",
   "description": "Polski",
   "order": 2,
+  "default": false,
+  "locale": "pl",
   "translations": [
     {
       "languageTitle": "English",

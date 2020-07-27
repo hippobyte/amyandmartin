@@ -3,6 +3,8 @@
   "title": "Chinese",
   "description": "普通话",
   "order": 1,
+  "default": false,
+  "locale": "zh-cn",
   "translations": [
     {
       "languageTitle": "English",

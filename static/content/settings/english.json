@@ -2,6 +2,9 @@
   "templateKey": "language-settings",
   "title": "English",
   "description": "English",
+  "order": 0,
+  "default": true,
+  "locale": "en",
   "translations": [
     {
       "languageTitle": "English",
@@ -15,8 +18,5 @@
       "languageTitle": "Polish",
       "translation": "Polish"
     }
-  ],
-  "order": 0,
-  "default": true,
-  "locale": "en"
+  ]
 }

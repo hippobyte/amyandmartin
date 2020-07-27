@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Heading, ThemeContext } from 'grommet'
 import { LanguageBar } from '../..'
@@ -6,29 +7,21 @@ import { LanguageBar } from '../..'
 const PageHeader = ({ languageBar, ...rest }) => {
   const request = useStaticQuery(graphql`
     query WeddingSettings {
-      allOptionsJson(filter: {templateKey: {eq: "wedding-settings"}}, sort: {fields: order, order: ASC}) {
-        edges {
-          node {
-            title
-            description
-            default
-            translations {
-              languageTitle
-              translation
-            }
-          }
-        }
+      settingsJson(templateKey: {eq: "wedding-settings"}) {
+        title
+        ceremonyDate
+        location
       }
     }
   `)
 
-  console.log(request)
+  const { title, ceremonyDate, location } = request.settingsJson
 
   return (
     <Box
       {...rest}
     >
-      <Heading level={1} alignSelf="center" margin={{ top: "none", bottom: "medium" }}>Amy & Martin</Heading>
+      <Heading level={1} alignSelf="center" margin={{ top: "none", bottom: "medium" }}>{title}</Heading>
       <ThemeContext.Extend value={{
           heading: {
             extend: {
@@ -54,10 +47,10 @@ const PageHeader = ({ languageBar, ...rest }) => {
         }}>
         <Box direction="row" justify="center" wrap>
           <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
-            <Heading level={2} margin="none" color="dark-2">SEPTEMBER 5, 2020</Heading>
+            <Heading level={2} margin="none" color="dark-2">{moment(ceremonyDate).format('LL')}</Heading>
           </Box>
           <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
-            <Heading level={2} margin="none" color="dark-2">SQUAW VALLEY, CA</Heading>
+            <Heading level={2} margin="none" color="dark-2">{location}</Heading>
           </Box>
         </Box>
         {

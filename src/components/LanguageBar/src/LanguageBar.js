@@ -10,7 +10,7 @@ const LanguageBar = (props) => {
 
   const request = useStaticQuery(graphql`
     query LanguageOptions {
-      allOptionsJson(filter: {templateKey: {eq: "site-settings"}}, sort: {fields: order, order: ASC}) {
+      allSettingsJson(filter: {templateKey: {eq: "wedding-settings"}}, sort: {fields: order, order: ASC}) {
         edges {
           node {
             title

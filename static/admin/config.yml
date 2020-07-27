@@ -56,10 +56,10 @@ collections:
     label: "Wedding Settings"
     folder: "static/content/settings"
     extension: "json"
-    create: true
+    create: false
     slug: "wedding-settings"
     filter: {field: "templateKey", value: "wedding-settings"}
-    summary: "{{connector}} - {{title}}"
+    summary: "{{title}}"
     sortableFields: ['connector', 'title', 'date', 'commit_date']
     fields: [
       {label: "Template Key", name: "templateKey", widget: "hidden", default: "wedding-settings"},
@@ -74,11 +74,13 @@ collections:
     extension: "json"
     create: true
     slug: "{{slug}}"
+    filter: {field: "templateKey", value: "language-settings"}
     summary: "{{title}} - {{description}}"
     sortableFields: ['title', 'description', commit_date']
     fields: [
       {label: "Template Key", name: "templateKey", widget: "hidden", default: "language-settings"},
       {label: "Language", name: "title", widget: "string"},
+      {label: "Locale", hint: "see https://www.science.co.il/language/Locale-codes.php", default: 'en', name: "locale", widget: "string"},
       {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
       {label: "Default", name: "default", widget: "boolean", default: false},
       {label: "Translations", name: "translations", widget: "list", summary: '{{fields.languageTitle}} - {{fields.translation}}', minimize_collapsed: true, fields: [
