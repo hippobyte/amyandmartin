@@ -6,6 +6,6 @@ translations:
   - languageTitle: Chinese
     title: Our Story
   - languageTitle: Polish
-    title: Our Story
+    title: Nasza historia
 featuredimage: ../media/amymartinfancy.jpeg
 ---
