@@ -1,18 +1,18 @@
 {
-  "templateKey": "home",
-  "order": 0,
+  "templateKey": "story",
+  "order": 1,
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Home"
+      "title": "Our Story"
     },
     {
       "languageTitle": "Chinese",
-      "title": "Home"
+      "title": "Our Story"
     },
     {
       "languageTitle": "Polish",
-      "title": "Strona główna"
+      "title": "Nasza historia"
     }
   ],
   "featuredimage": "../media/martinamyhome.jpeg"

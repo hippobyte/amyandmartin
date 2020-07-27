@@ -1,18 +1,18 @@
 {
-  "templateKey": "home",
-  "order": 0,
+  "templateKey": "travel",
+  "order": 2,
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Home"
+      "title": "Travel"
     },
     {
       "languageTitle": "Chinese",
-      "title": "Home"
+      "title": "Travel"
     },
     {
       "languageTitle": "Polish",
-      "title": "Strona główna"
+      "title": "Podróż"
     }
   ],
   "featuredimage": "../media/martinamyhome.jpeg"

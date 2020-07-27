@@ -19,18 +19,8 @@ const Home = ({ location }) => {
           }
         }
       }
-      page: markdownRemark(frontmatter: {title: {eq: "Home"}}) {
-        frontmatter {
-          translations {
-            languageTitle
-            title
-          }
-        }
-      }
     }
   `)
-
-  console.log(data)
 
   return (
     <PageLayout

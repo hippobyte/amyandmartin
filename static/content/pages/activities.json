@@ -1,18 +1,18 @@
 {
-  "templateKey": "home",
-  "order": 0,
+  "templateKey": "activities",
+  "order": 3,
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Home"
+      "title": "Things to Do"
     },
     {
       "languageTitle": "Chinese",
-      "title": "Home"
+      "title": "Things to Do"
     },
     {
       "languageTitle": "Polish",
-      "title": "Strona główna"
+      "title": "Zwiedzanie"
     }
   ],
   "featuredimage": "../media/martinamyhome.jpeg"
