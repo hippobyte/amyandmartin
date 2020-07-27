@@ -13,13 +13,14 @@ const PageContent = ({ pageNav, image, children }) => {
       }}
       rows={{
         small: ['50vh'],
+        medium: ['100vh'],
         large: ['100vh'],
         xlarge: ['100vh'],
       }}
     >
       <Box>
         { pageNav && <PageNav /> }
-        <Box flex="grow" align="center" justify="center">
+        <Box flex="grow" align="center" justify="center" pad="medium">
           {children}
         </Box>
       </Box>
