@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Home Page
 translations:
   - languageTitle: English
     title: Home
