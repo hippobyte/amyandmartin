@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <PageLayout
-      title="Our Story"
+      title="Photo Galley"
     >
       <PageContent
         pageNav={true}
