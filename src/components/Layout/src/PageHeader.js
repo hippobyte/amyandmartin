@@ -1,10 +1,13 @@
 import React from 'react'
-import moment from 'moment'
+import moment from 'moment-with-locales-es6'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Heading, ThemeContext } from 'grommet'
+import { useOptions } from '../../../state/hooks'
 import { LanguageBar } from '../..'
 
 const PageHeader = ({ languageBar, ...rest }) => {
+  const { options } = useOptions()
+
   const request = useStaticQuery(graphql`
     query WeddingSettings {
       settingsJson(templateKey: {eq: "wedding-settings"}) {
@@ -30,8 +33,8 @@ const PageHeader = ({ languageBar, ...rest }) => {
             level: {
               '2': {
                 font: {
-                  family: 'Poiret One',
-                  weight: 700
+                  family: 'Montserrat',
+                  weight: 400
                 },
                 small: {
                   size: '324px',
@@ -47,7 +50,7 @@ const PageHeader = ({ languageBar, ...rest }) => {
         }}>
         <Box direction="row" justify="center" wrap>
           <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
-            <Heading level={2} margin="none" color="dark-2">{moment(ceremonyDate).format('LL')}</Heading>
+            <Heading level={2} margin="none" color="dark-2">{moment(ceremonyDate).locale(options.language.locale).format('LL')}</Heading>
           </Box>
           <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
             <Heading level={2} margin="none" color="dark-2">{location}</Heading>

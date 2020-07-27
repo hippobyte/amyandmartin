@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { PageLayout, PageContent, PageHeader, LanguageBar } from '../components'
+import { PageLayout, PageContent, PageHeader } from '../components'
 
 const Home = () => {
   const data = useStaticQuery(graphql`

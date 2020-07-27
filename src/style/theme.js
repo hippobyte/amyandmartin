@@ -33,7 +33,7 @@ export const theme = {
   },
   global: {
     font: {
-      family: 'Ubuntu',
+      family: "'Montserrat', sans-serif;",
     },
     colors: {
       brand: colors.brand

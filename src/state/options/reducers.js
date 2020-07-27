@@ -4,7 +4,13 @@ export const INITIAL_STATE = {
   isExpanded: false, 
   activePanels: [],
   location: {},
-  language: 'English'
+  language: {
+    title: 'English',
+    description: 'English',
+    locale: 'en',
+    default: true,
+    order: 0
+  }
 }
 
 export default (state = INITIAL_STATE, action) => {

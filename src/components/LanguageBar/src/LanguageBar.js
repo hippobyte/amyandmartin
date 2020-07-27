@@ -10,11 +10,14 @@ const LanguageBar = (props) => {
 
   const request = useStaticQuery(graphql`
     query LanguageOptions {
-      allSettingsJson(filter: {templateKey: {eq: "wedding-settings"}}, sort: {fields: order, order: ASC}) {
+      allSettingsJson(
+        filter: {templateKey: {eq: "language-settings"}}, 
+        sort: {fields: order, order: ASC}) {
         edges {
           node {
             title
             description
+            locale
             default
             translations {
               languageTitle
@@ -28,27 +31,29 @@ const LanguageBar = (props) => {
 
   useEffect(() => {
     if (value) {
-      setLanguage(value)
+      const defaultItem = request.allSettingsJson.edges.map(item => item.node).find(item => item.title === value)
+      setLanguage(defaultItem)
     } else {
-      const defaultItem = request.allOptionsJson.edges.map(item => item.node).find(item => item.default)
+      const defaultItem = request.allSettingsJson.edges.map(item => item.node).find(item => item.default)
       if (defaultItem) {
-        setLanguage(defaultItem.title)
+        setLanguage(defaultItem)
         setValue(defaultItem.title)
       }
     }
   }, [])
 
-  const setLanguageOption = (title) => {
-    setLanguage(title)
-    setValue(title)
+  const setLanguageOption = (value) => {
+    const defaultItem = request.allSettingsJson.edges.map(item => item.node).find(item => item.title === value)
+    setLanguage(defaultItem)
+    setValue(value)
   }
 
   const translate = () => {
-    const item = request.allOptionsJson.edges.map(item => item.node).find(item => item.title === options.language)
+    const item = request.allSettingsJson.edges.map(item => item.node).find(item => item.title === options.language.title)
     return item && item.translations.map(item => ({ title: item.languageTitle, description: item.translation }))
   }
 
-  const data = options.language ? translate() : request.allOptionsJson.edges.map(item => item.node)
+  const data = options.language.title ? translate() : request.allSettingsJson.edges.map(item => item.node)
 
   const Option = ({ title, description }) => {
     return (
@@ -61,7 +66,7 @@ const LanguageBar = (props) => {
         <Text
           weight={500}
         >
-          {options.language ? description : title}
+          {options.language.title ? description : title}
         </Text>
       </Box>
     )

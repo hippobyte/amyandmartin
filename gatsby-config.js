@@ -16,11 +16,18 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Ubuntu\:400,500,700`,
+          `Montserrat\:400,500,600,700`,
           `Poiret+One\:400`
         ],
         display: 'swap'
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/content/pages`,
+        name: `pages`
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -37,6 +44,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-transformer-json`,

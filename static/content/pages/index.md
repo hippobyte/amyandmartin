@@ -7,5 +7,5 @@ translations:
     title: Strona główna
   - languageTitle: Chinese
     title: Home
-image: ../media/martinamyhome.jpeg
+featuredimage: ../media/martinamyhome.jpeg
 ---
