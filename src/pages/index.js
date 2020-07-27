@@ -36,7 +36,8 @@ const Home = () => {
         pageNav={true}
         image={{
           data: data,
-          path: "martinamyhome.jpeg"
+          path: "martinamyhome.jpeg",
+          imgStyle: { objectFit: 'cover', objectPosition: '0 30%' }
         }}
       >
         <PageHeader />
