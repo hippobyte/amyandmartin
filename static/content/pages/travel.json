@@ -1,5 +1,6 @@
 {
   "templateKey": "travel",
+  "path": "/travel",
   "order": 2,
   "translations": [
     {

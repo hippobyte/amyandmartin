@@ -1,5 +1,6 @@
 {
   "templateKey": "photos",
+  "path": "/photos",
   "order": 4,
   "translations": [
     {

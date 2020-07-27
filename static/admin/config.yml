@@ -23,11 +23,13 @@ collections:
         name: "index",
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "home"},
+          {label: "Page Path", name: "path", widget: "hidden", default: "/"},
           {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
           ]},
-          {label: Primary Image, name: featuredimage, widget: image}
+          {label: Primary Image, name: featuredimage, widget: image},
+          {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
         ]
       },
       {
@@ -36,11 +38,13 @@ collections:
         name: "story",
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "story"},
+          {label: "Page Path", name: "path", widget: "hidden", default: "/story"},
           {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
           ]},
-          {label: Primary Image, name: featuredimage, widget: image}
+          {label: Primary Image, name: featuredimage, widget: image},
+          {label: "Order", name: "order", widget: "number", valueType: "int", default: 1},
         ]
       },
       {
@@ -49,11 +53,13 @@ collections:
         name: "travel",
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "travel"},
+          {label: "Page Path", name: "path", widget: "hidden", default: "/travel"},
           {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
           ]},
-          {label: Primary Image, name: featuredimage, widget: image}
+          {label: Primary Image, name: featuredimage, widget: image},
+          {label: "Order", name: "order", widget: "number", valueType: "int", default: 2},
         ]
       },
       {
@@ -62,11 +68,13 @@ collections:
         name: "activities",
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "activities"},
+          {label: "Page Path", name: "path", widget: "hidden", default: "/activities"},
           {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
           ]},
-          {label: Primary Image, name: featuredimage, widget: image}
+          {label: Primary Image, name: featuredimage, widget: image},
+          {label: "Order", name: "order", widget: "number", valueType: "int", default: 3},
         ]
       },
       {
@@ -75,11 +83,13 @@ collections:
         name: "photos",
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "photos"},
+          {label: "Page Path", name: "path", widget: "hidden", default: "/photos"},
           {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
           ]},
-          {label: Primary Image, name: featuredimage, widget: image}
+          {label: Primary Image, name: featuredimage, widget: image},
+          {label: "Order", name: "order", widget: "number", valueType: "int", default: 4},
         ]
       }
     ]

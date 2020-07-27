@@ -1,5 +1,6 @@
 {
   "templateKey": "activities",
+  "path": "/activities",
   "order": 3,
   "translations": [
     {
