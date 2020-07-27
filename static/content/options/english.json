@@ -16,5 +16,6 @@
       "translation": "Polish"
     }
   ],
-  "order": 0
+  "order": 0,
+  "default": true
 }
