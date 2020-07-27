@@ -6,7 +6,7 @@ const PageContent = ({ pageNav, image, children }) => {
   return (
     <ResponsiveGrid
       columns={{
-        small: ['2/2', '1/4'],
+        small: ['2/2', '2/2'],
         medium: ['1/2', '1/2'],
         large: ['1/2', '1/2'],
         xlarge: ['1/2', '1/2'],

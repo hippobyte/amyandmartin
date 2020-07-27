@@ -32,10 +32,10 @@ const PageHeader = ({ languageBar, ...rest }) => {
           }
         }}>
         <Box direction="row" justify="center" wrap>
-          <Box pad={{ horizontal: "xsmall" }}>
+          <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
             <Heading level={2} margin="none" color="dark-2">SEPTEMBER 5, 2020</Heading>
           </Box>
-          <Box pad={{ horizontal: "xsmall" }}>
+          <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
             <Heading level={2} margin="none" color="dark-2">SQUAW VALLEY, CA</Heading>
           </Box>
         </Box>
