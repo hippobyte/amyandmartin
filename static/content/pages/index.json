@@ -1,0 +1,18 @@
+{
+  "title": "Home",
+  "translations": [
+    {
+      "languageTitle": "English",
+      "title": "Home"
+    },
+    {
+      "languageTitle": "Chinese",
+      "title": "Home"
+    },
+    {
+      "languageTitle": "Polish",
+      "title": "Strona główna"
+    }
+  ],
+  "featuredimage": "../media/martinamyhome.jpeg"
+}
