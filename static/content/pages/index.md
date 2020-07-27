@@ -1,4 +1,5 @@
 ---
+title: Home
 translations:
   - languageTitle: English
     title: Home
