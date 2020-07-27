@@ -58,9 +58,11 @@ collections:
     extension: "json"
     create: true
     slug: "wedding-settings"
+    filter: {field: "templateKey", value: "wedding-settings"}
     summary: "{{connector}} - {{title}}"
     sortableFields: ['connector', 'title', 'date', 'commit_date']
     fields: [
+      {label: "Template Key", name: "templateKey", widget: "hidden", default: "wedding-settings"},
       {label: "Couple", hint: "ex. Amy & Martin", name: "title", widget: "string"},
       {label: "Location", hint: "ex. San Diego, CA", name: "location", widget: "string"},
       {label: "Ceremony Date", name: "ceremonyDate", widget: "date"}
