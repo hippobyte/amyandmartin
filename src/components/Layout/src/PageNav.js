@@ -21,7 +21,7 @@ const PageNav = () => {
       data: allPagesJson(sort: {fields: order, order: ASC}) {
         pages: edges {
           page: node {
-            templateKey
+            path
             translations {
               languageTitle
               title
@@ -33,8 +33,8 @@ const PageNav = () => {
   `)
 
   const menuItems = request.data.pages
-                      .map(item => ({ path: item.page.templateKey, translations: item.page.translations }) )
-                      .map(item => ({ path: `/${item.path}`, translation: item.translations.find(item => item.languageTitle === options.language.title) }) )
+                      .map(item => ({ path: item.page.path, translations: item.page.translations }) )
+                      .map(item => ({ path: item.path, translation: item.translations.find(item => item.languageTitle === options.language.title) }) )
                       .map(item => ({ path: item.path, label: item.translation.title }) )
 
   return (
