@@ -37,7 +37,7 @@ const Home = () => {
         image={{
           data: data,
           path: "martinamyhome.jpeg",
-          imgStyle: { objectFit: 'cover', objectPosition: '0 30%' }
+          imgStyle: { objectFit: 'cover', objectPosition: '40% 30%' }
         }}
       >
         <PageHeader />
