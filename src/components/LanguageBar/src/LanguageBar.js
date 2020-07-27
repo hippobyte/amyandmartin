@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
+import { useLocalStorage } from 'react-use'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Text } from 'grommet'
+import { useOptions } from '../../../state/hooks'
 
 const LanguageBar = (props) => {
-  const [active, setActive] = useState()
+  const { options, setLanguage } = useOptions()
+  const [value, setValue] = useLocalStorage('language')
 
   const request = useStaticQuery(graphql`
     query LanguageOptions {
@@ -12,6 +15,7 @@ const LanguageBar = (props) => {
           node {
             title
             description
+            default
             translations {
               languageTitle
               translation
@@ -22,17 +26,34 @@ const LanguageBar = (props) => {
     }
   `)
 
+  useEffect(() => {
+    if (value) {
+      setLanguage(value)
+    } else {
+      const defaultItem = request.allOptionsJson.edges.map(item => item.node).find(item => item.default)
+      if (defaultItem) {
+        setLanguage(defaultItem.title)
+        setValue(defaultItem.title)
+      }
+    }
+  }, [])
+
+  const setLanguageOption = (title) => {
+    setLanguage(title)
+    setValue(title)
+  }
+
   const translate = () => {
-    const item = request.allOptionsJson.edges.map(item => item.node).find(item => item.title === active)  
+    const item = request.allOptionsJson.edges.map(item => item.node).find(item => item.title === options.language)
     return item && item.translations.map(item => ({ title: item.languageTitle, description: item.translation }))
   }
 
-  const data = active ? translate() : request.allOptionsJson.edges.map(item => item.node)
+  const data = options.language ? translate() : request.allOptionsJson.edges.map(item => item.node)
 
   const Option = ({ title, description }) => {
     return (
       <Box 
-        onClick={() => setActive(title)}
+        onClick={() => setLanguageOption(title)}
         border={{ size: "xsmall", color: "light-3" }}
         margin={{ top: "medium" }}
         pad={{ vertical: "xsmall", horizontal: "small" }}
@@ -40,7 +61,7 @@ const LanguageBar = (props) => {
         <Text
           weight={500}
         >
-          {active ? description : title}
+          {options.language ? description : title}
         </Text>
       </Box>
     )

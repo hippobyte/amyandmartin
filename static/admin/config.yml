@@ -52,187 +52,35 @@ collections:
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
 
-  - name: "docs-categories"
-    label: "Documentation Categories"
-    folder: "static/content/docs/categories"
-    create: true
-    slug: "{{slug}}"
-    summary: "{{order}} - {{title}}"
-    sortableFields: ['order', 'title', 'date', 'commit_date']
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "docs-category"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Order", name: "order", widget: "number", valueType: "int", default: 0}
-
-  - name: "docs-menu-links"
-    label: "Docs Menu Links"
-    folder: "static/content/docs/links"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "docs-menu-links"}
-      - {label: "Label", name: "title", widget: "string"}
-      - {label: "Path", name: "path", widget: "string"}
-      - {label: "Order", name: "order", widget: "number", valueType: "int", default: 0}
-
-  - name: "authors"
-    label: "Authors"
-    identifier_field: "authorName"
-    folder: "static/content/authors"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "authors"}
-      - {label: "Author Name", name: "authorName", widget: "string"}
-      - {label: "Author Email", name: "email", widget: "string", default: ""}
-      - {label: "Twitter URL", name: "twitter", widget: "string", default: "", required: false}
-      - {label: "LinkedIn URL", name: "linkedin", widget: "string", default: "", required: false}
-      - {label: "Created Date", name: "date", widget: "hidden", default: "2000-01-01T00:00:00.000Z"}
-
-  - name: "faq"
-    label: "FAQ"
-    identifier_field: "title"
-    folder: "static/content/faq"
-    create: true
-    slug: "{{slug}}"
-    summary: "{{category}} - {{order}} - {{title}}"
-    sortableFields: ['category', 'title', 'date', 'commit_date']
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "faq"}
-      - {label: "Question", name: "title", widget: "string"}
-      - {label: "Answer", name: "body", widget: "markdown"}
-      - {label: "Order", name: "order", widget: "number", valueType: "int", default: 0}
-      - {label: "Created Date", name: "date", widget: "hidden", default: "2000-01-01T00:00:00.000Z"}
-      - label: "Category"
-        name: "category"
-        widget: "select"
-        options: 
-          - { label: "Getting Started", value: "01. Getting Started" }
-          - { label: "Data Synchronization", value: "02. Data Synchronization" }
-          - { label: "Schema Management", value: "03. Schema Management" }
-          - { label: "Security and Privacy", value: "04. Security and Privacy" }
-          - { label: "Troubleshooting", value: "05. Troubleshooting" }
-          - { label: "Billing and Support", value: "06. Billing and Support" }
-
-  - name: "messages"
-    label: "Message Bar"
-    identifier_field: "title"
-    folder: "static/content/messages"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "messages"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "More Info Link", name: "anchor", widget: "string", required: false}
-      - {label: "Created Date", name: "date", widget: "hidden"}
-      - {label: "Expiration (ms)", name: "order", widget: "number", valueType: "int", default: 86400}
-
-  - name: "connectors"
-    label: "Connectors"
-    folder: "static/content/connectors"
+  - name: "settings"
+    label: "Wedding Settings"
+    folder: "static/content/settings"
     extension: "json"
     create: true
-    slug: "{{slug}}"
-    summary: "{{category}} - {{title}} ({{sourceDestination}})"
-    sortableFields: ['category', 'title', 'sourceDestination', 'date', 'commit_date']
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "connector"}
-      - {label: "Source/Destination", name: "sourceDestination", widget: "select", options: [
-          { label: "Source", value: "source" }, 
-          { label: "Destination", value: "destination" },
-          { label: "Other", value: "other" }
-        ]}
-      - {label: "Category", name: "category", widget: "select", required: false, options: [
-          { label: "Application", value: "Application" }, 
-          { label: "Database", value: "Database" }, 
-          { label: "File", value: "File" },
-          { label: "Business Intelligence", value: "Business Intelligence" }
-        ]}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Icon", name: "featuredimage", widget: image}
-      - {label: "Documentation", name: "docs", widget: "object", minimize_collapsed: true, fields: [
-          {label: "Instructions", name: "instructions", widget: "markdown", required: false},
-          {label: "Heading", name: "asideHeading", widget: "string", required: false},
-          {label: "Sub Heading", name: "asideSubHeading", widget: "string", required: false},
-          {label: "Aside", name: "aside", widget: "list", summary: '{{fields.asideTitle}}', minimize_collapsed: true, fields: [
-            {label: "Title", name: "asideTitle", widget: "string", required: false},
-            {label: "Sub Title", name: "asideSubTitle", widget: "string", required: false},
-            {label: "Content", name: "asideContent", widget: "markdown", required: false}
-          ]},
-        ]}
-      - {label: "Product Overview", name: "product", widget: "object", fields: [
-          {label: "Tags", name: "tags", widget: "list", summary: '{{fields.tag}}', field: 
-            {label: "Tag", name: "tag", widget: "relation", collection: "connector-type", searchFields: ["title"], valueField: "title"}
-          },
-          {label: "Product Description", name: "description", widget: "text", required: false},
-          {label: "Connector Description", name: "connectorDescription", widget: "text", required: false},
-          {label: "Product URL", name: "url", widget: "string", required: false},
-          {label: "Product Color Theme", name: "color", widget: "string", required: false},
-        ]}
-      - {label: "Pipeline", name: "pipeline", widget: "object", fields: [
-          {label: "Class Name", name: "class_name", widget: "string", hint: "camel cased", required: false},
-          {label: "Slug", name: "slug", widget: "string", hint: "uppercase and unique", required: false},
-          {label: "Destination Name", name: "destination_name", widget: "string", hint: "lower snake case", required: false}
-        ]}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
+    slug: "wedding-settings"
+    summary: "{{connector}} - {{title}}"
+    sortableFields: ['connector', 'title', 'date', 'commit_date']
+    fields: [
+      {label: "Couple", hint: "ex. Amy & Martin", name: "title", widget: "string"},
+      {label: "Location", hint: "ex. San Diego, CA", name: "location", widget: "string"},
+      {label: "Ceremony Date", name: "ceremonyDate", widget: "date"}
+    ]
 
-
-  - name: "connector-type"
-    label: "Connectory Types"
-    folder: "static/content/connectors/types"
-    extension: "json"
-    create: true
-    slug: "{{slug}}"
-    summary: "{{order}} - {{title}}"
-    sortableFields: ['order', 'title', 'date', 'commit_date']
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "connector-types"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Order", name: "order", widget: "number", valueType: "int", default: 0}
-
-  - name: "language"
+  - name: "language"  
     label: "Language Options"
-    folder: "static/content/options"
+    folder: "static/content/settings"
     extension: "json"
     create: true
     slug: "{{slug}}"
     summary: "{{title}} - {{description}}"
     sortableFields: ['title', 'description', commit_date']
     fields: [
-      {label: "Template Key", name: "templateKey", widget: "hidden", default: "options-language"},
+      {label: "Template Key", name: "templateKey", widget: "hidden", default: "language-settings"},
       {label: "Language", name: "title", widget: "string"},
       {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
-      {label: "Translations", name: "translations", widget: "list", summary: '{{fields.translatedTitle}}', minimize_collapsed: true, fields: [
+      {label: "Default", name: "default", widget: "boolean", default: false},
+      {label: "Translations", name: "translations", widget: "list", summary: '{{fields.languageTitle}} - {{fields.translation}}', minimize_collapsed: true, fields: [
         {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
         {label: "Translation", name: "translation", widget: "string"},
       ]}
-    ]
-
-
-  - name: "settings"
-    label: "Site Settings"
-    folder: "static/content/settings"
-    extension: "json"
-    create: true
-    slug: "{{slug}}"
-    summary: "{{connector}} - {{title}}"
-    sortableFields: ['connector', 'title', 'date', 'commit_date']
-    fields: [
-      {label: "Template Key", name: "templateKey", widget: "hidden", default: "site-settings"},
-      {label: "Title", name: "title", widget: "string"},
-      {label: "Description", name: "description", widget: "text"},
-      {label: "Table Name", hint: "lower snake case", name: "tableName", widget: "string"},
-      {label: "Attributes", name: "schema", widget: "list", minimize_collapsed: true, fields: [
-        {label: "Name", name: "attrName", widget: "string"},
-        {label: "Description", name: "attrDescription", widget: "text"},
-        {label: "Type", name: "attrType", widget: "select", options: [
-          { label: "Integer", value: "integer" },
-          { label: "String", value: "string" },
-          { label: "Text", value: "text" },
-          { label: "Number", value: "number" },
-        ]},
-        {label: "String Length", name: "attrLength", widget: "number", valueType: "int"}
-      ]},
     ]

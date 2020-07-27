@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { PageLayout, PageContent, PageHeader, LanguageBar } from '../components'
 
-const Home = () => {
+const Home = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       allFile(filter: {relativePath: {in: [
@@ -26,6 +26,7 @@ const Home = () => {
     <PageLayout
       title="Amy and Martin's Wedding"
       description="Amy and Martin's Wedding"
+      location={location}
     >
       <PageContent
         pageNav={true}

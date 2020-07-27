@@ -32,7 +32,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/static/content/options`,
+        path: `${__dirname}/static/content/settings`,
         name: `options`
       },
     },

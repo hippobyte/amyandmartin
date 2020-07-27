@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, DropButton, ResponsiveContext, Text } from 'grommet'
+import { Box, DropButton, ResponsiveContext } from 'grommet'
 import { Menu } from 'grommet-icons'
 import { Anchor } from '../..'
 
@@ -16,7 +16,6 @@ const PageNav = () => {
     <ResponsiveContext.Consumer>
       {
         responsive => {
-          console.log(responsive)
           return (
             <>
             {

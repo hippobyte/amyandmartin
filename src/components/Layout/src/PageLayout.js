@@ -1,9 +1,16 @@
-import React from 'react'
-import { Box, Grommet } from 'grommet'
+import React, { useEffect } from 'react'
+import { Grommet } from 'grommet'
 import { Helmet } from 'react-helmet'
+import { useOptions } from '../../../state/hooks'
 import { theme } from '../../../style'
 
-const PageLayout = ({ title, description, children }) => {
+const PageLayout = ({ title, description, location, children }) => {
+  const { setLocation } = useOptions()
+
+  useEffect(() => {
+    setLocation(location)
+  }, [location])
+
   return (
     <Grommet theme={theme} full>
       <Helmet>

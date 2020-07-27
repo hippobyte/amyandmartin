@@ -1,8 +1,29 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Heading, ThemeContext } from 'grommet'
 import { LanguageBar } from '../..'
 
 const PageHeader = ({ languageBar, ...rest }) => {
+  const request = useStaticQuery(graphql`
+    query WeddingSettings {
+      allOptionsJson(filter: {templateKey: {eq: "wedding-settings"}}, sort: {fields: order, order: ASC}) {
+        edges {
+          node {
+            title
+            description
+            default
+            translations {
+              languageTitle
+              translation
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  console.log(request)
+
   return (
     <Box
       {...rest}
