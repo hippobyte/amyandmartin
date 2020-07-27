@@ -26,6 +26,11 @@ export const theme = {
       }
     }
   },
+  button: {
+    border: {
+      radius: '6px'
+    }
+  },
   global: {
     font: {
       family: 'Ubuntu',

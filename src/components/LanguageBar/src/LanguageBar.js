@@ -33,6 +33,9 @@ const LanguageBar = (props) => {
     return (
       <Box 
         onClick={() => setActive(title)}
+        border={{ size: "xsmall", color: "light-3" }}
+        margin={{ top: "medium" }}
+        pad={{ vertical: "xsmall", horizontal: "small" }}
       >
         <Text
           weight={500}

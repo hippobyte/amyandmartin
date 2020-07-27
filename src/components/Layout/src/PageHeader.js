@@ -19,6 +19,10 @@ const PageHeader = ({ languageBar, ...rest }) => {
                   family: 'Poiret One',
                   weight: 700
                 },
+                small: {
+                  size: '324px',
+                  height: '24px'
+                },
                 medium: {
                   size: '24px',
                   height: '24px'
@@ -29,7 +33,7 @@ const PageHeader = ({ languageBar, ...rest }) => {
         }}>
         <Box direction="row" justify="center" wrap>
           <Box pad={{ horizontal: "xsmall" }}>
-            <Heading level={2} margin="none" color="dark-2">SEPTEMBER 18, 2020</Heading>
+            <Heading level={2} margin="none" color="dark-2">SEPTEMBER 5, 2020</Heading>
           </Box>
           <Box pad={{ horizontal: "xsmall" }}>
             <Heading level={2} margin="none" color="dark-2">SQUAW VALLEY, CA</Heading>

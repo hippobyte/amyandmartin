@@ -1,10 +1,47 @@
 import React from 'react'
-import { PageLayout } from '../components'
+import { useStaticQuery, graphql } from 'gatsby'
+import { PageLayout, PageContent, PageHeader, LanguageBar } from '../components'
 
 const Home = () => {
-  return (
-    <PageLayout>
+  const data = useStaticQuery(graphql`
+    query {
+      allFile(filter: {relativePath: {in: [
+        "martinamyhome.jpeg"
+      ]}}) {
+        images: edges {
+          node {
+            relativePath
+            childImageSharp {
+              fluid {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+                originalImg
+                originalName
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
 
+  return (
+    <PageLayout
+      title="Amy and Martin's Wedding"
+      description="Amy and Martin's Wedding"
+    >
+      <PageContent
+        pageNav={true}
+        image={{
+          data: data,
+          path: "martinamyhome.jpeg"
+        }}
+      >
+        <PageHeader />
+        <LanguageBar margin={{ vertical: "medium" }} />
+      </PageContent>
     </PageLayout>
   )
 }

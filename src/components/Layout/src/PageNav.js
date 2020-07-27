@@ -1,22 +1,75 @@
 import React from 'react'
-import { Box } from 'grommet'
+import { Box, DropButton, ResponsiveContext, Text } from 'grommet'
+import { Menu } from 'grommet-icons'
 import { Anchor } from '../..'
 
-const PageNav = (props) => {
+const data = [
+  { label: "Home", path: "/" },
+  { label: "Our Story", path: "/our-story" },
+  { label: "Travel", path: "/travel" },
+  { label: "Things to Do", path: "/things-to-do" },
+  { label: "Photos", path: "/photos" }
+]
+
+const PageNav = () => {
   return (
-    <Box 
-      direction="row" 
-      gap="large" 
-      border={{ side: "between", size: "xsmall", color: "brand" }} 
-      {...props}
-    >
-      <Anchor color="dark-2" label="Home" path="/" />
-      <Anchor color="dark-2" label="Our Story" path="/our-story" />
-      <Anchor color="dark-2" label="Travel" path="/" />
-      <Anchor color="dark-2" label="Things to Do" path="/" />
-      <Anchor color="dark-2" label="Photos" path="/" />
-    </Box>
+    <ResponsiveContext.Consumer>
+      {
+        responsive => {
+          console.log(responsive)
+          return (
+            <>
+            {
+              responsive === "small" || responsive === "medium" ? (
+                <MenuButton data={data} />
+              ) : (
+                <MenuBar data={data} />
+              )
+            }
+            </>
+          )
+        }
+      }
+    </ResponsiveContext.Consumer>
   )
 }
 
+const MenuButton = ({ data }) => (
+  <Box align="start" margin="medium">
+    <DropButton
+      label="Menu"
+      focusIndicator={false}
+      plain
+      icon={<Menu />}
+      dropAlign={{ top: 'bottom', left: 'left' }}
+      dropContent={
+        <Box
+          pad="medium"
+          gap="xsmall"
+        >
+          {
+            data.map(item => (
+              <Anchor 
+                color="dark-2" 
+                label={item.label} 
+                path={item.path} 
+              />
+            ))
+          }
+        </Box>
+      }
+    />
+  </Box>
+)
+
+const MenuBar = ({ data }) => (
+  <Box direction="row" margin="medium" gap="medium" border={{ side: "between", color: "light-5" }}>
+    {
+      data.map(item => (
+        <Anchor color="dark-2" label={item.label} path={item.path} />
+      ))
+    }
+  </Box>
+)
+ 
 export default PageNav

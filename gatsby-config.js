@@ -39,6 +39,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify-cms`,
-    `gatsby-transformer-json`
+    `gatsby-transformer-json`,
+    `gatsby-plugin-react-helmet`
   ]
 }
