@@ -13,12 +13,7 @@ const Home = () => {
             relativePath
             childImageSharp {
               fluid {
-                base64
-                tracedSVG
-                srcWebp
-                srcSetWebp
-                originalImg
-                originalName
+                ...GatsbyImageSharpFluid
               }
             }
           }
