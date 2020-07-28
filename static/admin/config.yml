@@ -10,7 +10,7 @@ backend:
     uploadMedia: '[skip ci] Upload "{{path}}”'
     deleteMedia: '[skip ci] Delete "{{path}}”'
 
-media_folder: static/media
+media_folder: static/content/media
 public_folder: "../media/"
 
 collections: 
@@ -49,7 +49,7 @@ collections:
       },
       {
         file: "static/content/pages/travel.json",
-        label: "Travel Pge",
+        label: "Travel Page",
         name: "travel",
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "travel"},

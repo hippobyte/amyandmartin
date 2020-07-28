@@ -1,18 +1,12 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
-const Image = ({ data, path, alt, style, ...rest }) => {
-  const fluidImage = () => {
-    const images = data.allFile.images
-    const imageNode = images.find(item => item.node.relativePath === path)
-    return imageNode && imageNode.node.childImageSharp.fluid
-  }
-
+const Image = ({ fluid, alt, style, ...rest }) => {
   return (
     <Img 
-      key={path}
+      key={fluid.src}
       alt={alt}
-      fluid={fluidImage()} 
+      fluid={fluid}
       style={style}
       {...rest}
     />

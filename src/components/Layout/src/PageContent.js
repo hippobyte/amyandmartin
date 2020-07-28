@@ -1,11 +1,8 @@
-import React, { useContext } from 'react'
-import { Box, ResponsiveContext } from 'grommet'
+import React from 'react'
+import { Box } from 'grommet'
 import { Image, PageNav, ResponsiveGrid } from '../..'
 
-const PageContent = ({ pageNav, image, reverse, children }) => {
-  const size = useContext(ResponsiveContext)
-
-  console.log(size)
+const PageContent = ({ pageNav, image, children }) => {
   return (
     <ResponsiveGrid
       columns={{
@@ -40,25 +37,17 @@ const Aside = ({ image }) => (
   <Box>
     {
       image && (
-        <PrimaryImage {...image} />
+        <Image 
+          style={{
+            height: '100%',
+            minHeight: '375px'
+          }}
+          {...image}
+        />
       )
     }
   </Box>
 )
-
-const PrimaryImage = ({ data, path, ...rest }) => {
-  return (
-    <Image 
-      data={data} 
-      path={path}
-      style={{
-        height: '100%',
-        minHeight: '375px'
-      }}
-      {...rest}
-    />
-  )
-}
 
 PageContent.defaultProps = {
   image: false,

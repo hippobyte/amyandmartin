@@ -27,10 +27,8 @@ const Home = () => {
       title="Photo Galley"
     >
       <PageContent
-        pageNav={true}
         image={{
-          data: data,
-          path: "amymartin.jpeg",
+          fluid: data.page.featuredimage.childImageSharp.fluid,
           imgStyle: { objectFit: 'cover', objectPosition: '40% 30%' }
         }}
       >

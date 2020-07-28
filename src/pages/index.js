@@ -5,24 +5,17 @@ import { PageLayout, PageContent, PageHeader, LanguageBar } from '../components'
 const Home = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: {relativePath: {in: [
-        "martinamyhome.jpeg"
-      ]}}) {
-        images: edges {
-          node {
-            relativePath
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
       page: pagesJson(templateKey: {eq: "home"}) {
         translations {
           languageTitle
           title
+        }
+        featuredimage {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
@@ -37,8 +30,7 @@ const Home = ({ location }) => {
       <PageContent
         pageNav={true}
         image={{
-          data: data,
-          path: "martinamyhome.jpeg",
+          fluid: data.page.featuredimage.childImageSharp.fluid,
           imgStyle: { objectFit: 'cover', objectPosition: '40% 30%' }
         }}
       >
