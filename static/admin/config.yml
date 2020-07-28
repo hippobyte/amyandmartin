@@ -24,7 +24,7 @@ collections:
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "index"},
           {label: "Page Path", name: "path", widget: "hidden", default: "/"},
-          {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+          {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
             {label: "Menu Title", name: "menuTitle", widget: "string"},
@@ -40,10 +40,14 @@ collections:
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "story"},
           {label: "Page Path", name: "path", widget: "hidden", default: "/story"},
-          {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+          {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
             {label: "Menu Title", name: "menuTitle", widget: "string"},
+          ]},
+          {label: "Page Description", name: "descriptions", widget: "list", summary: '{{fields.description}} - {{fields.languageDescription}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageDescription", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Description", name: "description", widget: "markdown"},
           ]},
           {label: Primary Image, name: featuredimage, widget: image},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 1},
@@ -56,13 +60,26 @@ collections:
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "travel"},
           {label: "Page Path", name: "path", widget: "hidden", default: "/travel"},
-          {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+          {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
             {label: "Menu Title", name: "menuTitle", widget: "string"},
           ]},
+          {label: "Page Description", name: "descriptions", widget: "list", summary: '{{fields.description}} - {{fields.languageDescription}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageDescription", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Description", name: "description", widget: "markdown"},
+          ]},
           {label: Primary Image, name: featuredimage, widget: image},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 2},
+          {label: "Page Sections", name: "sections", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+            {label: Primary Image, name: featuredimage, widget: image},
+            {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
+            {label: "Content", name: "content", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+              {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Description", name: "description", widget: "markdown"}
+            ]}
+          ]}
         ]
       },
       {
@@ -72,10 +89,14 @@ collections:
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "activities"},
           {label: "Page Path", name: "path", widget: "hidden", default: "/activities"},
-          {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+          {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
             {label: "Menu Title", name: "menuTitle", widget: "string"},
+          ]},
+          {label: "Page Description", name: "descriptions", widget: "list", summary: '{{fields.description}} - {{fields.languageDescription}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageDescription", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Description", name: "description", widget: "markdown"},
           ]},
           {label: Primary Image, name: featuredimage, widget: image},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 3},
@@ -88,10 +109,14 @@ collections:
         fields: [
           {label: "Template Key", name: "templateKey", widget: "hidden", default: "photos"},
           {label: "Page Path", name: "path", widget: "hidden", default: "/photos"},
-          {label: "Translations", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+          {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
             {label: "Menu Title", name: "menuTitle", widget: "string"},
+          ]},
+          {label: "Page Description", name: "descriptions", widget: "list", summary: '{{fields.description}} - {{fields.languageDescription}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageDescription", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Description", name: "description", widget: "markdown"},
           ]},
           {label: Primary Image, name: featuredimage, widget: image},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 4},
@@ -130,7 +155,7 @@ collections:
       {label: "Locale", hint: "see https://www.science.co.il/language/Locale-codes.php", default: 'en', name: "locale", widget: "string"},
       {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
       {label: "Default", name: "default", widget: "boolean", default: false},
-      {label: "Translations", name: "translations", widget: "list", summary: '{{fields.languageTitle}} - {{fields.translation}}', minimize_collapsed: true, fields: [
+      {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.languageTitle}} - {{fields.translation}}', minimize_collapsed: true, fields: [
         {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
         {label: "Translation", name: "translation", widget: "string"},
       ]}

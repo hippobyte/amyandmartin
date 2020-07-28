@@ -30,6 +30,27 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               menuTitle
             }
+            sections {
+              order
+              content {
+                languageTitle
+                title
+                description
+              }
+              featuredimage {
+                childImageSharp {
+                  fluid {
+                    base64
+                    tracedSVG
+                    aspectRatio
+                    srcWebp
+                    srcSetWebp
+                    originalName
+                    src
+                  }
+                }
+              }
+            }
             featuredimage {
               childImageSharp {
                 fluid {
