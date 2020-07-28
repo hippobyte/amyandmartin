@@ -14,6 +14,7 @@ const PageTemplate = ({ location, pageContext }) => {
   return (
     <PageLayout
       location={location}
+      title={pageHeading}
     >
       <PageContent
         pageNav={pageNav}
@@ -41,8 +42,8 @@ const PageTemplate = ({ location, pageContext }) => {
       {
         sections && sections.map(item => {
           const current = item.content.find(item => item.languageTitle === language.title)
-          const heading = current.title
-          const content = current.description
+          const heading = current && current.title
+          const content = current && current.description
           return (
             <PageContent
               image={{
