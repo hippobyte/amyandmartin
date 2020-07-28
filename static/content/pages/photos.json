@@ -5,15 +5,18 @@
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Photos"
+      "title": "Photos",
+      "menuTitle": "Photos"
     },
     {
       "languageTitle": "Chinese",
-      "title": "Photos"
+      "title": "Photos",
+      "menuTitle": "Photos"
     },
     {
       "languageTitle": "Polish",
-      "title": "Zdjęcia"
+      "title": "Zdjęcia",
+      "menuTitle": "Zdjęcia"
     }
   ],
   "featuredimage": "../media/martinamyhome.jpeg"

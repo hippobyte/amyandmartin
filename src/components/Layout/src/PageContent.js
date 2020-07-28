@@ -26,7 +26,7 @@ const PageContent = ({ pageNav, image, children }) => {
 
 const Main = ({ pageNav, children }) => (
   <Box>
-    { pageNav && <PageNav /> }
+    { pageNav && <PageNav items={pageNav} /> }
     <Box flex="grow" align="center" justify="center" pad="medium">
       {children}
     </Box>

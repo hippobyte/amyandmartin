@@ -1,0 +1,1 @@
+export { slugger } from './src/slugger'

@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'development') {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const defaultPageComponent  = path.resolve(`./src/templates/DefaultPageTemplate.js`)
+  const pageComponent  = path.resolve(`./src/templates/PageTemplate.js`)
 
   const slugger = (options, join="/") => {
     return options.map(option => slugify(option)).join(join)
@@ -19,13 +19,16 @@ exports.createPages = async ({ graphql, actions }) => {
   // 
   const defaultRequest = await graphql(`
     {
-      allPagesJson(filter: {templateKey: {in: ["activities", "travel", "story"]}}) {
+      allPagesJson(
+        sort: {fields: order, order: ASC}
+      ) {
         edges {
           node {
             templateKey
             translations {
               languageTitle
               title
+              menuTitle
             }
             featuredimage {
               childImageSharp {
@@ -43,6 +46,23 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allSettingsJson(
+        filter: {templateKey: {eq: "language-settings"}}, 
+        sort: {fields: order, order: ASC}) {
+        edges {
+          node {
+            title
+            description
+            locale
+            default
+            order
+            translations {
+              languageTitle
+              translation
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -51,14 +71,22 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const defaultPages = defaultRequest.data.allPagesJson.edges.map(item => item.node)
-  defaultPages.forEach(item => {
-    const slug = slugger([item.templateKey])
-    createPage({
-      path: slug,
-      component: defaultPageComponent,
-      context: {
-        ...item
-      }
+  const languages = defaultRequest.data.allSettingsJson.edges.map(item => item.node)
+
+  languages.forEach(language => {
+    defaultPages.forEach(page => {
+      const pageKey = page.templateKey === "index" ? "" : page.templateKey
+      const slug = slugger([language.locale, pageKey])
+      createPage({
+        path: slug,
+        component: pageComponent,
+        context: {
+          slug: slug,
+          pages: defaultPages,
+          page: page,
+          language: language
+        }
+      })
     })
   })
 }

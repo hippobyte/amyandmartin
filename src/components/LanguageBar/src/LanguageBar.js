@@ -3,8 +3,10 @@ import { useLocalStorage } from 'react-use'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Text } from 'grommet'
 import { useOptions } from '../../../state/hooks'
+import { Anchor } from '../../../components'
+import { slugger } from '../../../utils'
 
-const LanguageBar = (props) => {
+const LanguageBar = ({ ...rest }) => {
   const { options, setLanguage } = useOptions()
   const [value, setValue] = useLocalStorage('language')
 
@@ -49,26 +51,32 @@ const LanguageBar = (props) => {
   }
 
   const translate = () => {
-    const item = request.allSettingsJson.edges.map(item => item.node).find(item => item.title === options.language.title)
-    return item && item.translations.map(item => ({ title: item.languageTitle, description: item.translation }))
+    const languages = request.allSettingsJson.edges.map(item => item.node)
+    const current = languages.find(item => item.title === options.language.title)
+    return current && current.translations.map(item => ({ title: item.languageTitle, description: item.translation, locale: languages.find(lang => lang.title === item.languageTitle).locale }))
   }
 
   const data = options.language.title ? translate() : request.allSettingsJson.edges.map(item => item.node)
 
-  const Option = ({ title, description }) => {
+  const Option = ({ title, description, locale }) => {
     return (
-      <Box 
-        onClick={() => setLanguageOption(title)}
-        border={{ size: "xsmall", color: "light-3" }}
-        margin={{ top: "medium" }}
-        pad={{ vertical: "xsmall", horizontal: "small" }}
+      <Anchor
+        color="dark-1"
+        path={`${slugger(['/', locale])}`}
       >
-        <Text
-          weight={500}
+        <Box 
+          onClick={() => setLanguageOption(title)}
+          border={{ size: "xsmall", color: "light-3" }}
+          margin={{ top: "medium" }}
+          pad={{ vertical: "xsmall", horizontal: "small" }}
         >
-          {options.language.title ? description : title}
-        </Text>
-      </Box>
+          <Text
+            weight={500}
+          >
+            {options.language.title ? description : title}
+          </Text>
+        </Box>
+      </Anchor>
     )
   }
 
@@ -80,12 +88,11 @@ const LanguageBar = (props) => {
           direction="row" 
           justify="center" 
           gap="medium" 
-          {...props}
+          margin={{ vertical: "medium" }}
+          {...rest}
         >
           {
-            data.map(item => (
-              <Option {...item} />
-            ))
+            data.map(item => <Option {...item} />)
           }
         </Box>
       )

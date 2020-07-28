@@ -5,15 +5,18 @@
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Travel"
+      "title": "Travel and Accommodations",
+      "menuTitle": "Travel"
     },
     {
       "languageTitle": "Chinese",
-      "title": "Travel"
+      "title": "Travel and Accommodations",
+      "menuTitle": "Travel"
     },
     {
       "languageTitle": "Polish",
-      "title": "Podróż"
+      "title": "Podróż i Nocleg",
+      "menuTitle": "Podróż"
     }
   ],
   "featuredimage": "../media/lake-tahoe-ca.jpg"

@@ -1,19 +1,22 @@
 {
-  "templateKey": "home",
+  "templateKey": "index",
   "path": "/",
   "order": 0,
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Home"
+      "title": "Home",
+      "menuTitle": "Home"
     },
     {
       "languageTitle": "Chinese",
-      "title": "Home"
+      "title": "Home",
+      "menuTitle": "Home"
     },
     {
       "languageTitle": "Polish",
-      "title": "Strona główna"
+      "title": "Strona główna",
+      "menuTitle": "Strona główna"
     }
   ],
   "featuredimage": "../media/martinamyhome.jpeg"

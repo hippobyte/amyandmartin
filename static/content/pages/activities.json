@@ -5,15 +5,18 @@
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Things to Do"
+      "title": "Things to Do",
+      "menuTitle": "Things to Do"
     },
     {
       "languageTitle": "Chinese",
-      "title": "Things to Do"
+      "title": "Things to Do",
+      "menuTitle": "Things to Do"
     },
     {
       "languageTitle": "Polish",
-      "title": "Zwiedzanie"
+      "title": "Zwiedzanie",
+      "menuTitle": "Zwiedzanie"
     }
   ],
   "featuredimage": "../media/martinamyhome.jpeg"

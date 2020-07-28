@@ -1,11 +1,12 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { PageLayout, PageContent, PageHeader, LanguageBar } from '../components'
+import { slugger } from '../utils'
 
 const Home = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
-      page: pagesJson(templateKey: {eq: "home"}) {
+      page: pagesJson(templateKey: {eq: "index"}) {
         translations {
           languageTitle
           title
@@ -18,8 +19,41 @@ const Home = ({ location }) => {
           }
         }
       }
+      allPagesJson(
+        sort: {fields: order, order: ASC}
+      ) {
+        edges {
+          node {
+            templateKey
+            translations {
+              languageTitle
+              title
+              menuTitle
+            }
+            featuredimage {
+              childImageSharp {
+                fluid {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  srcWebp
+                  srcSetWebp
+                  originalName
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `)
+
+  const pages = data.allPagesJson.edges.map(item => item.node)
+  const pageNav = pages.map(item => ({ 
+    path: slugger(["/", 'en', item.templateKey]), 
+    label: item.translations.find(item => item.languageTitle === 'English').menuTitle
+  }))
 
   return (
     <PageLayout
@@ -28,14 +62,14 @@ const Home = ({ location }) => {
       location={location}
     >
       <PageContent
-        pageNav={true}
+        pageNav={pageNav}
         image={{
           fluid: data.page.featuredimage.childImageSharp.fluid,
           imgStyle: { objectFit: 'cover', objectPosition: '40% 30%' }
         }}
       >
         <PageHeader />
-        <LanguageBar margin={{ vertical: "medium" }} />
+        <LanguageBar />
       </PageContent>
     </PageLayout>
   )

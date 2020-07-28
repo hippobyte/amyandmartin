@@ -1,42 +1,9 @@
 import React from 'react'
 import { Box, DropButton, ResponsiveContext } from 'grommet'
-import { useStaticQuery, graphql } from 'gatsby'
 import { Menu } from 'grommet-icons'
 import { Anchor } from '../..'
-import { useOptions } from '../../../state/hooks'
 
-const data = [
-  { label: "Home", path: "/" },
-  { label: "Our Story", path: "/story" },
-  { label: "Travel", path: "/travel" },
-  { label: "Things to Do", path: "/activities" },
-  { label: "Photos", path: "/photos" }
-]
-
-const PageNav = () => {
-  const { options } = useOptions()
-
-  const request = useStaticQuery(graphql`
-    query PageTitles {
-      data: allPagesJson(sort: {fields: order, order: ASC}) {
-        pages: edges {
-          page: node {
-            path
-            translations {
-              languageTitle
-              title
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const menuItems = request.data.pages
-                      .map(item => ({ path: item.page.path, translations: item.page.translations }) )
-                      .map(item => ({ path: item.path, translation: item.translations.find(item => item.languageTitle === options.language.title) }) )
-                      .map(item => ({ path: item.path, label: item.translation.title }) )
-
+const PageNav = ({ items }) => {
   return (
     <ResponsiveContext.Consumer>
       {
@@ -45,9 +12,9 @@ const PageNav = () => {
             <>
             {
               responsive === "small" || responsive === "medium" ? (
-                <MenuButton data={menuItems} />
+                <MenuButton data={items} />
               ) : (
-                <MenuBar data={menuItems} />
+                <MenuBar data={items} />
               )
             }
             </>

@@ -5,15 +5,18 @@
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Our Story"
+      "title": "Our Story",
+      "menuTitle": "Our Story"
     },
     {
       "languageTitle": "Chinese",
-      "title": "Our Story"
+      "title": "Our Story",
+      "menuTitle": "Our Story"
     },
     {
       "languageTitle": "Polish",
-      "title": "Nasza historia"
+      "title": "Nasza historia",
+      "menuTitle": "Nasza historia"
     }
   ],
   "featuredimage": "../media/amymartinfancy.jpeg"
