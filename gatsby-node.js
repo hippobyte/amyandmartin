@@ -30,6 +30,10 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               menuTitle
             }
+            descriptions {
+              languageTitle
+              description
+            }
             sections {
               order
               content {

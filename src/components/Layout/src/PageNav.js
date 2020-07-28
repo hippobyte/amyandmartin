@@ -1,6 +1,6 @@
-import React from 'react'
-import { Box, DropButton, ResponsiveContext } from 'grommet'
-import { Menu } from 'grommet-icons'
+import React, { useState } from 'react'
+import { Box, Button, ResponsiveContext, ThemeContext } from 'grommet'
+import { Menu, Close } from 'grommet-icons'
 import { Anchor } from '../..'
 
 const PageNav = ({ items }) => {
@@ -25,36 +25,32 @@ const PageNav = ({ items }) => {
   )
 }
 
-const MenuButton = ({ data }) => (
-  <Box align="start" margin="medium">
-    <DropButton
-      label="Menu"
-      focusIndicator={false}
-      plain
-      icon={<Menu />}
-      dropAlign={{ top: 'bottom', left: 'left' }}
-      dropContent={
-        <Box
-          pad="medium"
-          gap="xsmall"
-        >
-          {
-            data.map(item => (
-              <Anchor 
-                color="dark-2" 
-                label={item.label} 
-                path={item.path} 
-              />
-            ))
-          }
-        </Box>
+const MenuButton = ({ data }) => {
+  const [active, setActive] = useState(false)
+
+  return (
+    <Box align="start" margin="medium">
+      <Button
+        label="Menu"
+        focusIndicator={false}
+        plain
+        icon={<Menu />}
+        onClick={() => setActive(!active)}
+      />
+      {
+        active && <DropContent data={data} close={() => setActive(false)} />
       }
-    />
-  </Box>
-)
+    </Box>
+  )
+}
 
 const MenuBar = ({ data }) => (
-  <Box direction="row" margin="medium" gap="medium" border={{ side: "between", color: "light-5" }}>
+  <Box 
+    direction="row" 
+    margin="medium" 
+    gap="medium" 
+    border={{ side: "between", color: "light-5" }}
+  >
     {
       data.map(item => (
         <Anchor color="dark-2" label={item.label} path={item.path} />
@@ -62,5 +58,49 @@ const MenuBar = ({ data }) => (
     }
   </Box>
 )
+
+const DropContent = ({ data, close }) => {
+  return (
+    <Box
+      pad="large"
+      width="100vw"
+      height="100vh"
+      background="white"
+      style={{ position: 'absolute', top: '0', left: '0', zIndex: '1000' }}
+    > 
+      <Button
+        plain
+        icon={<Close />}
+        alignSelf="end"
+        onClick={close}
+      />
+      {
+        data.map(item => (
+          <Box pad={{ vertical: "large" }} border={{ side: "bottom" }}>
+            <Anchor 
+              color="dark-2" 
+              label={item.label} 
+              path={item.path} 
+            />
+          </Box>
+        ))
+      }
+      <ThemeContext.Extend value={{
+        button: {
+          extend: {
+            borderColor: '#15212f',
+            borderWidth: '1px'
+          }
+        }
+      }}>
+        <Button
+          label="Close Menu"
+          margin={{ top: "large" }}
+          onClick={close}
+        />
+      </ThemeContext.Extend>
+    </Box>
+  )
+}
  
 export default PageNav

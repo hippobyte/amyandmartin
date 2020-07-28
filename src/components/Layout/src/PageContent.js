@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from 'grommet'
 import { Image, PageNav, ResponsiveGrid } from '../..'
 
-const PageContent = ({ pageNav, image, children }) => {
+const PageContent = ({ pageNav, image, reverse, children }) => {
   return (
     <ResponsiveGrid
       columns={{
@@ -12,14 +12,25 @@ const PageContent = ({ pageNav, image, children }) => {
         xlarge: ['1/2', '1/2'],
       }}
       rows={{
-        small: ['50vh'],
+        small: ['auto'],
         medium: ['100vh'],
         large: ['100vh'],
         xlarge: ['100vh'],
       }}
     >
-      <Main pageNav={pageNav} children={children} />
-      <Aside image={image} />
+      {
+        reverse ? (
+          <>
+            <Aside image={image} />
+            <Main pageNav={pageNav} children={children} />
+          </>
+        ) : (
+          <>
+            <Main pageNav={pageNav} children={children} />
+            <Aside image={image} />
+          </>
+        )
+      }
     </ResponsiveGrid>
   )
 }
@@ -27,7 +38,7 @@ const PageContent = ({ pageNav, image, children }) => {
 const Main = ({ pageNav, children }) => (
   <Box>
     { pageNav && <PageNav items={pageNav} /> }
-    <Box flex="grow" align="center" justify="center" pad="medium">
+    <Box flex="grow" justify="center" pad="large">
       {children}
     </Box>
   </Box>

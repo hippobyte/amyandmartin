@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ResponsiveContext } from 'grommet'
 import { LanguageBar, Markdown, PageLayout, PageContent, PageHeading, PageHeader } from '../components'
 import { slugger } from '../utils'
  
@@ -39,26 +40,36 @@ const PageTemplate = ({ location, pageContext }) => {
           )
         }
       </PageContent>
+      <ResponsiveContext.Consumer>
       {
-        sections && sections.map(item => {
-          const current = item.content.find(item => item.languageTitle === language.title)
-          const heading = current && current.title
-          const content = current && current.description
-          return (
-            <PageContent
-              image={{
-                fluid: item.featuredimage.childImageSharp.fluid,
-                imgStyle: { objectFit: 'cover', objectPosition: '40% 30%' }
-              }}
-            >
-              <PageHeading title={heading} />
-              {
-                content && <Markdown>{content}</Markdown>
-              }
-            </PageContent>
-          )
-        })
+        size => (
+          <>
+          {
+            sections && sections.map((item, index) => {
+              const current = item.content.find(item => item.languageTitle === language.title)
+              const heading = current && current.title
+              const content = current && current.description
+              const reverse = index%2 === 0 ? true : false
+              return (
+                <PageContent
+                  reverse={size === "small" ? false : reverse}
+                  image={{
+                    fluid: item.featuredimage.childImageSharp.fluid,
+                    imgStyle: { objectFit: 'cover', objectPosition: '40% 30%' }
+                  }}
+                >
+                  <PageHeading title={heading} alignSelf="start" style={{ textTransform: 'uppercase' }} />
+                  {
+                    content && <Markdown>{content}</Markdown>
+                  }
+                </PageContent>
+              )
+            })
+          }
+          </>
+        )
       }
+      </ResponsiveContext.Consumer>
     </PageLayout>
   )
 }
