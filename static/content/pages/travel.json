@@ -52,7 +52,8 @@
   "descriptions": [
     {
       "languageDescription": "English",
-      "description": "Kick back, stay the weekend."
+      "description": "Kick back, stay the weekend.",
+      "languageTitle": "English"
     }
   ]
 }
