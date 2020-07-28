@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: roughcompass/amyandmartin
-  site_url: amyandmartin.netlify.app
+  site_domain: amyandmartin.netlify.app
   branch: master
   commit_messages:
     create: 'Create {{collection}} "{{slug}}”'

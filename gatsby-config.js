@@ -43,6 +43,19 @@ module.exports = {
         name: `options`
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Amy and Martin`,
+        short_name: `A&M`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#0059ff`,
+        display: `standalone`,
+        icon: `static/favicon.png`,
+        theme_color_in_head: false
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
