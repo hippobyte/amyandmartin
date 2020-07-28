@@ -2,7 +2,6 @@ import React from 'react'
 import { PageLayout, PageContent } from '../components'
  
 const DefaultPageTemplate = ({ location, pageContext }) => {
-  console.log(pageContext)
   return (
     <PageLayout
       location={location}
