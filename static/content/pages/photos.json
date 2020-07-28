@@ -19,5 +19,16 @@
       "menuTitle": "Zdjęcia"
     }
   ],
-  "featuredimage": "../media/martinamyhome.jpeg"
+  "featuredimage": "../media/martinamyhome.jpeg",
+  "gallery": [
+    {
+      "featuredimage": "../media/3e863f31-b8d9-4942-8030-c6555788321c.jpg"
+    },
+    {
+      "featuredimage": "../media/af4e2d03-93bd-423f-accf-a5174c949e50.jpg"
+    },
+    {
+      "featuredimage": "../media/e52ade47-2940-4c72-b689-daeaa387867d.jpg"
+    }
+  ]
 }
