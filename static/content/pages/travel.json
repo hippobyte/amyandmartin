@@ -49,5 +49,10 @@
       ]
     }
   ],
-  "descriptions": []
+  "descriptions": [
+    {
+      "languageDescription": "English",
+      "description": "Kick back, stay the weekend."
+    }
+  ]
 }
