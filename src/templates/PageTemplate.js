@@ -6,8 +6,8 @@ import { slugger } from '../utils'
 const PageTemplate = ({ location, pageContext }) => {
   const { pages, page, language } = pageContext
 
-  const pageHeading = page.translations.find(item => item.languageTitle === language.title).title
-  const pageContent = page.descriptions && page.descriptions.find(item => item.languageTitle === language.title).description
+  const pageHeading = page.translations && page.translations.find(item => item.languageTitle === language.title) && page.translations.find(item => item.languageTitle === language.title).title
+  const pageContent = page.descriptions && page.descriptions.find(item => item.languageTitle === language.title) && page.descriptions.find(item => item.languageTitle === language.title).description
   const pageNav = pages.map(item => ({ path: slugger(["/", language.locale, item.templateKey === "index" ? "" : item.templateKey]), label: item.translations.find(item => item.languageTitle === language.title).menuTitle }))
 
   const { templateKey, sections } = page
