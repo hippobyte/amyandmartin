@@ -28,9 +28,15 @@
         {
           "languageTitle": "English",
           "title": "See the Lake",
-          "description": "Lake's are awesome."
+          "description": "Lakes are awesome."
+        },
+        {
+          "languageTitle": "Chinese",
+          "title": "湖等",
+          "description": "湖泊很棒\n"
         }
       ]
     }
-  ]
+  ],
+  "descriptions": []
 }
