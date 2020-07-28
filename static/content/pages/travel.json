@@ -23,17 +23,28 @@
   "sections": [
     {
       "order": 0,
-      "featuredimage": "../media/383c749c-7791-4e26-b478-880434f21e64.jpg",
+      "featuredimage": "../media/tahoe-air.jpg",
       "content": [
         {
           "languageTitle": "English",
-          "title": "See the Lake",
-          "description": "Lakes are awesome."
+          "title": "By Air",
+          "description": "**[Reno-Tahoe International Airport - RNO](https://www.renoairport.com/)**\n\nService to reno is offered by major US airlines. Non-stop flights are available from New York, Los Angeles, Long Beach, San Francisco, San Jose, and Seattle.\n\n**[San Francisco International Airport - SFO](https://www.flysfo.com/)**\n\n**[Sacramento International Airport (SMF)](https://sacramento.aero/smf)**\n"
         },
         {
           "languageTitle": "Chinese",
           "title": "湖等",
           "description": "湖泊很棒\n"
+        }
+      ]
+    },
+    {
+      "order": 0,
+      "featuredimage": "../media/tahoe-car.jpg",
+      "content": [
+        {
+          "languageTitle": "English",
+          "title": "By Car",
+          "description": "**From San Francisco - 4-hour drive**\n\nApproximately a four-hour drive from San Francisco, it's mostly highway driving with the last hour through the mountains. Historically, the best time to avoid heavy traffic is leaving Friday before noon, or after the evening commuter rush.\n\n**From Sacramento - 2-hour drive**\n\nApproximately a four-hour drive from San Francisco, it's mostly highway driving with the last hour through the mountains. Historically, the best time to avoid heavy traffic is leaving Friday before noon, or after the evening commuter rush.\n\n**From San Jose - 4-hour drive** \n\nApproximately a four-hour drive from San Francisco, it's mostly highway driving with the last hour through the mountains. Historically, the best time to avoid heavy traffic is leaving Friday before noon, or after the evening commuter rush."
         }
       ]
     }
