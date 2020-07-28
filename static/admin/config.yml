@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: roughcompass/amyandmartin
-  site_domain: location.amyandmartin
+  site_url: https://www.amyandmartin.com
   branch: master
   commit_messages:
     create: 'Create {{collection}} "{{slug}}”'
