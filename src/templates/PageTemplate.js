@@ -19,10 +19,12 @@ const PageTemplate = ({ location, pageContext }) => {
     >
       <PageContent
         pageNav={pageNav}
-        image={{
-          fluid: page.featuredimage.childImageSharp.fluid,
-          imgStyle: { objectFit: 'cover', objectPosition: '40% 30%' }
-        }}
+        image={
+          page.featuredimage && {
+            fluid: page.featuredimage.childImageSharp.fluid,
+            imgStyle: { objectFit: 'cover', objectPosition: '40% 30%' }
+          }
+        }
       >
         {
           templateKey === "index" ? (

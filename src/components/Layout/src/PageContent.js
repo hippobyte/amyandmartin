@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 import { Box } from 'grommet'
 import { Image, PageNav, ResponsiveGrid } from '../..'
 
@@ -21,13 +21,13 @@ const PageContent = ({ pageNav, image, reverse, children }) => {
       {
         reverse ? (
           <>
-            <Aside image={image} />
+            { image && <Aside image={image} /> }
             <Main pageNav={pageNav} children={children} />
           </>
         ) : (
           <>
             <Main pageNav={pageNav} children={children} />
-            <Aside image={image} />
+            { image && <Aside image={image} /> }
           </>
         )
       }
