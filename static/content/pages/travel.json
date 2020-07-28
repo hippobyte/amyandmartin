@@ -19,5 +19,18 @@
       "menuTitle": "Podróż"
     }
   ],
-  "featuredimage": "../media/lake-tahoe-ca.jpg"
+  "featuredimage": "../media/lake-tahoe-ca.jpg",
+  "sections": [
+    {
+      "order": 0,
+      "featuredimage": "../media/383c749c-7791-4e26-b478-880434f21e64.jpg",
+      "content": [
+        {
+          "languageTitle": "English",
+          "title": "See the Lake",
+          "description": "Lake's are awesome."
+        }
+      ]
+    }
+  ]
 }
