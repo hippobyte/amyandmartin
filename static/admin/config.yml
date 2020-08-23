@@ -31,6 +31,15 @@ collections:
           ]},
           {label: Primary Image, name: featuredimage, widget: image},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
+          {label: "Page Sections", name: "sections", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+            {label: Primary Image, name: featuredimage, widget: image},
+            {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
+            {label: "Content", name: "content", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+              {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Description", name: "description", widget: "markdown"}
+            ]}
+          ]}
         ]
       },
       {
@@ -51,6 +60,15 @@ collections:
           ]},
           {label: Primary Image, name: featuredimage, widget: image},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 1},
+          {label: "Page Sections", name: "sections", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+            {label: Primary Image, name: featuredimage, widget: image},
+            {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
+            {label: "Content", name: "content", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+              {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Description", name: "description", widget: "markdown"}
+            ]}
+          ]}
         ]
       },
       {
@@ -100,6 +118,15 @@ collections:
           ]},
           {label: Primary Image, name: featuredimage, widget: image},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 3},
+          {label: "Page Sections", name: "sections", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+            {label: Primary Image, name: featuredimage, widget: image},
+            {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
+            {label: "Content", name: "content", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+              {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Description", name: "description", widget: "markdown"}
+            ]}
+          ]}
         ]
       },
       {
