@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, ResponsiveContext, ThemeContext } from 'grommet'
+import { Box, Button, ResponsiveContext, Text, ThemeContext } from 'grommet'
 import { Menu, Close } from 'grommet-icons'
 import { Anchor } from '../..'
 
@@ -29,7 +29,7 @@ const MenuButton = ({ data }) => {
   const [active, setActive] = useState(false)
 
   return (
-    <Box align="start" margin="medium">
+    <Box align="start" margin={{ horizontal: "large", vertical: "medium" }}>
       <Button
         label="Menu"
         focusIndicator={false}
@@ -47,13 +47,13 @@ const MenuButton = ({ data }) => {
 const MenuBar = ({ data }) => (
   <Box 
     direction="row" 
-    margin="medium" 
+    margin={{ horizontal: "large", vertical: "medium" }} 
     gap="medium" 
     border={{ side: "between", color: "light-5" }}
   >
     {
       data.map(item => (
-        <Anchor color="dark-2" label={item.label} path={item.path} />
+        <Anchor color="dark-2" label={<Text weight={600}>{item.label}</Text>} path={item.path} />
       ))
     }
   </Box>
