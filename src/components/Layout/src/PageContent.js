@@ -13,9 +13,9 @@ const PageContent = ({ pageNav, image, reverse, children }) => {
       }}
       rows={{
         small: ['auto'],
-        medium: ['100vh'],
-        large: ['100vh'],
-        xlarge: ['100vh'],
+        medium: ['auto'],
+        large: ['auto'],
+        xlarge: ['auto'],
       }}
     >
       <ResponsiveContext.Consumer>
@@ -47,7 +47,7 @@ const PageContent = ({ pageNav, image, reverse, children }) => {
 }
 
 const Main = ({ pageNav, size, image, children }) => (
-  <Box>
+  <Box height={{ min: '100vh' }}>
     { pageNav && <PageNav items={pageNav} /> }
     { size === "small" && <Aside image={image} /> }
     <Box flex="grow" justify="center" pad="large">
@@ -63,7 +63,8 @@ const Aside = ({ image }) => (
         <Image 
           style={{
             height: '100%',
-            minHeight: '375px'
+            minHeight: '375px',
+            maxHeight: '100vh'
           }}
           {...image}
         />

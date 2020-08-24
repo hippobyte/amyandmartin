@@ -4,6 +4,7 @@ import { Menu, Close } from 'grommet-icons'
 import { Anchor } from '../..'
 
 const PageNav = ({ items }) => {
+  console.log(items)
   return (
     <ResponsiveContext.Consumer>
       {
@@ -99,6 +100,14 @@ const DropContent = ({ data, close }) => {
           onClick={close}
         />
       </ThemeContext.Extend>
+    </Box>
+  )
+}
+
+const LanguageBar = () => {
+  return (
+    <Box>
+      EN
     </Box>
   )
 }
