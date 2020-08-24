@@ -140,13 +140,10 @@ collections:
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Title", name: "title", widget: "string"},
             {label: "Menu Title", name: "menuTitle", widget: "string"},
-          ]},
+          ]}
           {label: "Page Description", name: "descriptions", widget: "list", summary: '{{fields.description}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
             {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
             {label: "Description", name: "description", widget: "markdown"},
-          ]},
-          {label: "Photo Gallery", name: "gallery", widget: "list", summary: '{{fields.description}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
-            {label: Primary Image, name: featuredimage, widget: image}
           ]},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 4},
         ]

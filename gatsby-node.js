@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === 'development') {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const pageComponent  = path.resolve(`./src/templates/PageTemplate.js`)
+  const photosComponent  = path.resolve(`./src/templates/GalleryTemplate.js`)
 
   const slugger = (options, join="/") => {
     return options.map(option => slugify(option)).join(join)
@@ -88,6 +89,50 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      thumbs: allImageSharp {
+        edges {
+          node {
+            id
+            fluid(
+              cropFocus: ATTENTION, 
+              quality: 60,
+              maxWidth: 400,
+              maxHeight: 400
+            ) {
+              base64
+              tracedSVG
+              aspectRatio
+              srcWebp
+              srcSetWebp
+              originalName
+              src
+              aspectRatio
+            }
+          }
+        }
+      }
+      fluidImages: allImageSharp {
+        edges {
+          node {
+            id
+            fluid(
+              cropFocus: ATTENTION, 
+              quality: 80,
+              maxWidth: 1680,
+              maxHeight: 880
+            ) {
+              base64
+              tracedSVG
+              aspectRatio
+              srcWebp
+              srcSetWebp
+              originalName
+              src
+              aspectRatio
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -96,6 +141,8 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const defaultPages = defaultRequest.data.allPagesJson.edges.map(item => item.node)
+  const thumbs = defaultRequest.data.thumbs.edges.map(item => item.node)
+  const photos = defaultRequest.data.fluidImages.edges.map(item => item.node)
   const languages = defaultRequest.data.allSettingsJson.edges.map(item => item.node)
 
   languages.forEach(language => {
@@ -104,12 +151,14 @@ exports.createPages = async ({ graphql, actions }) => {
       const slug = slugger([language.locale, pageKey])
       createPage({
         path: slug,
-        component: pageComponent,
+        component: page.templateKey === "photos" ? photosComponent : pageComponent,
         context: {
           slug: slug,
           pages: defaultPages,
           page: page,
-          language: language
+          language: language,
+          photos: photos,
+          thumbs: thumbs
         }
       })
     })

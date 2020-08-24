@@ -21,7 +21,6 @@ const PageContent = ({ pageNav, image, reverse, children }) => {
       <ResponsiveContext.Consumer>
       {
         size => {
-          console.log(size)
           return (
             <>
             {

@@ -56,7 +56,13 @@ module.exports = {
         theme_color_in_head: false
       },
     },
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        stripMetadata: true,
+        defaultQuality: 90
+      }
+    },
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify-cms`,

@@ -1,5 +1,6 @@
 export { Anchor } from './Anchor'
 export { Image } from './Image'
 export { LanguageBar } from './LanguageBar'
-export { PageContent, PageHeader, PageHeading, PageLayout, PageNav, ResponsiveGrid } from './Layout'
+export { GalleryContent, PageContent, PageHeader, PageHeading, PageLayout, PageNav, ResponsiveGrid } from './Layout'
 export { Markdown } from './Markdown'
+export { PhotoGallery } from './PhotoGallery'

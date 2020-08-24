@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { ResponsiveContext } from 'grommet'
 import { LanguageBar, Markdown, PageLayout, PageContent, PageHeading, PageHeader } from '../components'
 import { slugger } from '../utils'
