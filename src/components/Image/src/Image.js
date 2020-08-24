@@ -1,12 +1,25 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
-const Image = ({ fluid, alt, style, ...rest }) => {
+const Image = ({ fluid, fixed, alt, style, ...rest }) => {
+
+  if (fluid) {
+    return (
+      <Img 
+        key={fluid.src}
+        alt={alt}
+        fluid={fluid}
+        style={style}
+        {...rest}
+      />
+    )
+  }
+
   return (
     <Img 
-      key={fluid.src}
+      key={fixed.src}
       alt={alt}
-      fluid={fluid}
+      fixed={fixed}
       style={style}
       {...rest}
     />

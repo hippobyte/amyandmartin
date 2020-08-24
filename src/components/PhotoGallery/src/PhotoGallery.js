@@ -8,9 +8,9 @@ const PhotoGallery = ({ photos, thumbs, size }) => {
       <ResponsiveGrid
         columns={{
           small: ["2/2"],
-          medium: ["1/3", "1/3", "1/3"],
-          large: ["1/4", "1/4", "1/4", "1/4"],
-          xlarge: ["1/4"],
+          medium: ["1/2", "1/2"],
+          large: ["1/3", "1/3", "1/3"],
+          xlarge: ["1/4", "1/4", "1/4", "1/4"]
         }}
         rows={{
           small: ['auto'],
@@ -35,21 +35,29 @@ const PhotoGallery = ({ photos, thumbs, size }) => {
 const Thumb = ({ thumb, photo, size }) => {
   const [show, setShow] = useState(false)
   const options = size !== "small" ? { onClick: () => setShow(true) } : {}
-  const { aspectRatio } = thumb.fluid
-  const orientation = aspectRatio ? aspectRatio > 1 ? "horizontal" : "vertical" : undefined
-
+  
   return (
-    <Box overflow="hidden" margin="xsmall" {...options}>
+    <Box 
+      overflow="hidden" 
+      round="xsmall" 
+      border={{ color: "light-5", size: "xsmall" }} 
+      margin="xsmall" 
+      justify="center"
+      align="center"
+      height="400px"
+      height="400px"
+      {...options}
+    >
       <Image 
+        objectFit="cover"
+        style={{ width: "100%", minWidth: "400px", minHeight: "400px" }}
         {...thumb} 
-        imgStyle={{ objectFit: 'cover', objectPosition: orientation === "horizontal" ? '40% 30%' : '0% 70%' }}
       />
       {
         show && (
           <FullSizePhoto 
             photo={photo}
             setShow={setShow}
-            orientation={orientation}
           />
         )
       }
@@ -57,23 +65,30 @@ const Thumb = ({ thumb, photo, size }) => {
   )
 }
 
-const FullSizePhoto = ({ photo, setShow, orientation }) => (
-  <Layer
-    onEsc={() => setShow(false)}
-    onClickOutside={() => setShow(false)}
-    full={orientation === "horizontal"}
-    margin="medium"
-  >
-    <Box pad="small" width={orientation === "vertical" && "50vw"}>
-      <Image 
-        {...photo} 
-        imgStyle={{ 
-          objectFit: 'cover', 
-          objectPosition: orientation === "horizontal" ? '40% 30%' : '0% 70%'
-        }}
-      />
-    </Box>
-  </Layer>
-)
+const FullSizePhoto = ({ photo, setShow }) => {
+  const { presentationWidth, presentationHeight } = photo.fluid
+  const orientation = presentationWidth > presentationHeight ? "horizontal" : "vertical"
+
+  return (
+    <Layer
+      onEsc={() => setShow(false)}
+      onClickOutside={() => setShow(false)}
+      full={false}
+      margin="medium"
+    >
+      <Box 
+        pad="small" 
+        height="100vh" 
+        width={orientation === "vertical" ? "50vw" : { min: "75vw" }}
+      >
+        <Image 
+          {...photo} 
+          objectFit="cover"
+          objectPosition={orientation === "horizontal" ? "50% 50%" : "50% 50%"}
+        />
+      </Box>
+    </Layer>
+  )
+}
 
 export default PhotoGallery

@@ -93,20 +93,18 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
-            fluid(
+            fixed(
               cropFocus: ATTENTION, 
-              quality: 60,
-              maxWidth: 400,
-              maxHeight: 400
+              quality: 40,
+              width: 375,
+              height: 375
             ) {
               base64
               tracedSVG
-              aspectRatio
               srcWebp
               srcSetWebp
               originalName
               src
-              aspectRatio
             }
           }
         }
@@ -117,9 +115,7 @@ exports.createPages = async ({ graphql, actions }) => {
             id
             fluid(
               cropFocus: ATTENTION, 
-              quality: 80,
-              maxWidth: 1680,
-              maxHeight: 880
+              quality: 70
             ) {
               base64
               tracedSVG
@@ -128,7 +124,8 @@ exports.createPages = async ({ graphql, actions }) => {
               srcSetWebp
               originalName
               src
-              aspectRatio
+              presentationWidth
+              presentationHeight
             }
           }
         }
