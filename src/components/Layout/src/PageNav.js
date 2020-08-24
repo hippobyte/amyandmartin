@@ -4,7 +4,6 @@ import { Menu, Close } from 'grommet-icons'
 import { Anchor } from '../..'
 
 const PageNav = ({ items }) => {
-  console.log(items)
   return (
     <ResponsiveContext.Consumer>
       {
@@ -77,10 +76,10 @@ const DropContent = ({ data, close }) => {
       />
       {
         data.map(item => (
-          <Box pad={{ vertical: "large" }} border={{ side: "bottom" }}>
+          <Box border={{ side: "bottom" }}>
             <Anchor 
               color="dark-2" 
-              label={item.label} 
+              label={<Box pad={{ vertical: "large" }}>{item.label}</Box>} 
               path={item.path} 
             />
           </Box>
