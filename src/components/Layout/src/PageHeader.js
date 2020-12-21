@@ -50,10 +50,10 @@ const PageHeader = ({ languageBar, ...rest }) => {
         }}>
         <Box direction="row" justify="center" wrap>
           <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
-            <Heading level={2} margin="none" color="dark-2">{moment(ceremonyDate).locale(options.language.locale).format('LL')}</Heading>
+            <Heading level={2} margin="none" color="dark-7">{moment(ceremonyDate).locale(options.language.locale).format('LL')}</Heading>
           </Box>
           <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
-            <Heading level={2} margin="none" color="dark-2">{location}</Heading>
+            <Heading level={2} margin="none" color="dark-7">{location}</Heading>
           </Box>
         </Box>
         {

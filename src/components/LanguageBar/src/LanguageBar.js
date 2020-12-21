@@ -6,7 +6,7 @@ import { useOptions } from '../../../state/hooks'
 import { Anchor } from '../../../components'
 import { slugger } from '../../../utils'
 
-const LanguageBar = ({ ...rest }) => {
+const LanguageBar = ({ size, ...rest }) => {
   const { options, setLanguage } = useOptions()
   const [value, setValue] = useLocalStorage('language')
 
@@ -61,17 +61,19 @@ const LanguageBar = ({ ...rest }) => {
   const Option = ({ title, description, locale }) => {
     return (
       <Anchor
-        color="dark-1"
+        color="dark-6"
         path={`${slugger(['/', locale])}`}
       >
         <Box 
+          className={value === title ? 'active language' : 'language'}
           onClick={() => setLanguageOption(title)}
-          border={{ size: "xsmall", color: "light-3" }}
+          round="xsmall"
           margin={{ top: "medium" }}
           pad={{ vertical: "xsmall", horizontal: "small" }}
         >
           <Text
             weight={500}
+            size={size}
           >
             {options.language.title ? description : title}
           </Text>
@@ -81,24 +83,34 @@ const LanguageBar = ({ ...rest }) => {
   }
 
   return (
-    <>
+    <Box margin={{ vertical: "medium" }}>
+    {
+      size === "small" && <Text weight={600} size={size}>Update language preferences.</Text>
+    }
     {
       data.length > 0 && (
         <Box 
           direction="row" 
-          justify="center" 
-          gap="medium" 
-          margin={{ vertical: "medium" }}
+          justify={size === "small" ? undefined : "center"} 
+          gap={size} 
           {...rest}
         >
           {
-            data.map(item => <Option {...item} />)
+            data.map(item => (
+              <Option 
+                {...item}
+              />
+            ))
           }
         </Box>
       )
     }
-    </>
+    </Box>
   )
+}
+
+LanguageBar.defaultProps = {
+  size: "medium"
 }
 
 export default LanguageBar

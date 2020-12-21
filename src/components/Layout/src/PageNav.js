@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Box, Button, ResponsiveContext, Text, ThemeContext } from 'grommet'
-import { Menu, Close } from 'grommet-icons'
-import { Anchor } from '../..'
+import { Box, Button, ResponsiveContext, Text } from 'grommet'
+import { Menu, Close, Previous } from 'grommet-icons'
+import { Anchor, LanguageBar } from '../..'
 
 const PageNav = ({ items }) => {
   return (
@@ -53,7 +53,7 @@ const MenuBar = ({ data }) => (
   >
     {
       data.map(item => (
-        <Anchor color="dark-2" label={<Text weight={600}>{item.label}</Text>} path={item.path} />
+        <Anchor color="dark-8" label={<Text weight={600}>{item.label}</Text>} path={item.path} />
       ))
     }
   </Box>
@@ -78,35 +78,23 @@ const DropContent = ({ data, close }) => {
         data.map(item => (
           <Box border={{ side: "bottom" }}>
             <Anchor 
-              color="dark-2" 
+              color="dark-8" 
               label={<Box pad={{ vertical: "large" }}>{item.label}</Box>} 
               path={item.path} 
             />
           </Box>
         ))
       }
-      <ThemeContext.Extend value={{
-        button: {
-          extend: {
-            borderColor: '#15212f',
-            borderWidth: '1px'
-          }
-        }
-      }}>
+      <Box margin={{ top: "medium" }} align="start">
+        <LanguageBar size="small" />
         <Button
-          label="Close Menu"
-          margin={{ top: "large" }}
+          plain
+          label="Back to site"
           onClick={close}
+          margin={{ top: "medium" }} 
+          icon={<Previous size="16px" />}
         />
-      </ThemeContext.Extend>
-    </Box>
-  )
-}
-
-const LanguageBar = () => {
-  return (
-    <Box>
-      EN
+      </Box>
     </Box>
   )
 }

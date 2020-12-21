@@ -1,6 +1,6 @@
 import React from 'react'
 import { ResponsiveContext } from 'grommet'
-import { LanguageBar, Markdown, PageLayout, PageContent, PageHeading, PageHeader } from '../components'
+import { LanguageBar, Markdown, PageLayout, PageContent, PageHeading, PageHeader, Rsvp } from '../components'
 import { slugger } from '../utils'
  
 const PageTemplate = ({ location, pageContext }) => {
@@ -31,6 +31,7 @@ const PageTemplate = ({ location, pageContext }) => {
             <>
             <PageHeader />
             <LanguageBar />
+            <Rsvp />
             </>
           ) : (
             <>

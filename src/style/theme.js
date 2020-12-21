@@ -1,6 +1,4 @@
-const colors = {
-  brand: '#1273ea'
-}
+import { colors } from './colors'
 
 export const theme = {
   anchor: {
@@ -11,15 +9,32 @@ export const theme = {
     },
     extend: {
       boxShadow: 'none',
-      transition: 'color 0.3s',
+      transition: 'color 0.15s',
+      '& .language.active': {
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: colors["brand"],
+        background: colors["light-0"]
+      },
       '&:hover': {
-        color: colors.brand
-      }
+        color: colors.brand,
+        '& .language': {
+          borderWidth: '1px',
+          borderStyle: 'solid',
+          borderColor: colors["brand"],
+          background: colors["light-0"]
+        }
+      },
+      '& .language': {
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: colors["dark-1"]
+      },
     }
   },
   box: {
     extend: {
-      transition: 'all 0.3s',
+      transition: 'all 0.15s',
       '&.active.brand': {
         color: 'white',
         background: colors.brand
@@ -35,9 +50,7 @@ export const theme = {
     font: {
       family: "'Montserrat', sans-serif;",
     },
-    colors: {
-      brand: colors.brand
-    }
+    colors: colors
   },
   heading: {
     level: {
