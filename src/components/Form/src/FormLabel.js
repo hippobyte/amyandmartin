@@ -9,7 +9,7 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
         {children}
       </Box>
     )
-  } 
+  }
 
   if (inputType === "Submit") {
     return (
@@ -17,7 +17,7 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
         {children}
       </Box>
     )
-  } 
+  }
 
   if (inputType == "Header") {
     return (

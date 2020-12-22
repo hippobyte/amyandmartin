@@ -22,7 +22,7 @@ const Rsvp = () => {
           }}>
             <Button 
               label="RSVP"
-              color="danger-12"
+              color="brand-12"
               size="large"
               primary
               onClick={() => setActive(true)}

@@ -1,30 +1,80 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Box } from 'grommet'
+import { Box } from 'grommet' 
 
-const Form = ({ onSubmit, children, validationSchema }) => {
+const Form = ({ defaultValues, validationSchema, onSubmit, error, width, loading, disabled, style, match, children, formDefaults }) => {
   const methods = useForm({ 
-    // resolver: yupResolver(validationSchema),
+    defaultValues: defaultValues, 
+    resolver: yupResolver(validationSchema),
     mode: 'all',
     reValidateMode: 'onChange'
   })
+  const { handleSubmit } = methods
 
-  const handleSubmit = methods.handleSubmit
+  const handleFormSubmit = (data) => {
+    onSubmit(data)
+  }
 
-  const onFormSubmit = (formData) => {
-    onSubmit && onSubmit(formData)
+  const highlightOnError = (props) => { 
+    if (props.name !== "submit") { // skip submit input/button
+      return methods.errors[props.name] ? "danger" : null
+    }
+    return props.intent || "primary"
+  }
+
+  const showErrorMessage = (props) => {
+    if (props.name !== "submit") { // skip submit input/button
+      return methods.errors[props.name] ? methods.errors[props.name].message : null
+    }
+  }
+
+  const isInputDisabled = (props) => {
+    const isDisabled = loading || disabled || props.disabled
+    return props.name !== "submit" ? isDisabled : false
   }
 
   return (
-    <Box>
-      <form onSubmit={handleSubmit(onFormSubmit)}>
+    <Box width={width}>
+      <FormContainer onSubmit={handleSubmit(handleFormSubmit)} style={style}>
         <Box direction="row" justify="between" wrap>
-          {children}
+          {
+            Array.isArray(children)
+            ? children.map(child => {
+              return child.props.name
+                ? React.createElement(child.type, {
+                  ...{
+                    ...child.props,
+                    methods: methods,
+                    formDefaults: formDefaults,
+                    loading: loading,
+                    intent: highlightOnError(child.props),
+                    helperText: showErrorMessage(child.props),
+                    disabled: isInputDisabled(child.props),
+                    inputRef: methods.register,
+                    key: child.props.name,
+                    match: match
+                  }
+                })
+                : child
+            })
+            : children
+          }
         </Box>
-      </form>
+      </FormContainer>
     </Box>
   )
 }
+
+Form.defaultProps = {
+  width: undefined,
+  visibility: true,
+  formDefaults: {}
+}
+
+const FormContainer = styled.form`
+  margin-bottom: 1em
+`
 
 export default Form

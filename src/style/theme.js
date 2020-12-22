@@ -44,13 +44,17 @@ export const theme = {
   button: {
     border: {
       radius: '6px'
-    }
+    },
   },
   global: {
     font: {
       family: "'Montserrat', sans-serif;",
     },
-    colors: colors
+    colors: colors,
+    focus: {
+      outline: 'none !important',
+      boxShadow: 'none !important'
+    }
   },
   heading: {
     level: {

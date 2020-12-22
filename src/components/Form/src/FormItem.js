@@ -1,6 +1,5 @@
 import React from 'react'
-import { TextInput } from 'grommet'
-import { withFormGroup, Submit } from '../index'
+import { withFormGroup, ButtonGroup, Submit, TextInput } from '../index'
 
 const FormItem = ({ inputType, ...formInputProps }) => {
   return inputType && componentRegistry(inputType, formInputProps)
@@ -14,6 +13,8 @@ const WithFormItem = withFormGroup(FormItem)
 
 const componentRegistry = (inputType, formInputProps) => {
   switch(inputType) {
+    case "ButtonGroup":
+      return <ButtonGroup {...formInputProps} />
     case "TextInput":
       return <TextInput {...formInputProps} />
     case "Submit":

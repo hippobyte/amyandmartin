@@ -11,10 +11,11 @@ const Submit = ({ label }) => {
       }
     }}>
       <Button
-        margin={{ top: "medium" }}
+        margin={{ top: "small" }}
         type="submit"
         label={<Text weight={600}>{label}</Text>}
         size="large"
+        color="brand-12"
         primary
       />
     </ThemeContext.Extend>

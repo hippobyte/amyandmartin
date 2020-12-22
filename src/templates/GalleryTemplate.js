@@ -10,8 +10,6 @@ const GalleryTemplate = ({ location, pageContext }) => {
   const pageContent = page.descriptions && page.descriptions.find(item => item.languageTitle === language.title) && page.descriptions.find(item => item.languageTitle === language.title).description
   const pageNav = pages.map(item => ({ path: slugger(["/", language.locale, item.templateKey === "index" ? "" : item.templateKey]), label: item.translations.find(item => item.languageTitle === language.title).menuTitle }))
 
-  console.log(pageContent)
-
   return (
     <PageLayout
       location={location}

@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
+import { useOptions } from '../state/hooks'
 import { PageLayout, PageContent, PageHeader, LanguageBar } from '../components'
 import { slugger } from '../utils'
 
 const Home = ({ location }) => {
+  const [redirectPath, setRedirectPath] = useState()
+  const { options } = useOptions()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (location.pathname !== `/${options.language.locale}`) {
+      navigate(options.language.locale)
+    }
+  }, [options])
+
   const data = useStaticQuery(graphql`
     query {
       page: pagesJson(templateKey: {eq: "index"}) {
