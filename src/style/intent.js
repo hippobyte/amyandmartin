@@ -1,4 +1,4 @@
-import { colors } from '../index'
+import { colors } from './index'
 
 const intentCompliment = {
   compliment: {

@@ -28,7 +28,7 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
         </Box>
         {
           description && (
-            <Text margin={{ top: "xsmall" }} weight="500" size="large" color="dark-10">
+            <Text margin={{ top: "xsmall" }} weight={400} size="small" color="dark-10">
               {description}
             </Text> 
           )
@@ -42,7 +42,7 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
       <Box margin={{ bottom: "small" }} as="label" for={name}>
         <Box direction="row" justify="between">
           <Box flex>
-            <Text weight="600" size={size} color="dark-10">
+            <Text weight={500} size={size} color="dark-10">
               {label} { required && <Text color="danger-13">&#42;</Text> }
             </Text>
           </Box>

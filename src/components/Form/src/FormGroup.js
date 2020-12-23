@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Box, Text } from 'grommet'
 import { ErrorMessage, FormLabel, FormLabelAction } from '../index'
-import { Console } from 'grommet-icons'
 
 const FormGroup = ({ preview, loading, actions, name, inputType, required, disabled, helpText, label, description, size, options, flex, margin, methods, children, type, ...rest}) => {
   const [hovering, setHovering] = useState(false)

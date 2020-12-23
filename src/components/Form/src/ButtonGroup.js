@@ -68,7 +68,7 @@ const ButtonGroup = ({ name, defaultValue, buttons, methods, onChange, loading, 
                 onClick={() => !disabled && toggleComponentType(key)}
                 disabled={disabled}
               >
-                <Text weight={700}>{title || label}</Text>
+                <Text weight={600}>{title || label}</Text>
                 {
                   description && (
                     <Text size="small">

@@ -85,5 +85,10 @@ export const theme = {
         }
       }
     }
+  },
+  layer: {
+    overlay: {
+      background: "rgba(0, 0, 0, 0.8)"
+    }
   }
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button, Text, ThemeContext } from 'grommet'
+import { intent as themeIntent } from '../../../style'
 
-const Submit = ({ label }) => {
+const Submit = ({ label, intent }) => {
   return (
     <ThemeContext.Extend value={{
       button: {
@@ -11,12 +12,12 @@ const Submit = ({ label }) => {
       }
     }}>
       <Button
-        margin={{ top: "small" }}
+        margin={{ top: "xsmall" }}
         type="submit"
         label={<Text weight={600}>{label}</Text>}
         size="large"
-        color="brand-12"
         primary
+        color={intent ? themeIntent[intent].background : "primary"}
       />
     </ThemeContext.Extend>
   )

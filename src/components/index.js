@@ -6,3 +6,4 @@ export { GalleryContent, PageContent, PageHeader, PageHeading, PageLayout, PageN
 export { Markdown } from './Markdown'
 export { PhotoGallery } from './PhotoGallery'
 export { Rsvp } from './Rsvp'
+export { Spinner } from './Spinner'
