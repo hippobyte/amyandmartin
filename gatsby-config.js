@@ -23,14 +23,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'API',
-        fieldName: 'api',
-        url: 'http://localhost:3000/graphql',
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/static/content/pages`,

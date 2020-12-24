@@ -7,7 +7,7 @@ import reducers from './src/state/reducers'
 
 const apolloCliebnt = new ApolloClient({
   link: new HttpLink({
-    uri: 'http://localhost:3000/graphql',
+    uri: process.env.REACT_APP_API_URL || 'http://localhost:3000/graphql',
     fetch,
   }),
   cache: new InMemoryCache()
