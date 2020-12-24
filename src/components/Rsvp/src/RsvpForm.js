@@ -13,13 +13,11 @@ const RsvpForm = ({ onClose }) => {
   const language = options.language.title
 
   const onSubmit = (formData) => {
-    if (formData.lookupType === "findByLastName") {
-      setSearchTerm({ lastName: formData.lastName })
-    }
-
-    if (formData.lookupType === "findByEmail") {
-      setSearchTerm({ email: formData.email })
-    }
+    formData 
+      && formData.inviteCode 
+      && setSearchTerm({
+        inviteCode: formData.inviteCode
+      })
   }
 
   const onReset = () => {
@@ -97,86 +95,38 @@ const RsvpForm = ({ onClose }) => {
 
 const formItems = [
   {
-    inputType: "ButtonGroup",
-    name: "lookupType",
-    buttons: [
+    inputType: "TextInput",
+    name: 'inviteCode',
+    maxLength: 8,
+    label: {
+      English: "Enter your invitation code",
+      Chinese: "Enter your invitation code",
+      Polish: "Podaj kod",
+    },
+    helpText: {
+      English: "You can find the invitation code at bottom of your invitation card"
+    },
+    placeholder: {
+      English: "enter invitation code...",
+      Chinese: "enter invitation code...",
+      Polish: "enter invitation code...",
+    },
+    "validations": [
       {
-        key: "findByLastName",
-        inputType: "TextInput",
-        label: "Search by name",
-        formItem: {
-          inputType: "TextInput",
-          name: 'lastName',
-          maxLength: 30,
-          label: {
-            English: "Enter your last name",
-            Chinese: "Enter your last name",
-            Polish: "Podaj nazwisko",
-          },
-          helpText: {
-            English: "Your family name"
-          },
-          placeholder: {
-            English: "your name...",
-            Chinese: "your name...",
-            Polish: "your name...",
-          },
-          "validations": [
-            {
-              "type": "required",
-              "params": [
-                "name is required"
-              ]
-            },
-            {
-              "type": "max",
-              "params": [
-                30,
-                "name cannot be more than 30 characters"
-              ]
-            }
-          ],
-          "validationType": "string"
-        }
+        "type": "required",
+        "params": [
+          "invitation code is required"
+        ]
       },
       {
-        key: "findByEmail",
-        inputType: "TextInput",
-        label: "Search by email",
-        formItem: {
-          inputType: "TextInput",
-          name: 'email',
-          label: {
-            English: "Enter your email address",
-            Chinese: "Enter your email address",
-            Polish: "Enter your email address"
-          },
-          helpText: {
-            English: "We likely sent the 'Save-the-date' this email address"
-          },
-          placeholder: {
-            English: "your email address...",
-            Chinese: "your email address...",
-            Polish: "your email address..."
-          },
-          "validations": [
-            {
-              "type": "required",
-              "params": [
-                "email is required"
-              ]
-            },
-            {
-              "type": "email",
-              "params": [
-                "not a valid email address"
-              ]
-            }
-          ],
-          "validationType": "string"
-        }
+        "type": "max",
+        "params": [
+          8,
+          "invitation code cannot be more than 8 characters"
+        ]
       }
-    ]
+    ],
+    "validationType": "string"
   },
   {
     inputType: "Submit",

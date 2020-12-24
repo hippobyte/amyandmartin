@@ -5,8 +5,8 @@ import { Form, FormItem,  Spinner } from '../../../components'
 
 const RsvpResult = ({ searchTerm, onReset, language }) => {
   const { loading, data, error } = useQuery(gql`
-    query($lastName: String, $email: String) {
-      rsvp(lastName: $lastName, email: $email) {
+    query($inviteCode: String!) {
+      rsvp(inviteCode: $inviteCode) {
         id
         status
         guest {
@@ -38,18 +38,12 @@ const RsvpResult = ({ searchTerm, onReset, language }) => {
     )
   }
 
-  if (data && data.rsvp) {
-    const rsvp = data.rsvp
-
-    if (rsvp.length === 0) {
+  if (data) {
+    if (data.rsvp) {
+      return <SingleResult data={data.rsvp} language={language} />
+    } else {
       return <NoResults onReset={onReset} language={language} />
     }
-
-    if (rsvp.length === 1) {
-      return <SingleResult data={rsvp[0]} language={language} />
-    }
-
-    return null
   }
 }
 
