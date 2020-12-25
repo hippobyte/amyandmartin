@@ -7,7 +7,7 @@ import reducers from './src/state/reducers'
 
 const apolloClient = new ApolloClient({
   link: new HttpLink({
-    uri: process.env.REACT_APP_API_URL,
+    uri: 'https://amyandmartin-api.herokuapp.com/graphql',
     fetch,
   }),
   cache: new InMemoryCache()
