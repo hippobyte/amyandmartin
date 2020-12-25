@@ -57,7 +57,7 @@ const RsvpForm = ({ onClose }) => {
           ) : (
             <Box 
               border={{ size: "xsmall", side: "top", color: "light-5" }} 
-              pad={{ top: "small", horizontal: "medium" }}
+              pad={{ top: "large", horizontal: "medium" }}
             >
               <Form 
                 onSubmit={onSubmit}
