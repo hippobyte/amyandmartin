@@ -45,15 +45,17 @@ const PageContent = ({ pageNav, image, reverse, children }) => {
   )
 }
 
-const Main = ({ pageNav, size, image, children }) => (
-  <Box height={{ min: '100vh' }}>
-    { pageNav && <PageNav items={pageNav} /> }
-    { size === "small" && <Aside image={image} /> }
-    <Box flex="grow" justify="center" pad="large">
-      {children}
+const Main = ({ pageNav, size, image, children }) => {
+  return (
+    <Box height={{ min: '100vh' }}>
+      { pageNav && <PageNav items={pageNav} /> }
+      { size === "small" && <Aside image={image} /> }
+      <Box flex="grow" justify="center" pad="large">
+        {children}
+      </Box>
     </Box>
-  </Box>
-)
+  )
+}
 
 const Aside = ({ image }) => (
   <Box>

@@ -21,7 +21,7 @@ const Rsvp = () => {
             }
           }}>
             <Button 
-              label="RSVP"
+              label="Manage RSVP"
               color="brand-12"
               size="large"
               primary

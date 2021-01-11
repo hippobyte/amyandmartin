@@ -6,7 +6,6 @@ import { PageLayout, PageContent, PageHeader, LanguageBar } from '../components'
 import { slugger } from '../utils'
 
 const Home = ({ location }) => {
-  const [redirectPath, setRedirectPath] = useState()
   const { options } = useOptions()
   const navigate = useNavigate()
 
