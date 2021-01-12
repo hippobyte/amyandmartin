@@ -93,6 +93,13 @@ const FormGroup = ({ preview, loading, actions, name, inputType, required, disab
                 disabled: disabled
               })
             }
+            {
+              !error && description && (
+                <Box direction="row" align="baseline" margin={{ top: "medium" }}>
+                  {description}
+                </Box>
+              )
+            }
             <ErrorMessage 
               message={error}
               inputType={inputType}

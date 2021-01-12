@@ -2,45 +2,43 @@ import React, { useState } from 'react'
 import { Anchor, Box, Layer, Paragraph, Text } from 'grommet'
 import { Previous } from 'grommet-icons'
 import { useFormValidations, useOptions } from '../../../state/hooks'
-import { Form, FormItem } from '../../../components'
-import { LoginResult } from '../index'
+import { Form, FormItem } from '../..'
+import { CodeRequestResult } from '../index'
 
-const LoginForm = ({ onClose, onCodeRequest }) => {
+const CodeRequestForm = ({ onClose }) => {
   const [searchTerm, setSearchTerm] = useState()
   const { options } = useOptions()
   const { createValidations } = useFormValidations()
 
   const formItems = [
     {
-      inputType: "InviteCode",
-      name: 'inviteCode',
-      maxLength: 8,
+      inputType: "TextInput",
+      name: 'email',
+      maxLength: 255,
       label: {
-        English: "Enter your invitation code",
-        Chinese: "Enter your invitation code",
-        Polish: "Podaj kod",
+        English: "Enter your email address",
+        Chinese: "Enter your email address",
+        Polish: "Podaj email",
       },
       helpText: {
-        English: "You can find the invitation code at bottom of your invitation card"
+        English: "We'll attempt to find your invitation by your email address"
       },
       placeholder: {
-        English: "enter invitation code...",
-        Chinese: "enter invitation code...",
-        Polish: "enter invitation code...",
+        English: "enter email address...",
+        Chinese: "enter email address...",
+        Polish: "podaj email...",
       },
-      description: <Anchor weight={600} size="small" label="Don't have a invitation code?" onClick={() => onCodeRequest(true)} />,
       "validations": [
         {
           "type": "required",
           "params": [
-            "invitation code is required"
+            "email address is required"
           ]
         },
         {
-          "type": "max",
+          "type": "email",
           "params": [
-            8,
-            "invitation code cannot be more than 8 characters"
+            "provide a valid email address"
           ]
         }
       ],
@@ -48,11 +46,11 @@ const LoginForm = ({ onClose, onCodeRequest }) => {
     },
     {
       inputType: "Submit",
-      color: "brand-12",
+      color: "compliment-12",
       label: {
-        English: "Find your invite",
+        English: "Recover Invitation Code",
         Chinese: '繼續',
-        Polish: "Dalej"
+        Polish: "Wyślij Kod"
       }
     }
   ]
@@ -62,9 +60,9 @@ const LoginForm = ({ onClose, onCodeRequest }) => {
 
   const onSubmit = (formData) => {
     formData 
-      && formData.inviteCode 
+      && formData.email 
       && setSearchTerm({
-        inviteCode: formData.inviteCode
+        email: formData.email
       })
   }
 
@@ -81,22 +79,21 @@ const LoginForm = ({ onClose, onCodeRequest }) => {
     >
       <Box width="large">
         <Box 
-          background="brand-12"
+          background="compliment-12"
           pad={{ horizontal: "medium" }}
           border={{ size: "hairline", color: "dark-2", side: "bottom" }}
         >
           <Paragraph size="large" margin={{ bottom: "small" }}>
             <Text size="large" weight={600}>
-              Let's verify your identity... 
+              Recover Invitation Code
             </Text>
           </Paragraph>
         </Box>
         {
           searchTerm ? (
-            <LoginResult 
+            <CodeRequestResult 
               searchTerm={searchTerm}
               onReset={onReset}
-              onCodeRequest={onCodeRequest}
               language={language}
             />
           ) : (
@@ -138,4 +135,4 @@ const LoginForm = ({ onClose, onCodeRequest }) => {
   )
 }
 
-export default LoginForm
+export default CodeRequestForm

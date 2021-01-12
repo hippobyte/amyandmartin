@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-import { Box, Button, ThemeContext } from 'grommet'
+import { Box, Button, Text, ThemeContext } from 'grommet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useOptions } from '../../../state/hooks'
 import { PageContent, PageHeader, LanguageBar } from '../../../components'
-import { LoginForm } from '../index'
+import { LoginForm, CodeRequestForm } from '../index'
 
 const Login = ({ rest }) => {
   const { options } = useOptions()
   const [active, setActive] = useState()
+  const [codeRequest, setCodeRequest] = useState()
 
-
-  const onClose = () => {
+  const onCodeRequest = () => {
     setActive(undefined)
+    setCodeRequest(true)
   }
 
   const data = useStaticQuery(graphql`
@@ -62,11 +63,11 @@ const Login = ({ rest }) => {
   const buttonText = () => {
     switch(options && options.language && options.language.locale) {
       case "pl":
-        return "Zapraszamy na naszą stronę"
+        return <Text weight={600}>Zapraszamy na naszą stronę</Text>
       case "zh-cn":
-        return "Access Our Wedding Site"
+        return <Text weight={600}>Access Our Wedding Site"</Text>
       default:
-        return "Access Our Wedding Site"
+        return <Text weight={600}>Access Our Wedding Site</Text>
     }
   }
 
@@ -99,7 +100,19 @@ const Login = ({ rest }) => {
         </Box>
       </Box>
       {
-        active && <LoginForm onClose={onClose} />
+        active && !codeRequest && (
+          <LoginForm 
+            onClose={() => setActive(undefined)} 
+            onCodeRequest={onCodeRequest}
+          />
+        )
+      }
+      {
+        codeRequest && (
+          <CodeRequestForm 
+            onClose={() => setCodeRequest(undefined)} 
+          />
+        )
       }
     </PageContent>
   )

@@ -1,20 +1,16 @@
 import React, { useEffect } from 'react'
 import { Anchor, Box, Stack, Text } from 'grommet'
-import { navigate } from 'gatsby'
 import { gql, useQuery } from '@apollo/client'
 import { useAuth } from '../../../hooks'
 import { Spinner } from '../..'
 
-const LoginResult = ({ searchTerm, onReset, onCodeRequest, language }) => {
+const CodeRequestResult = ({ searchTerm, onReset, language }) => {
+
+  console.log(searchTerm)
   const { loading, data, error } = useQuery(gql`
-    query($inviteCode: String!) {
-      rsvp(inviteCode: $inviteCode) {
-        id
-        status
-        guest {
-          firstName
-          lastName
-        }
+    query($email: String!) {
+      resetByEmail(email: $email) {
+        email
       }
     }`, {
       variables: {
@@ -41,15 +37,15 @@ const LoginResult = ({ searchTerm, onReset, onCodeRequest, language }) => {
   }
 
   if (data) {
-    if (data.rsvp) {
-      return <OnResults data={data.rsvp} language={language} />
+    if (data.resetByEmail) {
+      return <OnResults data={data.resetByEmail} language={language} />
     } else {
-      return <NoResults onReset={onReset} onCodeRequest={onCodeRequest} language={language} />
+      return <NoResults onReset={onReset} language={language} />
     }
   }
 }
 
-const NoResults = ({ onReset, onCodeRequest, language }) => {
+const NoResults = ({ onReset, language }) => {
   const auth = useAuth()
 
   useEffect(() => {
@@ -68,12 +64,9 @@ const NoResults = ({ onReset, onCodeRequest, language }) => {
       <Box margin={{ top: "small", bottom: "medium" }} pad={{ horizontal: "medium" }}>
         <Text weight={600} margin={{ bottom: "medium" }}>Now what!?</Text>
         <NumberedList number={1}>
-          Make sure you entered your invitation code correctly, and <Anchor onClick={onReset}>try again</Anchor>.
+          Make sure you entered your email address correctly, and <Anchor onClick={onReset}>try again</Anchor>.
         </NumberedList>
         <NumberedList number={2}>
-          If you don't have an activation code, we can email it to you. <Anchor onClick={onCodeRequest}>Recover</Anchor> your invitation code.
-        </NumberedList>
-        <NumberedList number={3}>
           If you're getting frustrated and can't get <strong>this thing</strong> to work, 
           drop us a line and <Anchor label="Amy" href="mailto:amyche@gmail.com" /> or 
           <Anchor label="Martin" href="mailto:martinmarzejon@gmail.com" /> will help you out.
@@ -84,15 +77,30 @@ const NoResults = ({ onReset, onCodeRequest, language }) => {
 }
 
 const OnResults = ({ data, language }) => {
-  const auth = useAuth()
-
-  useEffect(() => {
-    auth.setUser(data.guest)
-    navigate('/')
-  }, [])
-
   return (
-    null
+    <Box>
+      <Box 
+        pad={{ horizontal: "medium", vertical: "small" }} 
+        margin={{ bottom: "small" }}
+        background="success-10"
+      >
+        <Text weight={500}>Success, your invitation code is on its way.</Text>
+      </Box>
+      <Box margin={{ top: "small", bottom: "medium" }} pad={{ horizontal: "medium" }}>
+        <Text weight={600} margin={{ bottom: "medium" }}>Now what!?</Text>
+        <NumberedList number={1}>
+          We've sent an invitation code to <strong>{data.email}</strong>, check your inbox for our reminder email.
+        </NumberedList>
+        <NumberedList number={2}>
+          Follow instructions found within the email.
+        </NumberedList>
+        <NumberedList number={3}>
+          If you're getting frustrated and can't get <strong>this thing</strong> to work, 
+          drop us a line and <Anchor label="Amy" href="mailto:amyche@gmail.com" /> or 
+          <Anchor label="Martin" href="mailto:martinmarzejon@gmail.com" /> will help you out.
+        </NumberedList>
+      </Box>
+    </Box>
   )
 }
 
@@ -109,4 +117,4 @@ const NumberedList = ({ number, label, children }) => {
   )
 }
 
-export default LoginResult
+export default CodeRequestResult
