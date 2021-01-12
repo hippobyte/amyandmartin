@@ -3,17 +3,14 @@
   "title": "Manage RSVP",
   "options": [
     {
-      "languageTitle": "en",
       "translation": "Manage RSVP",
       "locale": "en"
     },
     {
-      "languageTitle": "Polish",
       "translation": "Zarządzaj RSVP",
       "locale": "pl"
     },
     {
-      "languageTitle": "Chinese",
       "translation": "编辑 敬请回复",
       "locale": "zh-cn"
     }

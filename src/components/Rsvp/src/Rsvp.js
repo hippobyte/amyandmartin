@@ -1,13 +1,34 @@
 import React, { useState } from 'react'
-import { Link } from 'grommet'
+import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Button, Text, ThemeContext } from 'grommet'
 import { useOptions } from '../../../state/hooks'
+import { translator } from '../../../utils'
 import { Anchor } from '../../../components'
 import { RsvpForm } from '../index'
 
 const Rsvp = () => {
   const { options } = useOptions()
   const [active, setActive] = useState()
+  const data = useStaticQuery(graphql`
+    query {
+      options: settingsJson(
+        templateKey: {
+          eq: "translations"
+        }, 
+        title: {
+          eq: "Manage RSVP"
+        }
+      ) {
+        translations: options {
+          languageTitle
+          translation
+        }
+      }
+    }
+  `)
+
+  console.log(translator(data, "en"))
+
 
   const onClose = () => {
     setActive(undefined)

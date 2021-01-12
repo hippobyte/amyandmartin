@@ -1,15 +1,8 @@
-import React, { useState } from 'react'
-import { Box, Text } from 'grommet'
-import { useOptions } from '../../../state/hooks'
+import React from 'react'
+import { Box } from 'grommet'
 import { PageContent } from '../..'
 
 const RsvpDetail = () => {
-  const [active, setActive] = useState()
-
-  const onClose = () => {
-    setActive(undefined)
-  }
-
   return (
     <PageContent>
       <Box margin={{ vertical: "xlarge" }} align="center">
