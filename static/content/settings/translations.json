@@ -4,15 +4,18 @@
   "options": [
     {
       "languageTitle": "en",
-      "translation": "Manage RSVP"
+      "translation": "Manage RSVP",
+      "locale": "en"
     },
     {
       "languageTitle": "Polish",
-      "translation": "Zarządzaj RSVP"
+      "translation": "Zarządzaj RSVP",
+      "locale": "pl"
     },
     {
       "languageTitle": "Chinese",
-      "translation": "编辑 敬请回复"
+      "translation": "编辑 敬请回复",
+      "locale": "zh-cn"
     }
   ]
 }
