@@ -1,3 +1,10 @@
 {
-  "order": 5
+  "order": 5,
+  "translations": [
+    {
+      "languageTitle": "English",
+      "title": "Manage RSVP",
+      "menuTitle": "RSVP"
+    }
+  ]
 }
