@@ -217,7 +217,7 @@ collections:
     sortableFields: ['title', 'description', commit_date']
     fields: [
       {label: "Template Key", name: "templateKey", widget: "hidden", default: "translations"},
-      {label: "Term", name: "term", widget: "string"},
+      {label: "Term", name: "title", widget: "string"},
       {label: "Translations", name: "options", widget: "list", summary: '{{fields.languageTitle}} - {{fields.translation}}', fields: [
         {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
         {label: "Translation", name: "translation", widget: "string"},
