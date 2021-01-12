@@ -213,8 +213,8 @@ collections:
     create: true
     slug: "{{slug}}"
     filter: {field: "templateKey", value: "translations"}
-    summary: "{{title}} - {{description}}"
-    sortableFields: ['title', 'description', commit_date']
+    summary: "{{title}}"
+    sortableFields: ['title', commit_date']
     fields: [
       {label: "Template Key", name: "templateKey", widget: "hidden", default: "translations"},
       {label: "Term", name: "title", widget: "string"},

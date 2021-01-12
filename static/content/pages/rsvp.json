@@ -1,4 +1,6 @@
 {
+  "templateKey": "rsvp",
+  "path": "/rsvp",
   "order": 5,
   "translations": [
     {

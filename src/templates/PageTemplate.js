@@ -12,10 +12,6 @@ const PageTemplate = ({ location, pageContext }) => {
 
   console.log(pages)
 
-  pageNav.push(
-    { path: slugger(["/", language.locale, "RSVP"]), label: "RSVP"}
-  )
-
   const { templateKey, sections } = page
 
   return (

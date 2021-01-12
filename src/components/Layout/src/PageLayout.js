@@ -7,16 +7,22 @@ import { useAuth } from '../../../hooks'
 import { theme } from '../../../style'
 
 const PageLayout = ({ title, description, location, children }) => {
-  const { setLocation } = useOptions()
   const auth = useAuth()
+  const { setLocation, options } = useOptions()
+  const locale = options.language && options.language.locale
+  const authorizedPaths = [
+    `/${locale}`,
+    `/${locale}/travel`,
+    `/${locale}/activities`
+  ]
 
-  console.log(auth)
+  const isAuthorized = auth.user || authorizedPaths.includes(location.pathname)
 
   useEffect(() => {
     location && setLocation(location)
   }, [location])
 
-  if (auth.user) {
+  if (isAuthorized) {
     return (
       <Wrapper title={title} description={description}>
         {children}

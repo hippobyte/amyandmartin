@@ -143,13 +143,24 @@ exports.createPages = async ({ graphql, actions }) => {
   const photos = defaultRequest.data.fluidImages.edges.map(item => item.node)
   const languages = defaultRequest.data.allSettingsJson.edges.map(item => item.node)
 
+  const componentType = (type) => {
+    switch(type) {
+      case "photos":
+        return photosComponent
+      case "rsvp":
+        return rsvpComponent
+      default:
+        return pageComponent
+    }
+  }
+
   languages.forEach(language => {
     defaultPages.forEach(page => {
       const pageKey = page.templateKey === "index" ? "" : page.templateKey
       const slug = slugger([language.locale, pageKey])
       createPage({
         path: slug,
-        component: page.templateKey === "photos" ? photosComponent : pageComponent,
+        component: componentType(page.templateKey),
         context: {
           slug: slug,
           pages: defaultPages,
