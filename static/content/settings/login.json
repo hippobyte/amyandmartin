@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "Login",
+  "options": [
+    {
+      "locale": "en",
+      "translation": "Access Our Wedding Site"
+    },
+    {
+      "translation": "Zapraszamy na naszą stronę",
+      "locale": "pl"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "进入我们的婚礼网站"
+    }
+  ]
+}
