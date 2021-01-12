@@ -147,7 +147,26 @@ collections:
           ]},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 4},
         ]
-      }
+      },
+      {
+        file: "static/content/pages/rsvp.json",
+        label: "RSVP Page",
+        name: "rsvp",
+        fields: [
+          {label: "Template Key", name: "templateKey", widget: "hidden", default: "rsvp"},
+          {label: "Page Path", name: "path", widget: "hidden", default: "/rsvp"},
+          {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Title", name: "title", widget: "string"},
+            {label: "Menu Title", name: "menuTitle", widget: "string"},
+          ]},
+          {label: "Page Description", name: "descriptions", widget: "list", summary: '{{fields.description}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Description", name: "description", widget: "markdown"},
+          ]},
+          {label: "Order", name: "order", widget: "number", valueType: "int", default: 5}
+        ]
+      },
     ]
 
   - name: "settings"
@@ -182,6 +201,24 @@ collections:
       {label: "Order", name: "order", widget: "number", valueType: "int", default: 0},
       {label: "Default", name: "default", widget: "boolean", default: false},
       {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.languageTitle}} - {{fields.translation}}', minimize_collapsed: true, fields: [
+        {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+        {label: "Translation", name: "translation", widget: "string"},
+      ]}
+    ]
+
+  - name: "translations"  
+    label: "Translation"
+    folder: "static/content/settings"
+    extension: "json"
+    create: true
+    slug: "{{slug}}"
+    filter: {field: "templateKey", value: "translations"}
+    summary: "{{title}} - {{description}}"
+    sortableFields: ['title', 'description', commit_date']
+    fields: [
+      {label: "Template Key", name: "templateKey", widget: "hidden", default: "translations"},
+      {label: "Term", name: "term", widget: "string"},
+      {label: "Translations", name: "options", widget: "list", summary: '{{fields.languageTitle}} - {{fields.translation}}', fields: [
         {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
         {label: "Translation", name: "translation", widget: "string"},
       ]}

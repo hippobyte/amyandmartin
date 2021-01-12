@@ -3,18 +3,12 @@ import { ResponsiveContext } from 'grommet'
 import { LanguageBar, Markdown, PageLayout, PageContent, PageHeading, PageHeader, Rsvp } from '../components'
 import { slugger } from '../utils'
  
-const PageTemplate = ({ location, pageContext }) => { 
+const RsvpTemplate = ({ location, pageContext }) => { 
   const { pages, page, language } = pageContext
 
   const pageHeading = page.translations && page.translations.find(item => item.languageTitle === language.title) && page.translations.find(item => item.languageTitle === language.title).title
   const pageContent = page.descriptions && page.descriptions.find(item => item.languageTitle === language.title) && page.descriptions.find(item => item.languageTitle === language.title).description
   const pageNav = pages.map(item => ({ path: slugger(["/", language.locale, item.templateKey === "index" ? "" : item.templateKey]), label: item.translations.find(item => item.languageTitle === language.title).menuTitle }))
-
-  console.log(pages)
-
-  pageNav.push(
-    { path: slugger(["/", language.locale, "RSVP"]), label: "RSVP"}
-  )
 
   const { templateKey, sections } = page
 
@@ -83,4 +77,4 @@ const PageTemplate = ({ location, pageContext }) => {
   )
 }
 
-export default PageTemplate
+export default RsvpTemplate

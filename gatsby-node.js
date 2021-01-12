@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const pageComponent  = path.resolve(`./src/templates/PageTemplate.js`)
   const photosComponent  = path.resolve(`./src/templates/GalleryTemplate.js`)
+  const rsvpComponent  = path.resolve(`./src/templates/RsvpTemplate.js`)
 
   const slugger = (options, join="/") => {
     return options.map(option => slugify(option)).join(join)

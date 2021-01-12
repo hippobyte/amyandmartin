@@ -1,11 +1,22 @@
 import React from 'react'
-import { Box } from 'grommet'
+import { Box, Grommet, Heading, Text } from 'grommet'
+import { theme } from '../style'
 
 const NotFoundPage = () => (
-  <Box>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>iv>
-  </Box>
+  <Grommet theme={theme} full>
+    <Box 
+      background="primary" 
+      pad="large" 
+      fill
+    >
+      <Heading level={1}>
+        Not Found
+      </Heading>
+      <Text weight={500} size="large">
+        Sorry, the page you are looking for cannot be found.
+      </Text>
+    </Box>
+  </Grommet>
 )
 
 export default NotFoundPage
