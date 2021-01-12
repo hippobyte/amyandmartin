@@ -7,7 +7,7 @@ import { Anchor } from '../../../components'
 import { RsvpForm } from '../index'
 
 const Rsvp = () => {
-  const { options } = useOptions()
+  const { locale } = useOptions()
   const [active, setActive] = useState()
   const data = useStaticQuery(graphql`
     query {
@@ -20,29 +20,15 @@ const Rsvp = () => {
         }
       ) {
         translations: options {
-          languageTitle
+          locale
           translation
         }
       }
     }
   `)
 
-  console.log(translator(data, "en"))
-
-
   const onClose = () => {
     setActive(undefined)
-  }
-
-  const buttonText = () => {
-    switch(options && options.language && options.language.locale) {
-      case "pl":
-        return <Text weight={600}>Manage RSVP</Text>
-      case "zh-cn":
-        return <Text weight={600}>Manage RSVP</Text>
-      default:
-        return <Text weight={600}>Manage RSVP</Text>
-    }
   }
 
   return (
@@ -56,9 +42,9 @@ const Rsvp = () => {
               }
             }
           }}>
-            <Anchor to="/app/rsvp">
+            <Anchor to={`/${locale}/rsvp`}>
               <Button 
-                label={buttonText()}
+                label={<Text weight={600}>{translator(data, locale)}</Text>}
                 color="brand-12"
                 size="large"
                 primary

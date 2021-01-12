@@ -29,7 +29,9 @@ const useOptions = () => {
     dispatch(setLanguageOption(payload))
   }
 
-  return { options, setActivePanels, toggleAllPanels, setLocation, setLanguage }
+  const locale = options.language && options.language.locale || 'en'
+
+  return { options, locale, setActivePanels, toggleAllPanels, setLocation, setLanguage }
 }
 
 export default useOptions

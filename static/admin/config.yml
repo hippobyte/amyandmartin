@@ -208,7 +208,7 @@ collections:
 
   - name: "translations"  
     label: "Translation"
-    folder: "static/content/settings"
+    folder: "static/content/translations"
     extension: "json"
     create: true
     slug: "{{slug}}"

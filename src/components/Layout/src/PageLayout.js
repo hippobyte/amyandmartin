@@ -11,7 +11,6 @@ const PageLayout = ({ title, description, location, children }) => {
   const { setLocation, options } = useOptions()
   const locale = options.language && options.language.locale
   const authorizedPaths = [
-    `/${locale}`,
     `/${locale}/travel`,
     `/${locale}/activities`
   ]

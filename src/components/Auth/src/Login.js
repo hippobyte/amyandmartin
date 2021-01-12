@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { Box, Button, Text, ThemeContext } from 'grommet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useOptions } from '../../../state/hooks'
+import { translator } from '../../../utils'
 import { PageContent, PageHeader, LanguageBar } from '../../../components'
 import { LoginForm, CodeRequestForm } from '../index'
 
 const Login = ({ rest }) => {
-  const { options } = useOptions()
+  const { locale } = useOptions()
   const [active, setActive] = useState()
   const [codeRequest, setCodeRequest] = useState()
 
@@ -57,19 +58,24 @@ const Login = ({ rest }) => {
           }
         }
       }
+      options: settingsJson(
+        templateKey: {
+          eq: "translations"
+        }, 
+        title: {
+          eq: "Login"
+        }
+      ) {
+        translations: options {
+          locale
+          translation
+        }
+      }
     }
   `)
 
-  const buttonText = () => {
-    switch(options && options.language && options.language.locale) {
-      case "pl":
-        return <Text weight={600}>Zapraszamy na naszą stronę</Text>
-      case "zh-cn":
-        return <Text weight={600}>Access Our Wedding Site"</Text>
-      default:
-        return <Text weight={600}>Access Our Wedding Site</Text>
-    }
-  }
+  console.log(locale)
+  console.log(data)
 
   return (
     <PageContent
@@ -90,7 +96,7 @@ const Login = ({ rest }) => {
             }
           }}>
             <Button 
-              label={buttonText()}
+              label={<Text weight={600}>{translator(data, locale)}</Text>}
               color="brand-12"
               size="large"
               primary
