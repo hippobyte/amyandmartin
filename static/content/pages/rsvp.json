@@ -5,6 +5,16 @@
       "languageTitle": "English",
       "title": "Manage RSVP",
       "menuTitle": "RSVP"
+    },
+    {
+      "languageTitle": "Polish",
+      "title": "Zarządzaj RSVP",
+      "menuTitle": "RSVP"
+    },
+    {
+      "languageTitle": "Chinese",
+      "title": "编辑 敬请回复",
+      "menuTitle": "敬请回复"
     }
   ]
 }
