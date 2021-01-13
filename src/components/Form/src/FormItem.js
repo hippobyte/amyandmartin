@@ -1,5 +1,5 @@
 import React from 'react'
-import { withFormGroup, ButtonGroup, InviteCode, Submit, TextInput } from '../index'
+import { withFormGroup, ButtonGroup, InviteCode, MultiInput, Submit, TextInput } from '../index'
 
 const FormItem = ({ inputType, ...formInputProps }) => {
   return inputType && componentRegistry(inputType, formInputProps)
@@ -17,6 +17,8 @@ const componentRegistry = (inputType, formInputProps) => {
       return <ButtonGroup {...formInputProps} />
     case "InviteCode":
       return <InviteCode {...formInputProps} />
+    case "MultiInput":
+      return <MultiInput {...formInputProps} />
     case "TextInput":
       return <TextInput {...formInputProps} />
     case "Submit":

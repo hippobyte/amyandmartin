@@ -11,9 +11,20 @@ const LoginResult = ({ searchTerm, onReset, onCodeRequest, language }) => {
       rsvp(inviteCode: $inviteCode) {
         id
         status
+        guestCount
+        childrenCount
+        options
         guest {
           firstName
           lastName
+          guestName
+          guestCount
+          childrenCount
+          contact {
+            email
+            phone
+            address
+          }
         }
       }
     }`, {
@@ -87,7 +98,7 @@ const OnResults = ({ data, language }) => {
   const auth = useAuth()
 
   useEffect(() => {
-    auth.setUser(data.guest)
+    auth.setUser(data)
     navigate('/')
   }, [])
 

@@ -23,7 +23,7 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
         shouldDirty: true
       })
       onChange(value)
-      unregisterKeys(value)
+      // unregisterKeys(value)
     }
   }
 
@@ -40,16 +40,20 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
         extend: {
           '& span': {
             userSelect: 'none',
-            fontFamily: "'Montserrat', sans-serif"
+            fontFamily: "'Montserrat', sans-serif",
+            transition: 'color .250s ease-in-out',
           },
           '&.button-wrapper': {
             transition: 'background .250s ease-in-out, border-color .250s ease-in-out',
             cursor: disabled ? 'not-allowed' : 'pointer',
             '&:hover': {
-              backgroundColor: colors["light-0"]
+              backgroundColor: colors["light-0"],
+              '& span': {
+                color: colors["dark-6"]
+              }
             },
             '&.active': {
-              backgroundColor: colors["light-3"],
+              backgroundColor: colors["light-1"],
               border: !compact && `1px solid ${colors.brand}`
             }
           }
@@ -67,37 +71,41 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
           wrap
           flex
           gap={compact ? "xxsmall" : ["small", "medium"].includes(viewportSize) ? undefined : "medium"}
-          border={compact && { size: "xsmall", color: "light-7", side: "between" }}
         >
         {
           buttons && buttons.map((button, index) => {
-            const { key, title, description, label } = button 
+            const { key, title, description, label } = button
             const isActive = selectedValue === key
             return (
               <Box 
                 className={isActive ? "button-wrapper active" : "button-wrapper"}
-                key={key}
+                key={index}
                 flex="grow"
                 round={!compact && "xsmall"}
                 border={!compact && { size: "xsmall", color: "light-7" }}
-                pad={{ vertical: "xsmall", horizontal: viewportSize === "small" ? "medium" : "small" }}
+                pad={{ vertical: "medium", horizontal: ["small", "medium"].includes(viewportSize) ? "medium" : "small" }}
                 height={{ min: "44px" }}
                 align="center"
                 direction="row"
+                basis="1/2"
                 wrap
                 onClick={() => !disabled && toggleComponentType(key)}
                 disabled={disabled}
               >
-                <Indicator viewportSize={viewportSize} active={isActive} />
-                <Box>
-                  <Text weight={500} color={isActive ? "dark-10" : "dark-4"}>{title || label}</Text>
-                  {
-                    description && (
-                      <Text size="small" color={isActive ? "dark-10" : "dark-4"}>
-                        {description}
-                      </Text>
-                    )
-                  }
+                <Box basis="44px" align="center">
+                  <Indicator viewportSize={viewportSize} active={isActive} />
+                </Box>
+                <Box flex="grow">
+                  <Box>
+                    <Text weight={500} color={isActive ? "dark-10" : "dark-4"}>{title || label}</Text>
+                    {
+                      description && (
+                        <Text size="small" color={isActive ? "dark-10" : "dark-4"}>
+                          {description}
+                        </Text>
+                      )
+                    }
+                  </Box>
                 </Box>
               </Box>
             )
@@ -105,23 +113,28 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
         }
         </Box>
       </Box>
-      <Box margin={{ top: "medium" }} direction="row">
+      <>
         {
           buttons && buttons.map(button => {
             if (button.key === selectedValue && button.formItems) {
               return (
-                <ChildFormItems 
-                  formItems={button.formItems}
-                  loading={loading}
-                  disabled={disabled}
-                  language={language}
-                  methods={methods}
-                />
+                <Box 
+                  direction="row"
+                  margin={{ top: "medium" }}
+                >
+                  <ChildFormItems 
+                    formItems={button.formItems}
+                    loading={loading}
+                    disabled={disabled}
+                    language={language}
+                    methods={methods}
+                  />
+                </Box>
               )
             }
           })
         }
-      </Box>
+      </>
     </ThemeContext.Extend>
   )
 }
@@ -132,10 +145,10 @@ ButtonGroup.defaultProps = {
 
 const ChildFormItems = ({ formItems, loading, disabled, language, methods }) => {
   return (
-    <Box margin={{ top: "medium" }}>
+    <Box margin={{ top: "medium" }} fill="horizontal">
     {
       formItems.map((formItem, index) => {
-        const { inputType, name, label, placeholder, helpText, ...rest } = formItem
+        const { inputType, name, label, placeholder, helpText, size, ...rest } = formItem
         return (
           <FormItem 
             key={index}
@@ -162,13 +175,13 @@ const Indicator = ({ viewportSize, active }) => {
       width="22px" 
       height="22px" 
       round="50%"
-      border={{ size: "1px", color: active ? "dark-10" : "light-8" }}
-      margin={{ right: viewportSize === "small" ? "medium" : "small" }}
+      border={{ size: "1px", color: active ? "primary-12" : "light-8" }}
+      margin={{ right: ["small", "medium"].includes(viewportSize) ? "medium" : "small" }}
       pad="2px"
       align="center"
       justify="center"
     >
-      <Box fill round="50%" background={active ? "dark-10" : undefined} />
+      <Box fill round="50%" background={active ? "primary-12" : undefined} />
     </Box>
   )
 }

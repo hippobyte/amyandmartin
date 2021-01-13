@@ -1,4 +1,5 @@
 import { colors } from './colors'
+import { intent } from './intent'
 
 export const theme = {
   anchor: {
@@ -45,6 +46,7 @@ export const theme = {
     border: {
       radius: '6px'
     },
+    intent: intent
   },
   global: {
     font: {

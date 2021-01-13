@@ -21,7 +21,6 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
   }
 
   if (inputType == "Header") {
-    console.log(label)
     return (
       <Box margin={{ bottom: "medium", top: "small" }} >
         <Box direction="row" align="center">
@@ -60,7 +59,7 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
       <Box margin={{ bottom: "medium" }} as="label" for={name}>
         <Box direction="row" justify="between">
           <Box flex>
-            <Text weight={600} size={size} color="black">
+            <Text weight={500} size={size} color="dark-8">
               {label} { required && <Text color="danger-13">&#42;</Text> }
             </Text>
           </Box>
@@ -69,7 +68,7 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
           helpText && (
             <Text
               weight={500}
-              size="medium"
+              size="small"
               color="dark-6"
             >
               {helpText}

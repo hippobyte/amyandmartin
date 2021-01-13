@@ -12,38 +12,6 @@ const FormGroup = ({ preview, loading, actions, name, inputType, required, disab
   
   const error = methods && methods.errors && name && methods.errors[name] && methods.errors[name].message
 
-  const containerStyle = () => {
-    if (flex === "25%") {
-      return { flex: "0 0 22%", margin: "0 1%" }
-    }
-
-    if (flex === "33%") {
-      return { flex: "0 0 30.3%", margin: "0 1%" }
-    }
-
-    if (flex === "48%") {
-      return { flex: "0 0 48%", margin: "0 1%" }
-    }
-
-    if (flex === "50%") {
-      return { flex: "0 0 50%", margin: "0 0 0 1%" }
-    }
-
-    if (flex === "73%") {
-      return { flex: "0 0 73%", margin: "0 1%" }
-    }
-
-    if (flex === "75%") {
-      return { flex: "0 0 75%", margin: "0 0 0 1%" }
-    }
-
-    if (flex === "100%") {
-      return { flex: "0 0 98%", margin: "0 1% 0 1%" }
-    }
-
-    return { flex: flex, margin: margin }
-  }
-
   const previewContainerProps = (preview) => preview && ({
     pad: 'small'
   })
@@ -54,12 +22,11 @@ const FormGroup = ({ preview, loading, actions, name, inputType, required, disab
     style: { opacity: loading && 0.4 }
   })
 
-  const style = containerStyle()
   const containerProps = previewContainerProps(preview)
   const contentProps = previewContentProps(preview, loading)
 
   return (
-    <Box style={style} {...containerProps}>
+    <Box fill="horizontal" {...containerProps}>
       <Box 
         {...contentProps}
         onMouseEnter={() => preview && setHovering(true)}
