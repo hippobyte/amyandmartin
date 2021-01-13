@@ -42,11 +42,14 @@ const MultiInput = ({ name, disabled, loading, methods, formItems, moreButton, e
           />
         ) : (
           <Box justify="start" align="start" fill="horizontal" margin={{ bottom: "small" }}>
-            <Button 
-              {...moreButton}
-              onClick={() => append({})}
-              disabled={fields && fields.length >= maxItems}
-            />
+            {
+              fields && fields.length <= maxItems && (
+                <Button 
+                  {...moreButton}
+                  onClick={() => append({})}
+                />
+              )
+            }
           </Box>
         )
       }
