@@ -8,7 +8,7 @@ import { theme } from '../../../style'
 
 const PageLayout = ({ title, description, location, children }) => {
   const auth = useAuth()
-  const { setLocation, options } = useOptions()
+  const { setLocation, setUser, options } = useOptions()
   const locale = options.language && options.language.locale
   const authorizedPaths = [
     `/${locale}/travel`,
@@ -19,6 +19,7 @@ const PageLayout = ({ title, description, location, children }) => {
 
   useEffect(() => {
     location && setLocation(location)
+    auth.user && setUser(auth.user)
   }, [location])
 
   if (isAuthorized) {

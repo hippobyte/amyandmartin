@@ -1,7 +1,7 @@
 {
   "templateKey": "translations",
   "title": "Manage RSVP",
-  "options": [
+  "translations": [
     {
       "translation": "Manage RSVP",
       "locale": "en"

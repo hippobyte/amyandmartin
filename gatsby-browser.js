@@ -6,9 +6,11 @@ import { ProvideAuth } from './src/hooks'
 import initialState from './src/state/initial_state'
 import reducers from './src/state/reducers'
 
+const graphURI = process.env.NODE_ENV === 'production' ? 'https://amyandmartin-api.herokuapp.com/graphql' : 'http://127.0.0.1:3000/graphql'
+
 const apolloClient = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://amyandmartin-api.herokuapp.com/graphql',
+    uri: graphURI,
     fetch,
   }),
   cache: new InMemoryCache()

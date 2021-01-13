@@ -28,7 +28,7 @@ const LoginForm = ({ onClose, onCodeRequest }) => {
         Chinese: "enter invitation code...",
         Polish: "enter invitation code...",
       },
-      description: <Anchor weight={600} size="small" label="Don't have a invitation code?" onClick={() => onCodeRequest(true)} />,
+      description: <Anchor weight={600} size="medium" label="Are you missing an invitation code?" onClick={() => onCodeRequest(true)} />,
       "validations": [
         {
           "type": "required",
@@ -50,7 +50,7 @@ const LoginForm = ({ onClose, onCodeRequest }) => {
       inputType: "Submit",
       color: "brand-12",
       label: {
-        English: "Find your invite",
+        English: "Next",
         Chinese: '繼續',
         Polish: "Dalej"
       }
@@ -82,14 +82,14 @@ const LoginForm = ({ onClose, onCodeRequest }) => {
       <Box width="large">
         <Box 
           background="brand-12"
-          pad={{ horizontal: "medium" }}
+          direction="row"
+          pad="medium"
+          align="center"
           border={{ size: "hairline", color: "dark-2", side: "bottom" }}
         >
-          <Paragraph size="large" margin={{ bottom: "small" }}>
-            <Text size="large" weight={600}>
-              Let's verify your identity... 
-            </Text>
-          </Paragraph>
+          <Text size="xlarge" weight={400}>
+            Let's verify your identity... 
+          </Text>
         </Box>
         {
           searchTerm ? (

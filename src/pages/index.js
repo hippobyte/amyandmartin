@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useOptions } from '../state/hooks'

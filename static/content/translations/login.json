@@ -1,7 +1,7 @@
 {
   "templateKey": "translations",
   "title": "Login",
-  "options": [
+  "translations": [
     {
       "locale": "en",
       "translation": "Access Our Wedding Site"

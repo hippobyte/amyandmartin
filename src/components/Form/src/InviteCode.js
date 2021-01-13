@@ -14,7 +14,7 @@ const InviteCode = ({ loading, intent, name, maxLength, theme, methods }) => {
 
   return (
     <ThemeContext.Extend value={styles}>
-      <Box className="code-wrapper" direction="row" gap="medium" justify="between">
+      <Box>
         <Controller
           key={name}
           name={name}
@@ -36,8 +36,9 @@ const InviteCode = ({ loading, intent, name, maxLength, theme, methods }) => {
 export const inputTheme = (colors, intent, theme = {}) => ({
   box: {
     extend: {
-      '& > div': {
-        width: '100%'
+      '& input': {
+        color: 'black',
+        fontWeight: 900
       }
     }
   },

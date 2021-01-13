@@ -53,7 +53,11 @@ const MenuBar = ({ data }) => (
   >
     {
       data.map(item => (
-        <Anchor color="dark-8" label={<Text weight={600}>{item.label}</Text>} path={item.path} />
+        <Anchor 
+          color="dark-8" 
+          label={<Text weight={600}>{item.label}</Text>} 
+          path={item.path} 
+        />
       ))
     }
   </Box>

@@ -1,9 +1,10 @@
-import { SET_ACTIVE_PANELS, TOGGLE_EXPANDED_PANELS, UPDATE_LOCATION, SET_LANGUAGE } from './actions'
+import { SET_ACTIVE_PANELS, TOGGLE_EXPANDED_PANELS, UPDATE_LOCATION, SET_LANGUAGE, SET_USER } from './actions'
 
 export const INITIAL_STATE = { 
   isExpanded: false, 
   activePanels: [],
   location: {},
+  user: {},
   language: {
     title: 'English',
     description: 'English',
@@ -34,6 +35,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         language: action.payload
+      }
+    case SET_USER:
+      return {
+        ...state,
+        user: action.payload
       }
     default:
       return state

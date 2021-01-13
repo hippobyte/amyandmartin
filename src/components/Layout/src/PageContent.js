@@ -2,7 +2,7 @@
 import { Box, ResponsiveContext } from 'grommet'
 import { Image, PageNav, ResponsiveGrid } from '../..'
 
-const PageContent = ({ pageNav, image, reverse, children }) => {
+const PageContent = ({ pageNav, image, justify, reverse, children }) => {
   return (
     <ResponsiveGrid
       columns={{
@@ -27,11 +27,11 @@ const PageContent = ({ pageNav, image, reverse, children }) => {
               reverse ? (
                 <>
                   { image && <Aside image={image} /> }
-                  <Main pageNav={pageNav} children={children} size={size} image={image} />
+                  <Main justify={justify} pageNav={pageNav} children={children} size={size} image={image} />
                 </>
               ) : (
                 <>
-                  <Main pageNav={pageNav} children={children} size={size} image={image} />
+                  <Main justify={justify} pageNav={pageNav} children={children} size={size} image={image} />
                   { image && size !== "small" && <Aside image={image} /> }
                 </>
               )
@@ -45,16 +45,20 @@ const PageContent = ({ pageNav, image, reverse, children }) => {
   )
 }
 
-const Main = ({ pageNav, size, image, children }) => {
+const Main = ({ pageNav, size, image, justify, children }) => {
   return (
     <Box height={{ min: '100vh' }}>
       { pageNav && <PageNav items={pageNav} /> }
-      { size === "small" && <Aside image={image} /> }
-      <Box flex="grow" justify="center" pad="large">
+      { size === "small" && image && <Aside image={image} /> }
+      <Box flex="grow" justify={justify} pad="large">
         {children}
       </Box>
     </Box>
   )
+}
+
+Main.defaultProps = {
+  justify: "center"
 }
 
 const Aside = ({ image }) => (

@@ -25,45 +25,21 @@ const PageHeader = ({ languageBar, ...rest }) => {
       {...rest}
     >
       <Heading level={1} alignSelf="center" margin={{ top: "none", bottom: "medium" }}>{title}</Heading>
-      <ThemeContext.Extend value={{
-          heading: {
-            extend: {
-              letterSpacing: '4px'
-            },
-            level: {
-              '2': {
-                font: {
-                  family: 'Montserrat',
-                  weight: 400
-                },
-                small: {
-                  size: '324px',
-                  height: '24px'
-                },
-                medium: {
-                  size: '24px',
-                  height: '24px'
-                }
-              }
-            }
-          }
-        }}>
-        <Box direction="row" justify="center" wrap>
-          <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
-            <Heading level={2} margin="none" color="dark-7">{moment(ceremonyDate).locale(options.language.locale).format('LL')}</Heading>
-          </Box>
-          <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
-            <Heading level={2} margin="none" color="dark-7">{location}</Heading>
-          </Box>
+      <Box direction="row" justify="center" wrap>
+        <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
+          <Heading level={2} margin="none" color="dark-7">{moment(ceremonyDate).locale(options.language.locale).format('LL')}</Heading>
         </Box>
-        {
-          languageBar && (
-            <LanguageBar 
-              margin={{ top: "large" }}
-            />
-          )
-        }
-      </ThemeContext.Extend>
+        <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
+          <Heading level={2} margin="none" color="dark-7">{location}</Heading>
+        </Box>
+      </Box>
+      {
+        languageBar && (
+          <LanguageBar 
+            margin={{ top: "large" }}
+          />
+        )
+      }
     </Box>
   )
 }

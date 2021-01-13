@@ -78,7 +78,6 @@ export const inputTheme = (colors, intent, theme = {}) => ({
         border: `1px solid ${intent ? colors[intent] : colors.brand}`,
       },
       '&:disabled': {
-        fontWeight: 700,
         border: `1px solid ${intent ? colors[intent] : colors["light-7"]}`,
         opacity: 0.4,
         backgroundColor: colors["light-1"]

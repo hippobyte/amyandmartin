@@ -218,7 +218,7 @@ collections:
     fields: [
       {label: "Template Key", name: "templateKey", widget: "hidden", default: "translations"},
       {label: "Term", name: "title", widget: "string"},
-      {label: "Translations", name: "options", widget: "list", summary: '{{fields.locale}} - {{fields.translation}}', fields: [
+      {label: "Translations", name: "translations", widget: "list", summary: '{{fields.locale}} - {{fields.translation}}', fields: [
         {label: "Locale", name: "locale", widget: "relation", collection: "language", searchFields: ["title"], valueField: "locale"},
         {label: "Translation", name: "translation", widget: "string"},
       ]}

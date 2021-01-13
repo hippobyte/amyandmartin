@@ -17,7 +17,10 @@ module.exports = {
       options: {
         fonts: [
           `Montserrat\:400,500,600,700`,
-          `Poiret+One\:400`
+          `Poiret+One\:400`,
+          `Dosis\:300,400,500,600,700`,
+          `Trirong\:300,400,500,600,700`,
+          `Proza+Libre\:300,400,500,600,700`
         ],
         display: 'swap'
       }
@@ -41,6 +44,13 @@ module.exports = {
       options: {
         path: `${__dirname}/static/content/settings`,
         name: `options`
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/content/translations`,
+        name: `translations`
       },
     },
     {

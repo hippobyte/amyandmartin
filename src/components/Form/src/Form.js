@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Box } from 'grommet' 
 
-const Form = ({ defaultValues, validationSchema, onSubmit, error, width, loading, disabled, style, match, children, formDefaults }) => {
+const Form = ({ defaultValues, validationSchema, onSubmit, margin, width, loading, disabled, match, children, formDefaults }) => {
   const methods = useForm({ 
     defaultValues: defaultValues, 
     resolver: yupResolver(validationSchema),
@@ -36,8 +36,8 @@ const Form = ({ defaultValues, validationSchema, onSubmit, error, width, loading
   }
 
   return (
-    <Box width={width}>
-      <FormContainer onSubmit={handleSubmit(handleFormSubmit)} style={style}>
+    <Box width={width} margin={margin}>
+      <form onSubmit={handleSubmit(handleFormSubmit)}>
         <Box direction="row" justify="between" wrap>
           {
             Array.isArray(children)
@@ -62,19 +62,16 @@ const Form = ({ defaultValues, validationSchema, onSubmit, error, width, loading
             : children
           }
         </Box>
-      </FormContainer>
+      </form>
     </Box>
   )
 }
 
 Form.defaultProps = {
   width: undefined,
+  margin: { bottom: "large" },
   visibility: true,
   formDefaults: {}
 }
-
-const FormContainer = styled.form`
-  margin-bottom: 1em
-`
 
 export default Form

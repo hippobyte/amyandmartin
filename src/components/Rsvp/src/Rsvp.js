@@ -11,7 +11,7 @@ const Rsvp = () => {
   const [active, setActive] = useState()
   const data = useStaticQuery(graphql`
     query {
-      options: settingsJson(
+      translationsJson(
         templateKey: {
           eq: "translations"
         }, 
@@ -19,7 +19,7 @@ const Rsvp = () => {
           eq: "Manage RSVP"
         }
       ) {
-        translations: options {
+        translations {
           locale
           translation
         }
@@ -45,7 +45,7 @@ const Rsvp = () => {
             <Anchor to={`/${locale}/rsvp`}>
               <Button 
                 label={<Text weight={600}>{translator(data, locale)}</Text>}
-                color="brand-12"
+                color="primary-12"
                 size="large"
                 primary
               />

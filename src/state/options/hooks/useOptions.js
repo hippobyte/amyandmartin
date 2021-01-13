@@ -1,5 +1,5 @@
 import { useStateValue } from '../../index'
-import { set, toggle, updateLocation, setLanguageOption } from '../actions'
+import { set, toggle, updateLocation, setLanguageOption, setUserOption } from '../actions'
 
 const useOptions = () => {
   const [{ options }, dispatch] = useStateValue()
@@ -10,6 +10,10 @@ const useOptions = () => {
 
   const setActivePanels = (payload) => {
     dispatch(set(payload))
+  }
+
+  const setUser = (payload) => {
+    dispatch(setUserOption(payload))
   }
 
   const toggleAllPanels = (payload) => {
@@ -29,9 +33,10 @@ const useOptions = () => {
     dispatch(setLanguageOption(payload))
   }
 
-  const locale = options.language && options.language.locale || 'en'
+  const locale = options.language ? options.language.locale : 'en'
+  const user = options.user
 
-  return { options, locale, setActivePanels, toggleAllPanels, setLocation, setLanguage }
+  return { options, locale, setActivePanels, toggleAllPanels, setLocation, setLanguage, user, setUser }
 }
 
 export default useOptions

@@ -58,24 +58,18 @@ const Login = ({ rest }) => {
           }
         }
       }
-      options: settingsJson(
-        templateKey: {
-          eq: "translations"
-        }, 
+      translationsJson(
         title: {
           eq: "Login"
         }
       ) {
-        translations: options {
+        translations {
           locale
           translation
         }
       }
     }
   `)
-
-  console.log(locale)
-  console.log(data)
 
   return (
     <PageContent

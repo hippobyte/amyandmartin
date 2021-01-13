@@ -61,7 +61,7 @@ const LanguageBar = ({ size, ...rest }) => {
   const Option = ({ title, description, locale }) => {
     return (
       <Anchor
-        color="dark-6"
+        color={value === title ? "primary-12" : "dark-1"}
         path={`${slugger(['/', locale])}`}
       >
         <Box 
@@ -72,7 +72,7 @@ const LanguageBar = ({ size, ...rest }) => {
           pad={{ vertical: "xsmall", horizontal: "small" }}
         >
           <Text
-            weight={500}
+            weight={600}
             size={size}
           >
             {options.language.title ? description : title}
