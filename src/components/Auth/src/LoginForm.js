@@ -14,6 +14,7 @@ const LoginForm = ({ onClose, onCodeRequest }) => {
     {
       inputType: "InviteCode",
       name: 'inviteCode',
+      size: "large",
       maxLength: 8,
       label: {
         English: "Enter your invitation code",

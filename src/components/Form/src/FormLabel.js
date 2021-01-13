@@ -54,6 +54,21 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
     )
   }
 
+  const helpTextSize = () => {
+    switch(size) {
+      case "xsmall":
+        return "xsmall"
+      case "small":
+        return "xsmall"
+      case "medium":
+        return "small"
+      case "large":
+        return "medium"
+      case "xlarge":
+        return "large"
+    }
+  }
+
   return (
     <Box margin={{ bottom: "medium" }}>
       <Box margin={{ bottom: "medium" }} as="label" for={name}>
@@ -68,7 +83,7 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
           helpText && (
             <Text
               weight={500}
-              size="small"
+              size={helpTextSize()}
               color="dark-6"
             >
               {helpText}
