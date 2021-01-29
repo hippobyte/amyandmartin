@@ -6,18 +6,24 @@
   "translations": [
     {
       "languageTitle": "English",
-      "title": "RSVP Decline",
-      "menuTitle": "Rsvp Decline"
+      "title": "Thank you for responding.",
+      "menuTitle": "Rsvp"
     },
     {
       "languageTitle": "Polish",
-      "title": "RSVP Decline",
-      "menuTitle": "Rsvp Decline"
+      "title": "Dziękujemy za odpowiedź.",
+      "menuTitle": "Rsvp"
     },
     {
       "languageTitle": "Chinese",
-      "title": "RSVP Decline",
-      "menuTitle": "Rsvp Decline"
+      "title": "謝謝您的回答。",
+      "menuTitle": "Rsvp"
+    }
+  ],
+  "descriptions": [
+    {
+      "languageTitle": "English",
+      "description": "We are saddened that you are unable to join us, however, we do understand and hope to see you in the near future."
     }
   ]
 }
