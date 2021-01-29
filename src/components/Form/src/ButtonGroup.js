@@ -47,7 +47,7 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
               '& span': {
                 color: colors["black"]
               },
-              backgroundColor: colors["primary-0"],
+              backgroundColor: "#e8edf2",
               border: !compact && `1px solid ${colors.brand}`,
               '&:hover': {
                 '& span': {

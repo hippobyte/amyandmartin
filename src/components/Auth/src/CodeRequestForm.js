@@ -79,15 +79,15 @@ const CodeRequestForm = ({ onClose }) => {
     >
       <Box width="large">
         <Box 
-          background="compliment-12"
-          pad={{ horizontal: "medium" }}
+          background="brand-12"
+          direction="row"
+          pad="medium"
+          align="center"
           border={{ size: "hairline", color: "dark-2", side: "bottom" }}
         >
-          <Paragraph size="large" margin={{ bottom: "small" }}>
-            <Text size="large" weight={600}>
-              Recover Invitation Code
-            </Text>
-          </Paragraph>
+          <Text size="xlarge" weight={400}>
+          Recover Invitation Code
+          </Text>
         </Box>
         {
           searchTerm ? (

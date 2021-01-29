@@ -22,6 +22,10 @@ const InviteCode = ({ loading, intent, name, maxLength, theme, methods }) => {
             color: 'black',
             fontWeight: 900,
             width: 'calc(100%/8) !important'
+          },
+          '& input:focus': {
+            borderColor: colors["primary-8"],
+            caretColor: colors["primary-8"]
           }
         }
       }
