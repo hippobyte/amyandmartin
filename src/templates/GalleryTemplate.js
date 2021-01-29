@@ -8,7 +8,7 @@ const GalleryTemplate = ({ location, pageContext }) => {
 
   const pageHeading = page.translations && page.translations.find(item => item.languageTitle === language.title) && page.translations.find(item => item.languageTitle === language.title).title
   const pageContent = page.descriptions && page.descriptions.find(item => item.languageTitle === language.title) && page.descriptions.find(item => item.languageTitle === language.title).description
-  const pageNav = pages.filter(item => item.templateKey !== 'confirm').map(item => ({ path: slugger(["/", language.locale, item.templateKey === "index" ? "" : item.templateKey]), label: item.translations.find(item => item.languageTitle === language.title).menuTitle }))
+  const pageNav = pages.filter(item => !item.hiddenFromMenu).map(item => ({ path: slugger(["/", language.locale, item.templateKey === "index" ? "" : item.templateKey]), label: item.translations.find(item => item.languageTitle === language.title).menuTitle }))
 
   return (
     <PageLayout

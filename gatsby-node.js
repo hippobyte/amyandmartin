@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const pageComponent        = path.resolve(`./src/templates/PageTemplate.js`)
   const photosComponent      = path.resolve(`./src/templates/GalleryTemplate.js`)
   const rsvpComponent        = path.resolve(`./src/templates/RsvpTemplate.js`)
-  const rsvpConfirmComponent = path.resolve(`./src/templates/RsvpConfirmTemplate.js`)
+  const rsvpConfirmComponent = path.resolve(`./src/templates/RsvpConfirmationTemplate.js`)
 
   const slugger = (options, join="/") => {
     return options.map(option => slugify(option)).join(join)
@@ -28,6 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             templateKey
+            hiddenFromMenu
             translations {
               languageTitle
               title
@@ -150,7 +151,7 @@ exports.createPages = async ({ graphql, actions }) => {
         return photosComponent
       case "rsvp":
         return rsvpComponent
-      case "confirm":
+      case "confirm", "decline":
         return rsvpConfirmComponent
       default:
         return pageComponent

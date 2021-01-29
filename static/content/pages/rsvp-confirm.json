@@ -1,0 +1,23 @@
+{
+  "templateKey": "confirm",
+  "path": "/rsvp-confirm",
+  "hiddenFromMenu": true,
+  "order": 100,
+  "translations": [
+    {
+      "languageTitle": "English",
+      "title": "RSVP Confirmation",
+      "menuTitle": "Rsvp"
+    },
+    {
+      "languageTitle": "Polish",
+      "title": "RSVP Confirmation",
+      "menuTitle": "Rsvp"
+    },
+    {
+      "languageTitle": "Chinese",
+      "title": "RSVP Confirmation",
+      "menuTitle": "Rsvp"
+    }
+  ]
+}

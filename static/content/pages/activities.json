@@ -1,6 +1,7 @@
 {
   "templateKey": "activities",
   "path": "/activities",
+  "hiddenFromMenu": false,
   "order": 3,
   "translations": [
     {

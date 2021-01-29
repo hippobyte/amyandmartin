@@ -1,6 +1,7 @@
 {
   "templateKey": "travel",
   "path": "/travel",
+  "hiddenFromMenu": false,
   "order": 2,
   "translations": [
     {

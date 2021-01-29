@@ -1,6 +1,7 @@
 {
   "templateKey": "rsvp",
   "path": "/rsvp",
+  "hiddenFromMenu": false,
   "order": 5,
   "translations": [
     {

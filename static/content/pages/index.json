@@ -1,6 +1,7 @@
 {
   "templateKey": "index",
   "path": "/",
+  "hiddenFromMenu": false,
   "order": 0,
   "translations": [
     {

@@ -1,6 +1,7 @@
 {
   "templateKey": "story",
   "path": "/story",
+  "hiddenFromMenu": false,
   "order": 1,
   "translations": [
     {

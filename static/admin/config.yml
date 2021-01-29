@@ -167,6 +167,44 @@ collections:
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 5}
         ]
       },
+      {
+        file: "static/content/pages/confirm.json",
+        label: "RSVP Confirm Page",
+        name: "confirm",
+        fields: [
+          {label: "Template Key", name: "templateKey", widget: "hidden", default: "rsvp"},
+          {label: "Page Path", name: "path", widget: "hidden", default: "/rsvp"},
+          {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Title", name: "title", widget: "string"},
+            {label: "Menu Title", name: "menuTitle", widget: "string"},
+          ]},
+          {label: "Page Description", name: "descriptions", widget: "list", summary: '{{fields.description}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Description", name: "description", widget: "markdown"},
+          ]},
+          {label: "Order", name: "order", widget: "number", valueType: "int", default: 5}
+        ]
+      },
+      {
+        file: "static/content/pages/decline.json",
+        label: "RSVP Decline Page",
+        name: "decline",
+        fields: [
+          {label: "Template Key", name: "templateKey", widget: "hidden", default: "rsvp"},
+          {label: "Page Path", name: "path", widget: "hidden", default: "/rsvp"},
+          {label: "Page Title", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Title", name: "title", widget: "string"},
+            {label: "Menu Title", name: "menuTitle", widget: "string"},
+          ]},
+          {label: "Page Description", name: "descriptions", widget: "list", summary: '{{fields.description}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+            {label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: ["title"], valueField: "title"},
+            {label: "Description", name: "description", widget: "markdown"},
+          ]},
+          {label: "Order", name: "order", widget: "number", valueType: "int", default: 5}
+        ]
+      }
     ]
 
   - name: "settings"

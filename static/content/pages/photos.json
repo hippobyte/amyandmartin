@@ -1,6 +1,7 @@
 {
   "templateKey": "photos",
   "path": "/photos",
+  "hiddenFromMenu": false,
   "order": 4,
   "translations": [
     {

@@ -1,21 +1,22 @@
 {
-  "templateKey": "confirm",
-  "path": "/rsvp-confirmation",
+  "templateKey": "decline",
+  "path": "/rsvp-decline",
+  "hiddenFromMenu": true,
   "order": 100,
   "translations": [
     {
       "languageTitle": "English",
-      "title": "RSVP Confirmation",
+      "title": "RSVP Decline",
       "menuTitle": "Rsvp"
     },
     {
       "languageTitle": "Polish",
-      "title": "RSVP Confirmation",
+      "title": "RSVP Decline",
       "menuTitle": "Rsvp"
     },
     {
       "languageTitle": "Chinese",
-      "title": "RSVP Confirmation",
+      "title": "RSVP Decline",
       "menuTitle": "Rsvp"
     }
   ]
