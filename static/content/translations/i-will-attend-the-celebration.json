@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "I will attend the celebration.",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "I will attend the celebration."
+    },
+    {
+      "locale": "pl",
+      "translation": "Będę uczestniczyć w uroczystości."
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "I will attend the celebration."
+    }
+  ]
+}
