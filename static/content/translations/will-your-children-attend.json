@@ -3,16 +3,16 @@
   "translations": [
     {
       "locale": "en",
-      "translation": "Will your children attend?"
+      "translation": "Do you, or your guest/children, have dietary restrictions?"
     },
     {
       "locale": "pl",
-      "translation": "Czy twoje dzieci będą uczestniczyć?"
+      "translation": "Czy Ty lub Twój gość / dzieci macie ograniczenia dietetyczne?"
     },
     {
       "locale": "zh-cn",
-      "translation": "Will your children attend?"
+      "translation": "Do you, or your guest/children, have dietary restrictions?"
     }
   ],
-  "title": "Will your children attend?"
+  "title": "Do you, or your guest/children, have dietary restrictions?"
 }
