@@ -11,7 +11,7 @@ const Home = ({ location }) => {
 
   useEffect(() => {
     if (location.pathname !== `/${options.language.locale}`) {
-      navigate(options.language.locale)
+      navigate(`${options.language.locale}${location.search}`)
     }
   }, [options])
 

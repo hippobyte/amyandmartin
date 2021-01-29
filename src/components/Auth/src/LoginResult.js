@@ -5,7 +5,7 @@ import { gql, useQuery } from '@apollo/client'
 import { useAuth } from '../../../hooks'
 import { Spinner } from '../..'
 
-const LoginResult = ({ searchTerm, onReset, onCodeRequest, language }) => {
+const LoginResult = ({ searchTerm, onReset, onCodeRequest, language, location }) => {
   const { loading, data, error } = useQuery(gql`
     query($inviteCode: String!) {
       rsvp(inviteCode: $inviteCode) {
@@ -55,7 +55,7 @@ const LoginResult = ({ searchTerm, onReset, onCodeRequest, language }) => {
 
   if (data) {
     if (data.rsvp) {
-      return <OnResults data={data.rsvp} language={language} />
+      return <OnResults data={data.rsvp} language={language} location={location} />
     } else {
       return <NoResults onReset={onReset} onCodeRequest={onCodeRequest} language={language} />
     }
@@ -96,10 +96,11 @@ const NoResults = ({ onReset, onCodeRequest, language }) => {
   )
 }
 
-const OnResults = ({ data, language }) => {
+const OnResults = ({ data, language, location }) => {
   const auth = useAuth()
 
   useEffect(() => {
+    auth.setAuth(data)
     auth.setUser(data)
     navigate('/')
   }, [])

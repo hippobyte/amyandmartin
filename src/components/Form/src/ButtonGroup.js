@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Text, ThemeContext } from 'grommet'
-import { useOptions } from '../../../state/hooks'
 import { colors } from '../../../style'
 import { FormItem } from '../index'
 
 const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, methods, onChange, loading, disabled }) => {
-  const { options } = useOptions()
   const [selectedValue, setSelectedValue] = useState(defaultValue)
   const { setValue, getValues, register } = methods
-  const language = options.language.title
 
   useEffect(() => {
     const value = getValues(name)
@@ -111,7 +108,6 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
                     formItems={button.formItems}
                     loading={loading}
                     disabled={disabled}
-                    language={language}
                     methods={methods}
                   />
                 </Box>
@@ -128,7 +124,7 @@ ButtonGroup.defaultProps = {
   compact: false
 }
 
-const ChildFormItems = ({ formItems, loading, disabled, language, methods }) => {
+const ChildFormItems = ({ formItems, loading, disabled, methods }) => {
   return (
     <Box margin={{ top: "medium" }} fill="horizontal">
     {
@@ -142,9 +138,9 @@ const ChildFormItems = ({ formItems, loading, disabled, language, methods }) => 
             methods={methods}
             loading={loading}
             disabled={disabled}
-            label={label && label[language.title] ? label[language.title] : label}
-            placeholder={placeholder && placeholder[language.title] ? placeholder[language.title] : placeholder}
-            helpText={helpText && helpText[language.title] ? helpText[language.title] : helpText}
+            label={label}
+            placeholder={placeholder}
+            helpText={helpText}
             {...rest}
           />
         )

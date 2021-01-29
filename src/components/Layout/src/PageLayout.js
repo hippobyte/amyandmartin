@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Grommet } from 'grommet'
+import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Login } from '../../../components'
 import { useOptions } from '../../../state/hooks'
@@ -8,12 +9,51 @@ import { theme } from '../../../style'
 
 const PageLayout = ({ title, description, location, children }) => {
   const auth = useAuth()
-  const { setLocation, setUser, options } = useOptions()
+  const { setLocation, setUser, setTranslations, options } = useOptions()
   const locale = options.language && options.language.locale
   const authorizedPaths = [
     `/${locale}/travel`,
     `/${locale}/activities`
   ]
+
+  const translations = useStaticQuery(graphql`
+    query Translations {
+      data: allTranslationsJson {
+        edges {
+          node {
+            title
+            translations {
+              locale
+              translation
+            }
+          }
+        }
+      }
+    }  
+  `)
+
+  const translationData = () => {
+    const data = {}
+
+    translations.data.edges.map(item => item.node).forEach(item => {
+      const title = item.title.toLowerCase()
+      data[title] = {}
+
+      item.translations.map(item => item.locale).forEach(key => {
+        data[title][key] = item.translations.find(item => item.locale === key).translation
+      })
+    })
+
+    return data
+  }
+
+  useEffect(() => {
+    setTranslations(translationData())
+  }, [])
+
+  console.log(
+    auth.getAuth()
+  )
 
   const isAuthorized = auth.user || authorizedPaths.includes(location.pathname)
 
@@ -32,7 +72,7 @@ const PageLayout = ({ title, description, location, children }) => {
 
   return (
     <Wrapper title={title} description={description}>
-      <Login />
+      <Login location={location} />
     </Wrapper>
   )
 }

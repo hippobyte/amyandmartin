@@ -6,7 +6,9 @@ import { ProvideAuth } from './src/hooks'
 import initialState from './src/state/initial_state'
 import reducers from './src/state/reducers'
 
-const graphURI = process.env.NODE_ENV === 'production' ? 'https://amyandmartin-api.herokuapp.com/graphql' : 'http://127.0.0.1:3000/graphql'
+const domain  = process.env.NODE_ENV === 'production' ? 'amyandmartin-api.herokuapp.com' : '.localhost'
+const baseURL = domain === '.localhost' ? 'http://127.0.0.1:3000' : 'https://amyandmartin-api.herokuapp.com'
+const graphURI = `${baseURL}/graphql`
 
 const apolloClient = new ApolloClient({
   link: new HttpLink({
@@ -19,7 +21,7 @@ const apolloClient = new ApolloClient({
 export const wrapRootElement = ({ element }) => {
   return (
     <ApolloProvider client={apolloClient}>
-      <ProvideAuth>
+      <ProvideAuth domain={domain}>
         <StateProvider 
           initialState={initialState} 
           reducer={reducers}

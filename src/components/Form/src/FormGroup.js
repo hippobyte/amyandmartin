@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Box, Text } from 'grommet'
+import { useOptions } from '../../../state/hooks'
 import { ErrorMessage, FormLabel, FormLabelAction } from '../index'
 
-const FormGroup = ({ preview, loading, actions, name, inputType, required, disabled, helpText, label, description, size, options, flex, margin, methods, children, type, ...rest}) => {
+const FormGroup = ({ preview, loading, actions, name, inputType, required, disabled, helpText, label, placeholder, description, size, options, flex, margin, methods, children, type, ...rest}) => {
   const [hovering, setHovering] = useState(false)
+  const { language } = useOptions()
 
   const handleChange = (event) => {
     methods && methods.errors && methods.clearErrors(name)
@@ -29,6 +31,11 @@ const FormGroup = ({ preview, loading, actions, name, inputType, required, disab
 
   const error = errorMessage()
 
+  const tranlatedLabel        = label && label[language.title] ? label[language.title] : label
+  const translatedPlaceholder = placeholder && placeholder[language.title] ? placeholder[language.title] : placeholder
+  const translatedHelpText    = helpText && helpText[language.title] ? helpText[language.title] : helpText
+  const translatedDescription = description && description[language.title] ? description[language.title] : description
+
   return (
     <Box fill="horizontal" {...containerProps}>
       <Box 
@@ -51,9 +58,9 @@ const FormGroup = ({ preview, loading, actions, name, inputType, required, disab
           <FormLabel 
             name={name}
             inputType={inputType}
-            label={label} 
-            helpText={helpText}
-            description={description}
+            label={tranlatedLabel} 
+            helpText={translatedHelpText}
+            description={translatedDescription}
             required={required} 
             size={size}
           >
@@ -61,13 +68,14 @@ const FormGroup = ({ preview, loading, actions, name, inputType, required, disab
               React.cloneElement(children, { 
                 intent: methods && methods.errors && methods.errors[name] ? "danger" : rest.intent,
                 onChange: handleChange,
-                disabled: disabled
+                disabled: disabled,
+                placeholder: translatedPlaceholder
               })
             }
             {
               !error && description && (
                 <Box direction="row" align="baseline" margin={{ top: "medium" }}>
-                  {description}
+                  {translatedDescription}
                 </Box>
               )
             }

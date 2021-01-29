@@ -105,6 +105,7 @@ const CodeRequestForm = ({ onClose }) => {
               <Form 
                 onSubmit={onSubmit}
                 validationSchema={validations}
+                mode='onSubmit'
               >
                 {
                   formItems.map(item => {

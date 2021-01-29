@@ -6,9 +6,9 @@ import { translator } from '../../../utils'
 import { PageContent, PageHeader, LanguageBar } from '../../../components'
 import { LoginForm, CodeRequestForm } from '../index'
 
-const Login = ({ rest }) => {
+const Login = ({ location }) => {
   const { locale } = useOptions()
-  const [active, setActive] = useState()
+  const [active, setActive] = useState(location.search == '?authcode')
   const [codeRequest, setCodeRequest] = useState()
 
   const onCodeRequest = () => {
@@ -71,8 +71,6 @@ const Login = ({ rest }) => {
     }
   `)
 
-  console.log(translator(data, locale))
-
   return (
     <PageContent
       image={{
@@ -106,6 +104,7 @@ const Login = ({ rest }) => {
           <LoginForm 
             onClose={() => setActive(undefined)} 
             onCodeRequest={onCodeRequest}
+            location={location}
           />
         )
       }

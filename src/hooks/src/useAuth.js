@@ -1,11 +1,13 @@
 import React, { useState, useContext, createContext } from 'react'
+import Cookies from 'js-cookie'
+import { string } from 'yup/lib/locale'
 
 const authContext = createContext()
 
 // Provider component that wraps your app and makes auth object ...
 // ... available to any child component that calls useAuth().
-export function ProvideAuth({ children }) {
-  const auth = useProvideAuth()
+export function ProvideAuth({ domain, children }) {
+  const auth = useProvideAuth(domain)
   return <authContext.Provider value={auth}>{children}</authContext.Provider>
 }
 
@@ -16,8 +18,17 @@ export const useAuth = () => {
 }
 
 // Provider hook that creates auth object and handles state
-function useProvideAuth() {
+function useProvideAuth(domain) {
   const [user, setUser] = useState(null)
+
+  const setAuth = (data) => {
+    console.log(data)
+    Cookies.set('userAuth', data)
+  }
+
+  const getAuth = () => {
+    Cookies.get('userAuth')
+  }
   
-  return { user, setUser }
+  return { user, setUser, setAuth, getAuth }
 }

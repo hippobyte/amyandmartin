@@ -9,10 +9,14 @@ import { Form, FormItem } from '../..'
 
 const RsvpDetail = ({ language, page, viewportSize }) => {
   const [ mutation, { loading, data, error } ] = useMutation(updateRsvp)
-  const { user } = useOptions()
+  const { user, translations } = useOptions()
   const auth = useAuth()
-
   const rsvpData = data ? data.updateRsvp.rsvp : user
+
+  const translate = (term) => {
+    const value = term.toLowerCase()
+    return translations[value] ? translations[value][language.locale] : term
+  }
 
   if (error) {
     console.log(error)
@@ -32,22 +36,14 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
       name: "submit",
       color: "brand-12",
       size: "large",
-      label: {
-        English: "Update Response",
-        Chinese: '更新回應',
-        Polish: "Zaktualizuj odpowiedź"
-      }
+      label: translate('Update Response')
     }
 
     const attendance = {
       inputType: "ButtonGroup",
       compact: true,
       name: "status",
-      label: {
-        English: "Will you attend our wedding celebration?",
-        Chinese: 'Will you attend our wedding celebration?',
-        Polish: "Will you attend our wedding celebration?"
-      },
+      label: translate("Will you attend our wedding celebration"),
       size: "large",
       buttons: []
     }
@@ -55,8 +51,8 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
     const attendanceButtonConfirmed = {
       key: "confirmed",
       inputType: "TextInput",
-      label: <Text size="small" weight={900}>YES</Text>,
-      description: <Text size="small" weight={500}>I will attend the celebration</Text>,
+      label: <Text size="small" weight={900}>{translate("YES")}</Text>,
+      description: <Text size="small" weight={500}>{translate("I will attend the celebration")}</Text>,
       formItems: []
     }
 
@@ -64,29 +60,29 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
       inputType: "ButtonGroup",
       compact: true,
       name: "partnerStatus",
-      label: "Will your partner attend?",
+      label: translate("Will your companion attend"),
       buttons: [
         {
           key: "confirmed",
           inputType: "TextInput",
           name: "guestPartner",
-          label: <Text size="small" weight={900}>YES</Text>,
-          description: <Text size="small" weight={500}>I party best with my partner</Text>,
+          label: <Text size="small" weight={900}>{translate("YES")}</Text>,
+          description: <Text size="small" weight={500}>{translate("I party best with my partner")}</Text>,
           formItems: [
             {
               inputType: "TextInput",
               size: "small",
               name: "partnerName",
-              label: "Your partner's name",
-              placeholder: "Enter your partner's name..."
+              label: translate("Your companion's name"),
+              placeholder: "Enter full name..."
             }
           ]
         },
         {
           key: "declined",
           inputType: "TextInput",
-          label: <Text size="small" weight={900}>NO</Text>,
-          description: <Text size="small" weight={500}>My partner is unable to attend</Text>
+          label: <Text size="small" weight={900}>{translate("NO")}</Text>,
+          description: <Text size="small" weight={500}>{translate("My partner is unable to attend")}</Text>
         }
       ]
     }
@@ -95,13 +91,13 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
       inputType: "ButtonGroup",
       compact: true,
       name: "childStatus",
-      label: "Will your children attend?",
+      label: translate("Will your children attend?"),
       buttons: [
         {
           key: "confirmed",
           inputType: "TextInput",
-          label: <Text size="small" weight={900}>YES</Text>,
-          description: <Text size="small" weight={500}>My children also love a good party</Text>,
+          label: <Text size="small" weight={900}>{translate("YES")}</Text>,
+          description: <Text size="small" weight={500}>{translate("My children also love a good party")}</Text>,
           formItems: [
             {
               inputType: "MultiInput",
@@ -132,8 +128,8 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
         {
           key: "declined",
           inputType: "TextInput",
-          label: <Text size="small" weight={900}>NO</Text>,
-          description: <Text size="small" weight={500}>My children have other plans</Text>
+          label: <Text size="small" weight={900}>{translate("NO")}</Text>,
+          description: <Text size="small" weight={500}>{translate("My children have other plans")}</Text>
         }
       ]
     }
@@ -141,15 +137,15 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
     const attendanceButtonDeclined = {
       key: "declined",
       inputType: "TextInput",
-      label: <Text size="small" weight={900}>NO</Text>,
-      description: <Text size="small" weight={500}>I am unable to attend the celebration</Text>
+      label: <Text size="small" weight={900}>{translate("NO")}</Text>,
+      description: <Text size="small" weight={500}>{translate("I am unable to attend the celebration")}</Text>
     }
 
     const dietaryRestrictions = {
       inputType: "TextArea",
       name: "dietaryRestrictions",
       maxLength: 140,
-      label: "Do you, or your guest/children, have dietary restrictions?",
+      label: translate("Do you, or your guest/children, have dietary restrictions"),
       defaultValue: user.guest.dietaryRestrictions,
     }
 
@@ -198,7 +194,7 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
 
   return (
     <Box margin={{ horizontal: "large", vertical: "small" }}>
-      <Text size="small" weight={600}>RSVP FOR</Text>
+      <Text size="small" weight={600}>RSVP</Text>
       <Text size="xxlarge" margin={{ bottom: "medium" }} weight={500}>{user.guest.firstName} {user.guest.lastName},</Text>
       <Form 
         onSubmit={onSubmit}

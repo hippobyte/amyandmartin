@@ -1,6 +1,7 @@
 export { default as withFormGroup } from './src/withFormGroup'
 export { default as Button } from './src/Button'
 export { default as ButtonGroup } from './src/ButtonGroup'
+export { default as Checkbox } from './src/Checkbox'
 export { default as ErrorMessage } from './src/ErrorMessage'
 export { default as Empty } from './src/Empty'
 export { default as Form } from './src/Form'

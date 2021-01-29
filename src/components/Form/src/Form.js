@@ -3,12 +3,12 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Box } from 'grommet' 
 
-const Form = ({ defaultValues, validationSchema, onSubmit, margin, width, loading, disabled, match, children, formDefaults }) => {
+const Form = ({ defaultValues, validationSchema, onSubmit, margin, width, loading, disabled, match, formDefaults, mode, reValidateMode, children }) => {
   const methods = useForm({ 
     defaultValues: defaultValues, 
     resolver: yupResolver(validationSchema),
-    mode: 'all',
-    reValidateMode: 'onChange'
+    mode: mode,
+    reValidateMode: reValidateMode
   })
   const { handleSubmit, trigger } = methods
 
@@ -71,7 +71,9 @@ Form.defaultProps = {
   width: undefined,
   margin: { bottom: "large" },
   visibility: true,
-  formDefaults: {}
+  formDefaults: {},
+  mode: 'all',
+  reValidateMode: 'onChange'
 }
 
 export default Form

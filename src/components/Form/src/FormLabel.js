@@ -20,6 +20,14 @@ const FormLabel = ({ name, inputType, label, helpText, description, required, si
     )
   }
 
+  if (inputType === "Checkbox") {
+    return (
+      <Box margin={{ top: "xsmall" }}>
+        {children}
+      </Box>
+    )
+  }
+
   if (inputType == "Header") {
     return (
       <Box margin={{ bottom: "medium", top: "small" }} >

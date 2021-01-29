@@ -18,18 +18,19 @@ const LoginForm = ({ onClose, onCodeRequest }) => {
       maxLength: 8,
       label: {
         English: "Enter your invitation code",
-        Chinese: "Enter your invitation code",
-        Polish: "Podaj kod",
+        Chinese: "輸入邀請碼",
+        Polish: "Podaj kod zaproszenia",
       },
       helpText: {
-        English: "You can find the invitation code at bottom of your invitation card"
+        English: "You can find the invitation code at bottom of your invitation card",
+        Chinese: "您可以在邀請卡底部找到邀請代碼",
+        Polish: "Kod zaproszenia można znaleźć na dole karty zaproszenia"
       },
-      placeholder: {
-        English: "enter invitation code...",
-        Chinese: "enter invitation code...",
-        Polish: "enter invitation code...",
+      description: {
+        English: <Anchor weight={600} size="medium" label="Are you missing an invitation code?" onClick={() => onCodeRequest(true)} />,
+        Chinese: <Anchor weight={600} size="medium" label="您是否缺少邀請碼？" onClick={() => onCodeRequest(true)} />,
+        Polish: <Anchor weight={600} size="medium" label="Brakuje Ci kodu zaproszenia?" onClick={() => onCodeRequest(true)} />
       },
-      description: <Anchor weight={600} size="medium" label="Are you missing an invitation code?" onClick={() => onCodeRequest(true)} />,
       "validations": [
         {
           "type": "required",
