@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "NO",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "NO"
+    },
+    {
+      "locale": "pl",
+      "translation": "NIE"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "NO"
+    }
+  ]
+}
