@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "Will you attend our wedding celebration?",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "Will you attend our wedding celebration?"
+    },
+    {
+      "translation": "Czy będziesz uczestniczyć w naszym weselu?",
+      "locale": "pl"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "你會參加我們的婚禮慶典嗎？"
+    }
+  ]
+}
