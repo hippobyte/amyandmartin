@@ -5,13 +5,12 @@ import { useOptions } from '../../../state/hooks'
 const RsvpConfirm = ({ page, language }) => {
   const { user } = useOptions()
 
-  console.log(page)
-
   const Confirmed = () => {
+    const content = page.descriptions.find(item => item.languageTitle = language.title)
     return (
       <>
        <Paragraph>
-         We are excited to see you September 5th. that you are able to attend.
+        {content.description}
        </Paragraph>
        <Signature />
       </>

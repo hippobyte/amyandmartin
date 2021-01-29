@@ -1,17 +1,18 @@
 {
   "templateKey": "confirm",
   "path": "/rsvp-confirmation",
+  "hiddenFromMenu": true,
   "order": 100,
   "translations": [
     {
       "languageTitle": "English",
       "title": "Thank you for your response.",
-      "menuTitle": "NA"
+      "menuTitle": "Rsvp Decline"
     },
     {
       "languageTitle": "Polish",
       "title": "Dziękujemy za odpowiedź.",
-      "menuTitle": "NA"
+      "menuTitle": "Rsvp Decline"
     }
   ],
   "descriptions": [
