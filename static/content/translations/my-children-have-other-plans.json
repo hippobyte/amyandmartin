@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "My children have other plans."
+    },
+    {
+      "locale": "pl",
+      "translation": "Moje dzieci mają inne plany."
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "My children have other plans."
+    }
+  ],
+  "title": "My children have other plans."
+}
