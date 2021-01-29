@@ -24,6 +24,14 @@
     {
       "languageTitle": "English",
       "description": "We are saddened that you are unable to join us, however, we do understand and hope to see you in the near future."
+    },
+    {
+      "languageTitle": "Polish",
+      "description": "Jest nam przykro, że nie możesz do nas dołączyć, jednak rozumiemy i mamy nadzieję, że zobaczymy się w najbliższej przyszłości."
+    },
+    {
+      "languageTitle": "Chinese",
+      "description": "我們很遺憾您無法加入我們，但是，我們的確理解並希望在不久的將來見到您。"
     }
   ]
 }
