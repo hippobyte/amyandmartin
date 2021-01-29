@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "Update Response",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "Update Response"
+    },
+    {
+      "locale": "pl",
+      "translation": "Zaktualizuj odpowiedź"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "更新回應"
+    }
+  ]
+}
