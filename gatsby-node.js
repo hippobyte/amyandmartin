@@ -8,9 +8,10 @@ if (process.env.NODE_ENV === 'development') {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const pageComponent  = path.resolve(`./src/templates/PageTemplate.js`)
-  const photosComponent  = path.resolve(`./src/templates/GalleryTemplate.js`)
-  const rsvpComponent  = path.resolve(`./src/templates/RsvpTemplate.js`)
+  const pageComponent        = path.resolve(`./src/templates/PageTemplate.js`)
+  const photosComponent      = path.resolve(`./src/templates/GalleryTemplate.js`)
+  const rsvpComponent        = path.resolve(`./src/templates/RsvpTemplate.js`)
+  const rsvpConfirmComponent = path.resolve(`./src/templates/RsvpConfirmTemplate.js`)
 
   const slugger = (options, join="/") => {
     return options.map(option => slugify(option)).join(join)
@@ -149,6 +150,8 @@ exports.createPages = async ({ graphql, actions }) => {
         return photosComponent
       case "rsvp":
         return rsvpComponent
+      case "confirm":
+        return rsvpConfirmComponent
       default:
         return pageComponent
     }

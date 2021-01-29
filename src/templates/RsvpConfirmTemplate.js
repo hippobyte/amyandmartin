@@ -19,7 +19,7 @@ const RsvpTemplate = ({ location, pageContext }) => {
         <ResponsiveContext.Consumer>
           {
             size => {
-              return <RsvpDetail page={page} viewportSize={size} language={language} />
+              return <Box>Confirmation</Box>
             }
           }
         </ResponsiveContext.Consumer>

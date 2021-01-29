@@ -1,5 +1,6 @@
-import React, { useState }  from 'react'
+import React from 'react'
 import * as yup from 'yup'
+import { navigate } from 'gatsby'
 import { gql, useMutation } from '@apollo/client'
 import { Box, Text } from 'grommet'
 import { useAuth } from '../../../hooks'
@@ -19,6 +20,7 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
 
   if (data) {
     auth.setUser(rsvpData)
+    navigate(`/${language.locale}/confirm`)
   }
 
   const setFormItems = () => {
