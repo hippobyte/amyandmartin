@@ -5,12 +5,17 @@
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Thank you for your response.",
+      "title": "Thank you for responding.",
       "menuTitle": "NA"
     },
     {
       "languageTitle": "Polish",
       "title": "Dziękujemy za odpowiedź.",
+      "menuTitle": "NA"
+    },
+    {
+      "languageTitle": "Chinese",
+      "title": "謝謝您的回答。",
       "menuTitle": "NA"
     }
   ],
@@ -22,6 +27,10 @@
     {
       "languageTitle": "Polish",
       "description": "Cieszymy się, że możesz dołączyć do nas, aby świętować nasze zaślubiny 5-tego Wrzsnia w Kaliforni."
+    },
+    {
+      "languageTitle": "Chinese",
+      "description": "\\\n我們很高興您可以加入我們，於9月5日在加利福尼亞州塔霍市慶祝我們的結婚慶典。"
     }
   ]
 }
