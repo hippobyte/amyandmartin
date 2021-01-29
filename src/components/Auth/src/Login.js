@@ -71,6 +71,8 @@ const Login = ({ rest }) => {
     }
   `)
 
+  console.log(translator(data, locale))
+
   return (
     <PageContent
       image={{

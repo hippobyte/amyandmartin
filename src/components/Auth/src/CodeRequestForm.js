@@ -14,6 +14,7 @@ const CodeRequestForm = ({ onClose }) => {
     {
       inputType: "TextInput",
       name: 'email',
+      size: "large",
       maxLength: 255,
       label: {
         English: "Enter your email address",

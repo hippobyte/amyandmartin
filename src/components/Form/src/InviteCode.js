@@ -1,11 +1,11 @@
 import React from 'react'
 import { Controller } from 'react-hook-form'
 import ReactCodeInput from 'react-verification-code-input'
-import { Box, ThemeContext, Button } from 'grommet'
+import { Box, ThemeContext } from 'grommet'
 import { colors } from '../../../style/colors'
 
-const InviteCode = ({ loading, intent, name, maxLength, theme, methods }) => {
-  const { control, setValue, watch } = methods
+const InviteCode = ({ loading, name, maxLength, methods }) => {
+  const { control, setValue } = methods
 
   const onChange = (value) => {
     setValue(name, value)
@@ -39,7 +39,7 @@ const InviteCode = ({ loading, intent, name, maxLength, theme, methods }) => {
             <ReactCodeInput
               loading={loading}
               fields={maxLength}
-              type="text"
+              type="number"
               onChange={onChange}
             />
           }

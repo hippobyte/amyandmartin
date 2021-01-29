@@ -4,9 +4,10 @@ import { useOptions } from '../../../state/hooks'
 
 const RsvpConfirm = ({ page, language }) => {
   const { user } = useOptions()
+  const greeting = page.translations.find(item => item.languageTitle === language.title)
+  const content = page.descriptions.find(item => item.languageTitle === language.title)
 
   const Confirmed = () => {
-    const content = page.descriptions.find(item => item.languageTitle = language.title)
     return (
       <>
        <Paragraph>
@@ -21,7 +22,7 @@ const RsvpConfirm = ({ page, language }) => {
     return (
       <>
        <Paragraph>
-         We are saddenned that you are unable to attend.
+        {content.description}
        </Paragraph>
        <Signature />
       </>
@@ -40,7 +41,7 @@ const RsvpConfirm = ({ page, language }) => {
   return (
     <Box margin={{ horizontal: "large" }} pad={{ top: "large", bottom: "6em" }}>
       <Text weight={500} size="large" margin={{ bottom: "small" }}>
-        Thank you for your response, <Text size="large" weight={600}>{user.guest.firstName} {user.guest.lastName}</Text>.
+        {greeting.title}, <Text size="large" weight={600}>{user.guest.firstName} {user.guest.lastName}</Text>.
       </Text>
       {
         user.status === "confirmed" && <Confirmed />
