@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "Your companion's name",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "Your companion's name"
+    },
+    {
+      "locale": "pl",
+      "translation": "Imię twojego towarzysza"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "Your companion's name"
+    }
+  ]
+}
