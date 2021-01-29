@@ -196,9 +196,7 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
   }
 
   return (
-    <Box
-      margin={{ horizontal: "large", vertical: "small" }}
-    >
+    <Box margin={{ horizontal: "large", vertical: "small" }}>
       <Text size="small" weight={600}>RSVP FOR</Text>
       <Text size="xxlarge" margin={{ bottom: "medium" }} weight={500}>{user.guest.firstName} {user.guest.lastName},</Text>
       <Form 

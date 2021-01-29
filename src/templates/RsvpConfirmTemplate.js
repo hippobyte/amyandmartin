@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, ResponsiveContext } from 'grommet'
-import { PageLayout, PageNav, RsvpDetail } from '../components'
+import { PageLayout, PageNav, RsvpConfirm } from '../components'
 import { slugger } from '../utils'
  
 const RsvpTemplate = ({ location, pageContext }) => { 
@@ -19,7 +19,7 @@ const RsvpTemplate = ({ location, pageContext }) => {
         <ResponsiveContext.Consumer>
           {
             size => {
-              return <Box>Confirmation</Box>
+              return <RsvpConfirm page={page} viewportSize={size} language={language} />
             }
           }
         </ResponsiveContext.Consumer>
