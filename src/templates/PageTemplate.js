@@ -1,5 +1,5 @@
 import React from 'react'
-import { ResponsiveContext } from 'grommet'
+import { Box, ResponsiveContext } from 'grommet'
 import { LanguageBar, Markdown, PageLayout, PageContent, PageHeading, PageHeader, Rsvp } from '../components'
 import { slugger } from '../utils'
  
@@ -31,7 +31,9 @@ const PageTemplate = ({ location, pageContext }) => {
             <>
             <PageHeader />
             <LanguageBar />
-            <Rsvp />
+            <Box pad={{ bottom: "6em" }}>
+              <Rsvp />
+            </Box>
             </>
           ) : (
             <>
@@ -53,6 +55,8 @@ const PageTemplate = ({ location, pageContext }) => {
               const heading = current && current.title
               const content = current && current.description
               const reverse = index%2 === 0 ? true : false
+              const isLast  = sections.length === (index + 1)
+
               return (
                 <PageContent
                   reverse={size === "small" ? false : reverse}
@@ -63,7 +67,11 @@ const PageTemplate = ({ location, pageContext }) => {
                 >
                   <PageHeading title={heading} alignSelf="start" style={{ textTransform: 'uppercase' }} />
                   {
-                    content && <Markdown>{content}</Markdown>
+                    content && (
+                      <Box pad={size === "small" && isLast && { bottom: "6em" }}>
+                        <Markdown>{content}</Markdown>
+                      </Box>
+                    )
                   }
                 </PageContent>
               )
