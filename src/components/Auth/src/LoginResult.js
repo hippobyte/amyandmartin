@@ -46,7 +46,6 @@ const LoginResult = ({ searchTerm, onReset, onCodeRequest, language }) => {
   }
 
   if (error) {
-    console.log(error)
     return (
       <Box pad="medium">
         Oops, an unexpected error occurred...
