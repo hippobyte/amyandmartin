@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "My children also love a good party.",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "My children also love a good party."
+    },
+    {
+      "locale": "pl",
+      "translation": "Moje dzieci też uwielbiają dobre przyjęcie."
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "My children also love a good party."
+    }
+  ]
+}
