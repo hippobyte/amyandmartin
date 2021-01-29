@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "I party best with my partner",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "I party best with my partner"
+    },
+    {
+      "locale": "pl",
+      "translation": "Najlepiej imprezuję z moim partnerem"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "I party best with my partner"
+    }
+  ]
+}
