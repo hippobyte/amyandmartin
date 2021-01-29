@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Anchor, Box, Layer, Paragraph, Text } from 'grommet'
+import { Anchor, Box, Layer, Text } from 'grommet'
 import { Previous } from 'grommet-icons'
 import { useFormValidations, useOptions } from '../../../state/hooks'
 import { Form, FormItem } from '../../../components'

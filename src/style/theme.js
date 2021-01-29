@@ -46,7 +46,19 @@ export const theme = {
     border: {
       radius: '6px'
     },
-    intent: intent
+    intent: {
+      ...intent,
+      primary: {
+        color: colors.white,
+        background: colors["primary-12"],
+        borderColor: colors["primary-12"],
+        hover: {
+          color: colors.white,
+          background: colors["primary-14"],
+          borderColor: colors["primary-14"],
+        }
+      }
+    }
   },
   global: {
     font: {

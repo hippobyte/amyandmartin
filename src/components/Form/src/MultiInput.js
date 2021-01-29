@@ -101,7 +101,11 @@ const FormItems = ({ formItemIndex, formItemName, formItems, columns, disabled, 
       })
     }
       <Box justify="center" align="end">
-        <DeleteButton index={formItemIndex} formItemErrors={formItemErrors} onClick={remove} />
+        <DeleteButton 
+          index={formItemIndex} 
+          formItemErrors={formItemErrors} 
+          onClick={remove}  
+        />
       </Box>
     </Grid>
   )

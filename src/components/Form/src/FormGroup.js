@@ -9,8 +9,6 @@ const FormGroup = ({ preview, loading, actions, name, inputType, required, disab
     methods && methods.errors && methods.clearErrors(name)
     rest.onChange && rest.onChange(event)
   }
-  
-  const error = methods && methods.errors && name && methods.errors[name] && methods.errors[name].message
 
   const previewContainerProps = (preview) => preview && ({
     pad: 'small'
@@ -24,6 +22,12 @@ const FormGroup = ({ preview, loading, actions, name, inputType, required, disab
 
   const containerProps = previewContainerProps(preview)
   const contentProps = previewContentProps(preview, loading)
+
+  const errorMessage = () => {
+    return methods && methods.errors && name && methods.errors[name] && methods.errors[name].message
+  }
+
+  const error = errorMessage()
 
   return (
     <Box fill="horizontal" {...containerProps}>
@@ -67,10 +71,7 @@ const FormGroup = ({ preview, loading, actions, name, inputType, required, disab
                 </Box>
               )
             }
-            <ErrorMessage 
-              message={error}
-              inputType={inputType}
-            />
+            <ErrorMessage message={error} inputType={inputType} />
           </FormLabel>
         </Box>
       </Box>

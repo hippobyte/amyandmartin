@@ -14,7 +14,7 @@ const RsvpTemplate = ({ location, pageContext }) => {
       location={location}
       title={pageHeading}
     >
-      <Box>
+      <Box pad={{ bottom: "8em" }}>
         <PageNav items={pageNav} />
         <ResponsiveContext.Consumer>
           {

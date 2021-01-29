@@ -7,12 +7,12 @@ import { FormItem } from '../index'
 const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, methods, onChange, loading, disabled }) => {
   const { options } = useOptions()
   const [selectedValue, setSelectedValue] = useState(defaultValue)
-  const { setValue, register, unregister } = methods
+  const { setValue, getValues, register } = methods
   const language = options.language.title
 
   useEffect(() => {
-    register(name)
-    defaultValue && setValue(name, defaultValue)
+    const value = getValues(name)
+    value && setSelectedValue(value)
   }, [])
 
   const toggleComponentType = (value) => {
@@ -23,15 +23,7 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
         shouldDirty: true
       })
       onChange(value)
-      // unregisterKeys(value)
     }
-  }
-
-  const unregisterKeys = (value) => {
-    const unregistrable = buttons.map(item => item.key).filter(item => item !== value)
-    unregistrable.forEach(item => {
-      unregister(item)
-    })
   }
 
   return (
@@ -40,11 +32,10 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
         extend: {
           '& span': {
             userSelect: 'none',
-            fontFamily: "'Montserrat', sans-serif",
-            transition: 'color .250s ease-in-out',
+            fontFamily: "'Montserrat', sans-serif"
           },
           '&.button-wrapper': {
-            transition: 'background .250s ease-in-out, border-color .250s ease-in-out',
+            transition: 'background .150s ease-in-out, border-color .150s ease-in-out',
             cursor: disabled ? 'not-allowed' : 'pointer',
             '&:hover': {
               backgroundColor: colors["light-0"],
@@ -53,8 +44,16 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
               }
             },
             '&.active': {
-              backgroundColor: colors["light-1"],
-              border: !compact && `1px solid ${colors.brand}`
+              '& span': {
+                color: colors["black"]
+              },
+              backgroundColor: colors["primary-0"],
+              border: !compact && `1px solid ${colors.brand}`,
+              '&:hover': {
+                '& span': {
+                  color: colors["black"]
+                }
+              }
             }
           }
         }
@@ -65,6 +64,7 @@ const ButtonGroup = ({ compact, name, viewportSize, defaultValue, buttons, metho
         border={compact && { size: "xsmall", color: "light-7" }}
         round={compact && "xsmall"}
       >
+        <input name={name} ref={register} type="hidden" />
         {
           buttons && buttons.map((button, index) => {
             const { key, title, description, label } = button

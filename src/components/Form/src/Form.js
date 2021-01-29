@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Box } from 'grommet' 
@@ -11,9 +10,10 @@ const Form = ({ defaultValues, validationSchema, onSubmit, margin, width, loadin
     mode: 'all',
     reValidateMode: 'onChange'
   })
-  const { handleSubmit } = methods
+  const { handleSubmit, trigger } = methods
 
   const handleFormSubmit = (data) => {
+    trigger()
     onSubmit(data)
   }
 

@@ -1,31 +1,29 @@
 import React from 'react'
 import { Button as GrommetButton, Text, ThemeContext } from 'grommet'
-import { intent as themeIntent } from '../../../style'
+import { theme } from '../../../style'
 
-const Button = ({ label, color, intent, size, ...buttonProps }) => {
+const Button = ({ label, intent, size, ...buttonProps }) => {
   return (
     <ThemeContext.Extend value={{
       button: {
         extend: {
           borderRadius: '8px',
-          borderColor: themeIntent[intent].borderColor,
-          background: themeIntent[intent].background,
-          color: themeIntent[intent].color
+          borderColor: theme.button.intent[intent].borderColor,
+          background: theme.button.intent[intent].background,
+          color: theme.button.intent[intent].color
         }
       },
       global: {
         focus: {
           shadow: {
-            color: themeIntent[intent].background
+            color: theme.button.intent[intent].background
           }
         }
       }
     }}>
       <GrommetButton
         margin={{ top: "xsmall" }}
-        type="submit"
         label={<Text size={size} weight={600}>{label}</Text>}
-        color={color ? color : intent ? themeIntent[intent].background : "primary"}
         size={size}
         {...buttonProps}
       />

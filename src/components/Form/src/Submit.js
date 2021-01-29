@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button, Text, ThemeContext } from 'grommet'
-import { intent as themeIntent } from '../../../style'
+import { Text, ThemeContext } from 'grommet'
+import { Button } from '../index'
 
-const Submit = ({ label, color, disabled, loading, intent, methods }) => {
+const Submit = ({ label, disabled, loading, intent, size, methods }) => {
   const formState = methods ? methods.formState : {}
   const errors = methods ? methods.errors : {}
   const { isSubmitting, isDirty } = formState
@@ -22,12 +22,16 @@ const Submit = ({ label, color, disabled, loading, intent, methods }) => {
         margin={{ top: "xsmall" }}
         type="submit"
         label={<Text weight={600}>{label}</Text>}
-        primary
         disabled={isDisabled}
-        color={color ? color : intent ? themeIntent[intent].background : "primary"}
+        intent={intent}
+        size={size}
       />
     </ThemeContext.Extend>
   )
+}
+
+Submit.defaultProps = {
+  intent: "primary"
 }
 
 export default Submit

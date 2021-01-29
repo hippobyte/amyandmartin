@@ -1,27 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState }  from 'react'
+import * as yup from 'yup'
+import { gql, useMutation } from '@apollo/client'
 import { Box, Text } from 'grommet'
-import { useFormValidations, useOptions } from '../../../state/hooks'
+import { useOptions } from '../../../state/hooks'
 import { Form, FormItem } from '../..'
 
 const RsvpDetail = ({ language, page, viewportSize }) => {
+  const [ mutation, { loading, data, error } ] = useMutation(updateRsvp)
+  const [locked, setLocked] = useState(false)
   const { user } = useOptions()
-  const { createValidations } = useFormValidations()
-  const options = pageOptions(page, language)
 
-  console.log(user)
+  const rsvpData = data ? data.updateRsvp.rsvp : user
+
+  if (error) {
+    console.log(error)
+  }
+
+  if (data) {
+    setLocked(true)
+  }
 
   const setFormItems = () => {
-    const formItems = [
-      {
-        inputType: "Header",
-        label: `${user.guest.firstName},`
-      }
-    ]
+    const formItems = []
 
     const submitAction = {
       inputType: "Submit",
       name: "submit",
       color: "brand-12",
+      size: "large",
       label: {
         English: "Update Response",
         Chinese: '更新回應',
@@ -33,7 +39,11 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
       inputType: "ButtonGroup",
       compact: true,
       name: "status",
-      label: "Will you attend our wedding celebration?",
+      label: {
+        English: "Will you attend our wedding celebration?",
+        Chinese: 'Will you attend our wedding celebration?',
+        Polish: "Will you attend our wedding celebration?"
+      },
       size: "large",
       buttons: []
     }
@@ -49,7 +59,7 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
     const attendanceButtonConfirmedPartner = {
       inputType: "ButtonGroup",
       compact: true,
-      name: "partner",
+      name: "partnerStatus",
       label: "Will your partner attend?",
       buttons: [
         {
@@ -62,7 +72,7 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
             {
               inputType: "TextInput",
               size: "small",
-              name: "guestName",
+              name: "partnerName",
               label: "Your partner's name",
               placeholder: "Enter your partner's name..."
             }
@@ -80,7 +90,7 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
     const attendanceButtonConfirmedChildren = {
       inputType: "ButtonGroup",
       compact: true,
-      name: "status",
+      name: "childStatus",
       label: "Will your children attend?",
       buttons: [
         {
@@ -92,7 +102,7 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
             {
               inputType: "MultiInput",
               size: "small",
-              name: "options",
+              name: "children",
               label: "Child Guests",
               maxItems: user.guest.childrenCount,
               helpText: "under 21 years of age",
@@ -131,8 +141,18 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
       description: <Text size="small" weight={500}>I am unable to attend the celebration</Text>
     }
 
+    const dietaryRestrictions = {
+      inputType: "TextArea",
+      name: "dietaryRestrictions",
+      maxLength: 140,
+      label: "Do you, or your guest/children, have dietary restrictions?",
+      defaultValue: user.guest.dietaryRestrictions,
+    }
+
     user.guest.guestCount > 0 && attendanceButtonConfirmed.formItems.push(attendanceButtonConfirmedPartner)
     user.guest.childrenCount > 0 && attendanceButtonConfirmed.formItems.push(attendanceButtonConfirmedChildren)
+
+    attendanceButtonConfirmed.formItems.push(dietaryRestrictions)
     
     attendance.buttons.push(attendanceButtonConfirmed)
     attendance.buttons.push(attendanceButtonDeclined)
@@ -143,22 +163,52 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
   }
 
   const formItems = setFormItems()
-  const validations = createValidations(formItems)
+  const validations = yup.object().shape({
+    status: yup
+      .string()
+      .required('response is required'),
+    partnerStatus: yup
+      .string()
+      .when('status', { 
+        is: "confirmed",
+        then: yup.string().required('response is required')
+      }),
+    childStatus: yup
+      .string()
+      .when('status', { 
+        is: (value) => value === "confirmed",
+        then: yup.string().required('response is required')
+      })
+  })
 
   const onSubmit = (formData) => {
-    console.log(formData)
+    mutation({
+      variables: {
+        input: {
+          id: user.id,
+          ...formData
+        }
+      }
+    })
   }
 
   return (
     <Box
       margin={{ horizontal: "large", vertical: "small" }}
     >
+      <Text size="small" weight={600}>RSVP FOR</Text>
+      <Text size="xxlarge" margin={{ bottom: "medium" }} weight={500}>{user.guest.firstName} {user.guest.lastName},</Text>
       <Form 
         onSubmit={onSubmit}
         validationSchema={validations}
         width={viewportSize === "small" ? "100%" : "75%"}
         defaultValues={{
-          guestName: user.guest.guestName
+          status: rsvpData.status,
+          partnerStatus: rsvpData.partnerStatus,
+          partnerName: rsvpData.guest.guestName,
+          childStatus: rsvpData.childStatus,
+          children: rsvpData.options.children.map(item => ({ childName: item })),
+          dietaryRestrictions: rsvpData.dietaryRestrictions
         }}
       >
         {
@@ -166,6 +216,8 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
             const { label, placeholder, helpText, ...formItem } = item
             return (
               <FormItem
+                disabled={loading}
+                loading={loading}
                 viewportSize={viewportSize}
                 label={label && label[language.title] ? label[language.title] : label}
                 placeholder={placeholder && placeholder[language.title] ? placeholder[language.title] : placeholder}
@@ -180,12 +232,22 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
   )
 }
 
-function pageOptions(page, language) {
-  const titleObject = page.translations && page.translations.find(item => item.languageTitle === language.title)
-
-  return ({
-    title: titleObject && titleObject.title
-  })
-}
+export const updateRsvp = gql`
+  mutation updateRsvp($input: UpdateRsvpInput!) {
+    updateRsvp(input: $input) {
+      rsvp {
+        id
+        status
+        partnerStatus
+        childStatus
+        dietaryRestrictions
+        options
+        guest {
+          guestName
+        }
+      }
+    }
+  }
+`
 
 export default RsvpDetail

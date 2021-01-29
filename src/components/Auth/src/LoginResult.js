@@ -11,6 +11,9 @@ const LoginResult = ({ searchTerm, onReset, onCodeRequest, language }) => {
       rsvp(inviteCode: $inviteCode) {
         id
         status
+        partnerStatus
+        childStatus
+        dietaryRestrictions
         guestCount
         childrenCount
         options
