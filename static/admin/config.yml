@@ -168,7 +168,7 @@ collections:
         ]
       },
       {
-        file: "static/content/pages/confirm.json",
+        file: "static/content/pages/rsvp-confirm.json",
         label: "RSVP Confirm Page",
         name: "confirm",
         fields: [
@@ -187,7 +187,7 @@ collections:
         ]
       },
       {
-        file: "static/content/pages/decline.json",
+        file: "static/content/pages/rsvp-decline.json",
         label: "RSVP Decline Page",
         name: "decline",
         fields: [
