@@ -1,0 +1,21 @@
+{
+  "translations": [
+    {
+      "languageTitle": "English",
+      "title": "Thank you for your response.",
+      "menuTitle": "NA"
+    },
+    {
+      "languageTitle": "Polish",
+      "title": "Dziękujemy za odpowiedź.",
+      "menuTitle": "NA"
+    }
+  ],
+  "descriptions": [
+    {
+      "languageTitle": "English",
+      "description": "We are excited to see you on September 5th to help us celebrate."
+    }
+  ],
+  "order": 1000
+}
