@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "Will your companion attend?",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "Will your companion attend?"
+    },
+    {
+      "locale": "pl",
+      "translation": "Czy twój towarzysz przyjdzie?"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "Will your companion attend?"
+    }
+  ]
+}
