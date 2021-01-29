@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "Will your children attend?"
+    },
+    {
+      "locale": "pl",
+      "translation": "Czy twoje dzieci będą uczestniczyć?"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "Will your children attend?"
+    }
+  ],
+  "title": "Will your children attend?"
+}
