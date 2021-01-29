@@ -210,7 +210,7 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
           partnerStatus: rsvpData.partnerStatus,
           partnerName: rsvpData.guest.guestName,
           childStatus: rsvpData.childStatus,
-          children: rsvpData.options.children.map(item => ({ childName: item })),
+          children: rsvpData.options.children && rsvpData.options.children.map(item => ({ childName: item })),
           dietaryRestrictions: rsvpData.dietaryRestrictions
         }}
       >
