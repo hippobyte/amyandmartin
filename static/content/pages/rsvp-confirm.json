@@ -6,17 +6,17 @@
   "translations": [
     {
       "languageTitle": "English",
-      "title": "Thank you for your response.",
+      "title": "Thank you for responding",
       "menuTitle": "Rsvp Decline"
     },
     {
       "languageTitle": "Polish",
-      "title": "Dziękujemy za odpowiedź.",
+      "title": "Dziękujemy za odpowiedź",
       "menuTitle": "Rsvp Decline"
     },
     {
       "languageTitle": "Chinese",
-      "title": "謝謝您的回答。",
+      "title": "謝謝您的回答",
       "menuTitle": "NA"
     }
   ],
