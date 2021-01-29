@@ -1,17 +1,17 @@
 {
   "templateKey": "translations",
-  "title": "I party best with my partner.",
+  "title": "My partner is unable to attend.",
   "translations": [
     {
       "locale": "en",
-      "translation": "I party best with my partner."
+      "translation": "My partner is unable to attend."
     },
     {
       "locale": "pl",
-      "translation": "Najlepiej imprezuję z moim partnerem."
+      "translation": "Mój partner nie może uczestniczyć."
     },
     {
-      "translation": "I party best with my partner.",
+      "translation": "My partner is unable to attend.",
       "locale": "zh-cn"
     }
   ]
