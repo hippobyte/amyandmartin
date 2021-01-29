@@ -4,10 +4,9 @@ import { PageLayout, PageNav, RsvpConfirm } from '../components'
 import { slugger } from '../utils'
  
 const RsvpConfirmationTemplate = ({ location, pageContext }) => { 
-  const { pages, page, language } = pageContext
+  const { pageNav, page, language } = pageContext
 
   const pageHeading = page.translations && page.translations.find(item => item.languageTitle === language.title) && page.translations.find(item => item.languageTitle === language.title).title
-  const pageNav = pages.filter(item => !item.hiddenFromMenu).map(item => ({ path: slugger(["/", language.locale, item.templateKey === "index" ? "" : item.templateKey]), label: item.translations.find(item => item.languageTitle === language.title).menuTitle }))
 
   return (
     <PageLayout

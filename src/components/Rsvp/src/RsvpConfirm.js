@@ -2,14 +2,19 @@ import React from 'react'
 import { Box, Paragraph, Text } from 'grommet'
 import { useOptions } from '../../../state/hooks'
 
-const RsvpConfirm = ({ page }) => {
+const RsvpConfirm = ({ page, language }) => {
   const { user } = useOptions()
 
   console.log(page)
 
   const Confirmed = () => {
     return (
-      <Text weight={500}>Glad you're going.</Text>
+      <>
+       <Paragraph>
+         We are excited to see you September 5th. that you are able to attend.
+       </Paragraph>
+       <Signature />
+      </>
     )
   } 
 

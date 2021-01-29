@@ -20,7 +20,8 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
 
   if (data) {
     auth.setUser(rsvpData)
-    navigate(`/${language.locale}/confirm`)
+    rsvpData.status == "confirmed" && navigate(`/${language.locale}/confirm`)
+    rsvpData.status == "declined"  && navigate(`/${language.locale}/decline`)
   }
 
   const setFormItems = () => {

@@ -151,7 +151,9 @@ exports.createPages = async ({ graphql, actions }) => {
         return photosComponent
       case "rsvp":
         return rsvpComponent
-      case "confirm", "decline":
+      case "confirm":
+        return rsvpConfirmComponent
+      case "decline":
         return rsvpConfirmComponent
       default:
         return pageComponent
@@ -162,12 +164,13 @@ exports.createPages = async ({ graphql, actions }) => {
     defaultPages.forEach(page => {
       const pageKey = page.templateKey === "index" ? "" : page.templateKey
       const slug = slugger([language.locale, pageKey])
+      const pageNav = defaultPages.filter(item => !item.hiddenFromMenu).map(item => ({ path: slugger(["/", language.locale, item.templateKey === "index" ? "" : item.templateKey]), label: item.translations.find(item => item.languageTitle === language.title).menuTitle }))
       createPage({
         path: slug,
         component: componentType(page.templateKey),
         context: {
           slug: slug,
-          pages: defaultPages,
+          pageNav: pageNav,
           page: page,
           language: language,
           photos: photos,

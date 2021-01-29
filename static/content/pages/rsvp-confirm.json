@@ -1,23 +1,27 @@
 {
   "templateKey": "confirm",
-  "path": "/rsvp-confirm",
-  "hiddenFromMenu": true,
+  "path": "/rsvp-confirmation",
   "order": 100,
   "translations": [
     {
       "languageTitle": "English",
-      "title": "RSVP Confirmation",
-      "menuTitle": "Rsvp"
+      "title": "Thank you for your response.",
+      "menuTitle": "NA"
     },
     {
       "languageTitle": "Polish",
-      "title": "RSVP Confirmation",
-      "menuTitle": "Rsvp"
+      "title": "Dziękujemy za odpowiedź.",
+      "menuTitle": "NA"
+    }
+  ],
+  "descriptions": [
+    {
+      "languageTitle": "English",
+      "description": "We are pleased that you can join us to celebrate our wedding celebration this September 5th in Tahoe, California."
     },
     {
-      "languageTitle": "Chinese",
-      "title": "RSVP Confirmation",
-      "menuTitle": "Rsvp"
+      "languageTitle": "Polish",
+      "description": "Cieszymy się, że możesz dołączyć do nas, aby świętować nasze zaślubiny 5-tego Wrzsnia w Kaliforni."
     }
   ]
 }
