@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "I am unable to attend the celebration.",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "I am unable to attend the celebration."
+    },
+    {
+      "locale": "pl",
+      "translation": "Nie mogę uczestniczyć w uroczystości."
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "I am unable to attend the celebration."
+    }
+  ]
+}
