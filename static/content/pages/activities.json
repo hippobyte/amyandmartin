@@ -20,5 +20,18 @@
       "menuTitle": "Zwiedzanie"
     }
   ],
-  "featuredimage": "../media/tahoe-beach.jpg"
+  "featuredimage": "../media/site-tahoe-beach.jpg",
+  "sections": [
+    {
+      "order": 0,
+      "featuredimage": "../media/site-nature-pool.jpg",
+      "content": [
+        {
+          "languageTitle": "English",
+          "title": "Tubing and Kayaking",
+          "description": "Tubing and kayaking."
+        }
+      ]
+    }
+  ]
 }
