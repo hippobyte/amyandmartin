@@ -184,7 +184,7 @@ export const theme = {
     },
     "medium": {
       "size": "22px",
-      "height": "30px",
+      "height": "38px",
       "maxWidth": "528px"
     },
     "large": {
