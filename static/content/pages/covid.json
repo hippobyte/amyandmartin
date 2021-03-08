@@ -21,30 +21,7 @@
     }
   ],
   "featuredimage": "../media/24f2ed21-4a9d-4784-aef9-9bf13eae76e1.jpg",
-  "sections": [
-    {
-      "order": 0,
-      "featuredimage": "../media/site-nature-pool.jpg",
-      "content": [
-        {
-          "languageTitle": "English",
-          "title": "Tubing and Kayaking",
-          "description": "Tubing and kayaking."
-        }
-      ]
-    },
-    {
-      "order": 0,
-      "featuredimage": "../media/site-commons-beach.jpg",
-      "content": [
-        {
-          "languageTitle": "English",
-          "title": "Waterfront Activities",
-          "description": "[Skylandia State Park & Beach](http://www.tahoepublicbeaches.org/skylandia-state-park-beach/)\n\nLake Forest Rd, Tahoe City, CA 96145\n\nA 24-acre park located 1.5 miles east of Tahoe City on Lake Forest Road. Skylandia Park provides bike trails, hiking trails, and picnicking. The park also features a beach, pier and swimming area.\n\n[Tahoe City Commons Beach](https://www.tahoepublicbeaches.org/beaches/tahoe-city-commons-beach/)\n\n400 North Lake Blvd, Tahoe City, CA 96145\n\nCommons Beach is popular for sunbathing, swimming, and picnicking. Group picnic sites and children's playgrounds are located within a large lakefront grass and sand area."
-        }
-      ]
-    }
-  ],
+  "sections": [],
   "descriptions": [
     {
       "languageTitle": "English",
