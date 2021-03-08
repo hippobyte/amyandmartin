@@ -130,6 +130,35 @@ collections:
         ]
       },
       {
+        file: "static/content/pages/covid.json",
+        label: "Covid Page",
+        name: "covid",
+        fields: [
+          { label: "Template Key", name: "templateKey", widget: "hidden", default: "covid" },
+          { label: "Page Path", name: "path", widget: "hidden", default: "/covid" },
+          { label: "Page Title", name: "translations", widget: "list", summary: '{{fields.title}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+            { label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: [ "title" ], valueField: "title" },
+            { label: "Title", name: "title", widget: "string" },
+            { label: "Menu Title", name: "menuTitle", widget: "string" },
+          ] },
+          { label: "Page Description", name: "descriptions", widget: "list", summary: '{{fields.description}} - {{fields.languageTitle}}', minimize_collapsed: true, fields: [
+            { label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: [ "title" ], valueField: "title" },
+            { label: "Description", name: "description", widget: "markdown" },
+          ] },
+          { label: Primary Image, name: featuredimage, widget: image },
+          { label: "Order", name: "order", widget: "number", valueType: "int", default: 3 },
+          { label: "Page Sections", name: "sections", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+            { label: Primary Image, name: featuredimage, widget: image },
+            { label: "Order", name: "order", widget: "number", valueType: "int", default: 0 },
+            { label: "Content", name: "content", widget: "list", summary: '{{fields.title}}', minimize_collapsed: true, fields: [
+              { label: "Language", name: "languageTitle", widget: "relation", collection: "language", searchFields: [ "title" ], valueField: "title" },
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Description", name: "description", widget: "markdown" }
+            ] }
+          ] }
+        ]
+      },
+      {
         file: "static/content/pages/photos.json",
         label: "Photos Page",
         name: "photos",

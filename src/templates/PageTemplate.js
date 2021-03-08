@@ -35,7 +35,7 @@ const PageTemplate = ({ location, pageContext }) => {
             </>
           ) : (
             <>
-            <PageHeading title={pageHeading} />
+            <PageHeading alignSelf="start" title={pageHeading} />
             {
               pageContent && <Markdown>{pageContent}</Markdown>
             }
