@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Paragraph, Text } from 'grommet'
+import { Markdown } from '../../../components'
 import { useOptions } from '../../../state/hooks'
 
 const RsvpConfirm = ({ page, language }) => {
@@ -7,25 +8,27 @@ const RsvpConfirm = ({ page, language }) => {
   const greeting = page.translations.find(item => item.languageTitle === language.title)
   const content = page.descriptions.find(item => item.languageTitle === language.title)
 
+  console.log(page)
+
   const Confirmed = () => {
     return (
-      <>
-       <Paragraph>
+      <Box width="xlarge">
+       <Markdown>
         {content.description}
-       </Paragraph>
+       </Markdown>
        <Signature />
-      </>
+      </Box>
     )
   } 
 
   const Declined = () => {
     return (
-      <>
-       <Paragraph>
+      <Box width="xlarge">
+       <Markdown>
         {content.description}
-       </Paragraph>
+       </Markdown>
        <Signature />
-      </>
+      </Box>
     )
   } 
 
