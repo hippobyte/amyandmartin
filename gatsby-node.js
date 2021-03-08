@@ -38,6 +38,41 @@ exports.createPages = async ({ graphql, actions }) => {
               languageTitle
               description
             }
+            gallery {
+              featuredimage {
+                id
+                childImageSharp {
+                  id
+                  thumb: fixed(
+                    cropFocus: ATTENTION, 
+                    quality: 40,
+                    width: 375,
+                    height: 375
+                  ) {
+                    base64
+                    tracedSVG
+                    srcWebp
+                    srcSetWebp
+                    originalName
+                    src
+                  }
+                  photo: fluid(
+                    cropFocus: ATTENTION, 
+                    quality: 70
+                  ) {
+                    base64
+                    tracedSVG
+                    aspectRatio
+                    srcWebp
+                    srcSetWebp
+                    originalName
+                    src
+                    presentationWidth
+                    presentationHeight
+                  }
+                }
+              }
+            }
             sections {
               order
               content {
@@ -92,6 +127,46 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      galleryData: pagesJson(templateKey: {eq: "photos"}) {
+        id
+        gallery {
+          images: featuredimage {
+            thumbs: childImageSharp {
+              id
+              fixed(
+                cropFocus: ATTENTION, 
+                quality: 40,
+                width: 375,
+                height: 375
+              ) {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+                originalName
+                src
+              }
+            }
+            photos: childImageSharp {
+              id
+              fluid(
+                cropFocus: ATTENTION, 
+                quality: 70
+              ) {
+                base64
+                tracedSVG
+                aspectRatio
+                srcWebp
+                srcSetWebp
+                originalName
+                src
+                presentationWidth
+                presentationHeight
+              }
+            }
+          }
+        }
+      }
       thumbs: allImageSharp {
         edges {
           node {
@@ -141,7 +216,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const defaultPages = defaultRequest.data.allPagesJson.edges.map(item => item.node)
-  const thumbs = defaultRequest.data.thumbs.edges.map(item => item.node)
+  const thumbs = defaultRequest.data.galleryData.gallery.map(item => item.images && item.images.thumbs).filter(item => item)
   const photos = defaultRequest.data.fluidImages.edges.map(item => item.node)
   const languages = defaultRequest.data.allSettingsJson.edges.map(item => item.node)
 

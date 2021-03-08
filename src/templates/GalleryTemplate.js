@@ -3,7 +3,7 @@ import { ResponsiveContext } from 'grommet'
 import { PageLayout, GalleryContent, Markdown, PageHeading, PhotoGallery } from '../components'
  
 const GalleryTemplate = ({ location, pageContext }) => {
-  const { pageNav, page, language, photos, thumbs } = pageContext
+  const { pageNav, page, language, thumbs, photos } = pageContext
 
   const pageHeading = page.translations && page.translations.find(item => item.languageTitle === language.title) && page.translations.find(item => item.languageTitle === language.title).title
   const pageContent = page.descriptions && page.descriptions.find(item => item.languageTitle === language.title) && page.descriptions.find(item => item.languageTitle === language.title).description

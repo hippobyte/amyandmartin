@@ -175,6 +175,9 @@ collections:
             {label: "Description", name: "description", widget: "markdown"},
           ]},
           {label: "Order", name: "order", widget: "number", valueType: "int", default: 4},
+          { label: "Gallery", name: "gallery", widget: "list", fields: [
+            { label: Primary Image, name: featuredimage, widget: image }
+          ] }
         ]
       },
       {
