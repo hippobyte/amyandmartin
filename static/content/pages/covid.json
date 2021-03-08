@@ -44,5 +44,11 @@
         }
       ]
     }
+  ],
+  "descriptions": [
+    {
+      "languageTitle": "English",
+      "description": "Hello World"
+    }
   ]
 }
