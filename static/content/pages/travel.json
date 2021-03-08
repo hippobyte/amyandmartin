@@ -24,7 +24,7 @@
   "sections": [
     {
       "order": 0,
-      "featuredimage": "../media/tahoe-air.jpg",
+      "featuredimage": "../media/tahoe-car.jpg",
       "content": [
         {
           "languageTitle": "English",
@@ -35,17 +35,6 @@
           "languageTitle": "Chinese",
           "title": "湖等",
           "description": "湖泊很棒\n"
-        }
-      ]
-    },
-    {
-      "order": 0,
-      "featuredimage": "../media/tahoe-car.jpg",
-      "content": [
-        {
-          "languageTitle": "English",
-          "title": "By Car",
-          "description": "**From San Francisco - 4-hour drive**\n\nApproximately a four-hour drive from San Francisco, it's mostly highway driving with the last hour through the mountains. Historically, the best time to avoid heavy traffic is leaving Friday before noon, or after the evening commuter rush.\n\n**From Sacramento - 2-hour drive**\n\nApproximately a four-hour drive from San Francisco, it's mostly highway driving with the last hour through the mountains. Historically, the best time to avoid heavy traffic is leaving Friday before noon, or after the evening commuter rush.\n\n**From San Jose - 4-hour drive** \n\nApproximately a four-hour drive from San Francisco, it's mostly highway driving with the last hour through the mountains. Historically, the best time to avoid heavy traffic is leaving Friday before noon, or after the evening commuter rush."
         }
       ]
     }
