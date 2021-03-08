@@ -93,5 +93,11 @@
       "languageTitle": "English",
       "description": "Fun and adventures together around the world"
     }
+  ],
+  "sections": [
+    {
+      "order": 0,
+      "featuredimage": "../media/IMG_0227.jpeg"
+    }
   ]
 }
