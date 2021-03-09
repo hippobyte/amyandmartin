@@ -9,6 +9,10 @@
     {
       "locale": "pl",
       "translation": "Prosze RSVP przed"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "Please RSVP by"
     }
   ]
 }
