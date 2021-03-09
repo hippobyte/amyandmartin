@@ -22,7 +22,6 @@ function useProvideAuth(domain) {
   const [user, setUser] = useState(null)
 
   const setAuth = (data) => {
-    console.log(data)
     Cookies.set('userAuth', data)
   }
 

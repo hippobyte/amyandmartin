@@ -3,9 +3,6 @@ import { Box, Layer } from 'grommet'
 import { Image, ResponsiveGrid } from '../../'
 
 const PhotoGallery = ({ photos, thumbs, size }) => {
-
-  console.log(thumbs)
-
   return (
     <Box margin={{ top: "medium" }}>
       <ResponsiveGrid

@@ -11,8 +11,6 @@ const PageLayout = ({ auth, title, description, location, children }) => {
     setLocation(location)
   }, [location])
 
-  console.log(auth)
-
   return (
     <Grommet theme={theme} full>
       <Helmet>

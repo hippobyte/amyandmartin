@@ -5,8 +5,6 @@ import { useAuth } from '../../../hooks'
 import { Spinner } from '../..'
 
 const CodeRequestResult = ({ searchTerm, onReset, language }) => {
-
-  console.log(searchTerm)
   const { loading, data, error } = useQuery(gql`
     query($email: String!) {
       resetByEmail(email: $email) {
@@ -28,7 +26,6 @@ const CodeRequestResult = ({ searchTerm, onReset, language }) => {
   }
 
   if (error) {
-    console.log(error)
     return (
       <Box pad="medium">
         Oops, an unexpected error occurred...

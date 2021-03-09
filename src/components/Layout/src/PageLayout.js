@@ -51,10 +51,6 @@ const PageLayout = ({ title, description, location, children }) => {
     setTranslations(translationData())
   }, [])
 
-  console.log(
-    auth.getAuth()
-  )
-
   const isAuthorized = auth.user || authorizedPaths.includes(location.pathname)
 
   useEffect(() => {

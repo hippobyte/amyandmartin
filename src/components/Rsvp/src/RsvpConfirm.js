@@ -8,8 +8,6 @@ const RsvpConfirm = ({ page, language }) => {
   const greeting = page.translations.find(item => item.languageTitle === language.title)
   const content = page.descriptions.find(item => item.languageTitle === language.title)
 
-  console.log(page)
-
   const Confirmed = () => {
     return (
       <Box width="xlarge">

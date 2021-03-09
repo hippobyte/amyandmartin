@@ -28,10 +28,6 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
     rsvpData.status == "declined"  && navigate(`/${language.locale}/decline`)
   }
 
-  console.log(
-    user.guest
-  )
-
   const setFormItems = () => {
     const formItems = []
 
