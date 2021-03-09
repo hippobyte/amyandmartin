@@ -1,0 +1,10 @@
+{
+  "templateKey": "translations",
+  "title": "Please RSVP",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "Please RSVP"
+    }
+  ]
+}
