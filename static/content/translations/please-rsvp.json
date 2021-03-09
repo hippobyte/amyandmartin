@@ -1,10 +1,14 @@
 {
   "templateKey": "translations",
-  "title": "Please RSVP",
+  "title": "Please RSVP by",
   "translations": [
     {
       "locale": "en",
-      "translation": "Please RSVP"
+      "translation": "Please RSVP by"
+    },
+    {
+      "locale": "pl",
+      "translation": "Prosze RSVP przed"
     }
   ]
 }
