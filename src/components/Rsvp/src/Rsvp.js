@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Box, Button, Text, ThemeContext } from 'grommet'
+import moment from 'moment-with-locales-es6'
 import { useOptions } from '../../../state/hooks'
 import { translator } from '../../../utils'
 import { Anchor } from '../../../components'
@@ -23,6 +24,22 @@ const Rsvp = () => {
           locale
           translation
         }
+      }
+      rsvpTranslation: translationsJson(
+        templateKey: {
+          eq: "translations"
+        }, 
+        title: {
+          eq: "Please RSVP by"
+        }
+      ) {
+        translations {
+          locale
+          translation
+        }
+      }
+      settingsJson(templateKey: {eq: "wedding-settings"}) {
+        rsvpDate
       }
     }
   `)
@@ -50,6 +67,14 @@ const Rsvp = () => {
                 primary
               />
             </Anchor>
+            <Text
+                color="dark-6"
+                weight={500}
+                size="small"
+                margin={{ top: "medium" }}
+            >
+              {translator({ translationsJson: data.rsvpTranslation }, locale)} {moment(data.settingsJson.rsvpDate).locale(locale).format('LL')}
+            </Text>
           </ThemeContext.Extend>
         </Box>
       </Box>
