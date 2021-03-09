@@ -28,6 +28,10 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
     rsvpData.status == "declined"  && navigate(`/${language.locale}/decline`)
   }
 
+  console.log(
+    user.guest
+  )
+
   const setFormItems = () => {
     const formItems = []
 
@@ -145,7 +149,7 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
       inputType: "TextArea",
       name: "dietaryRestrictions",
       maxLength: 140,
-      label: translate("Do you, or your guest/children, have dietary restrictions"),
+      label: translate("Please let us know of any dietary restrictions in your party."),
       defaultValue: user.guest.dietaryRestrictions,
     }
 
