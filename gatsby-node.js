@@ -134,7 +134,7 @@ exports.createPages = async ({ graphql, actions }) => {
             thumbs: childImageSharp {
               id
               fixed(
-                cropFocus: ATTENTION, 
+                cropFocus: ENTROPY, 
                 quality: 40,
                 width: 375,
                 height: 375
