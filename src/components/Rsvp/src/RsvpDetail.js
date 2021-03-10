@@ -7,7 +7,7 @@ import { useAuth } from '../../../hooks'
 import { useOptions } from '../../../state/hooks'
 import { Form, FormItem } from '../..'
 
-const RsvpDetail = ({ language, page, viewportSize }) => {
+const RsvpDetail = ({ language, viewportSize }) => {
   const [ mutation, { loading, data, error } ] = useMutation(updateRsvp)
   const { user, translations } = useOptions()
   const auth = useAuth()
@@ -163,20 +163,23 @@ const RsvpDetail = ({ language, page, viewportSize }) => {
   }
 
   const formItems = setFormItems()
+
+  console.log(formItems)
+
   const validations = yup.object().shape({
     status: yup
       .string()
       .required('response is required'),
     partnerStatus: yup
       .string()
-      .when('status', { 
-        is: "confirmed",
+      .when('status', {
+        is: (value) => value === "confirmed" && user.guest.guestCount > 0,
         then: yup.string().required('response is required')
       }),
     childStatus: yup
       .string()
-      .when('status', { 
-        is: (value) => value === "confirmed",
+      .when('status', {
+        is: (value) => value === "confirmed" && user.guest.childrenCount > 0,
         then: yup.string().required('response is required')
       })
   })
