@@ -153,7 +153,7 @@ const RsvpDetail = ({ language, viewportSize }) => {
     user.guest.childrenCount > 0 && attendanceButtonConfirmed.formItems.push(attendanceButtonConfirmedChildren)
 
     attendanceButtonConfirmed.formItems.push(dietaryRestrictions)
-    
+
     attendance.buttons.push(attendanceButtonConfirmed)
     attendance.buttons.push(attendanceButtonDeclined)
     formItems.push(attendance)
@@ -163,9 +163,6 @@ const RsvpDetail = ({ language, viewportSize }) => {
   }
 
   const formItems = setFormItems()
-
-  console.log(formItems)
-
   const validations = yup.object().shape({
     status: yup
       .string()
@@ -199,7 +196,7 @@ const RsvpDetail = ({ language, viewportSize }) => {
     <Box margin={{ horizontal: "large", vertical: "small" }}>
       <Text size="small" weight={600}>RSVP</Text>
       <Text size="xxlarge" margin={{ bottom: "medium" }} weight={500}>{user.guest.firstName} {user.guest.lastName},</Text>
-      <Form 
+      <Form
         onSubmit={onSubmit}
         validationSchema={validations}
         width={viewportSize === "small" ? "100%" : "75%"}

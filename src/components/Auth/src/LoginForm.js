@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Anchor, Box, Layer, Text } from 'grommet'
 import { Previous } from 'grommet-icons'
 import { useFormValidations, useOptions } from '../../../state/hooks'
 import { Form, FormItem } from '../../../components'
 import { LoginResult } from '../index'
 
-const LoginForm = ({ onClose, onCodeRequest }) => {
+const LoginForm = ({ inviteCode, onClose, onCodeRequest }) => {
   const [searchTerm, setSearchTerm] = useState()
   const { options } = useOptions()
   const { createValidations } = useFormValidations()
+
+  useEffect(() => {
+    inviteCode && setSearchTerm({
+      inviteCode: inviteCode
+    })
+  })
 
   const formItems = [
     {

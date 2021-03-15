@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect } from "react"
 import { Controller } from 'react-hook-form'
 import ReactCodeInput from 'react-verification-code-input'
 import { Box, ThemeContext } from 'grommet'
 import { colors } from '../../../style/colors'
 
-const InviteCode = ({ loading, name, maxLength, methods }) => {
+const InviteCode = ({ loading, name, maxLength, methods, defaultValue }) => {
   const { control, setValue } = methods
+
+  useEffect(() => {
+    defaultValue && console.log(defaultValue)
+    defaultValue && setValue(name, defaultValue)
+  }, [])
 
   const onChange = (value) => {
     setValue(name, value)

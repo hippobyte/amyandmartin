@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import { Box, Button, Text, ThemeContext } from 'grommet'
 import { useStaticQuery, graphql } from 'gatsby'
+import queryString from 'query-string'
 import { useOptions } from '../../../state/hooks'
 import { translator } from '../../../utils'
 import { PageContent, PageHeader, LanguageBar } from '../../../components'
 import { LoginForm, CodeRequestForm } from '../index'
 
 const Login = ({ location }) => {
+  const params = queryString.parse(location.search ? location.search : {})
+  const inviteCode = params.invitecode
   const { locale } = useOptions()
-  const [active, setActive] = useState(location.search == '?authcode')
+  const [active, setActive] = useState(inviteCode)
   const [codeRequest, setCodeRequest] = useState()
 
   const onCodeRequest = () => {
@@ -104,6 +107,7 @@ const Login = ({ location }) => {
           <LoginForm 
             onClose={() => setActive(undefined)} 
             onCodeRequest={onCodeRequest}
+            inviteCode={inviteCode}
             location={location}
           />
         )
