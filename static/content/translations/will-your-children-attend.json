@@ -2,17 +2,17 @@
   "templateKey": "translations",
   "translations": [
     {
-      "locale": "en",
-      "translation": "Do you, or your guest/children, have dietary restrictions?"
-    },
-    {
       "locale": "pl",
-      "translation": "Czy Ty lub Twój gość / dzieci macie ograniczenia dietetyczne?"
+      "translation": "Poinformuj nas o wszelkich ograniczeniach dietetycznych."
     },
     {
       "locale": "zh-cn",
-      "translation": "Do you, or your guest/children, have dietary restrictions?"
+      "translation": "告訴我們任何飲食限制嗎"
+    },
+    {
+      "locale": "en",
+      "translation": "Please let us know of any dietary restrictions in your party."
     }
   ],
-  "title": "Do you, or your guest/children, have dietary restrictions"
+  "title": "Please let us know of any dietary restrictions in your party."
 }
