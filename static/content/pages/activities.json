@@ -24,22 +24,6 @@
   "sections": [
     {
       "order": 0,
-      "featuredimage": "../media/site-nature-pool.jpg",
-      "content": [
-        {
-          "languageTitle": "English",
-          "title": "Tubing and Kayaking",
-          "description": "Tubing and kayaking."
-        },
-        {
-          "languageTitle": "Polish",
-          "description": "Więcej informacji i ciekawych zasobów dotyczących zwiedzania Stanów Zjednoczonych.\n\n[Tysiąc Stron Świata](https://www.tysiacstronswiata.pl/category/ameryka-polnocna/usa/)\n\n[Podróż do/z USA](https://www.lot.com/pl/pl/podroz-usa)",
-          "title": "PODRÓŻ"
-        }
-      ]
-    },
-    {
-      "order": 0,
       "featuredimage": "../media/3590eee3-5e61-4b64-8564-f96de012eafa.jpg",
       "content": [
         {
