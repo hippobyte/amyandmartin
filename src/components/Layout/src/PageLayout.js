@@ -11,10 +11,7 @@ const PageLayout = ({ title, description, location, children }) => {
   const auth = useAuth()
   const { setLocation, setUser, setTranslations, options } = useOptions()
   const locale = options.language && options.language.locale
-  const authorizedPaths = [
-    `/${locale}/travel`,
-    `/${locale}/activities`
-  ]
+  const authorizedPaths = []
 
   const translations = useStaticQuery(graphql`
     query Translations {
