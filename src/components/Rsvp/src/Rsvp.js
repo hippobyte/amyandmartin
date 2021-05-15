@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Box, Button, Text, ThemeContext } from 'grommet'
+import { Box, Button, ResponsiveContext, Text, ThemeContext } from "grommet"
 import moment from 'moment-with-locales-es6'
 import { useOptions } from '../../../state/hooks'
 import { translator } from '../../../utils'
@@ -48,6 +48,66 @@ const Rsvp = () => {
     setActive(undefined)
   }
 
+  const honeyFundData = {
+    translationsJson: {
+      translations: [
+        { locale: "en", translation: "Honey Fund" },
+        { locale: "pl", translation: "Fundusz miodowy" },
+        { locale: "zh-cn", translation: "蜂蜜基金" }
+      ]
+    }
+  }
+
+  return (
+    <ResponsiveContext.Consumer>
+      {
+        size => (
+          <Box width="large" margin={{ vertical: "xlarge" }} align="center">
+            <ThemeContext.Extend
+              value={{
+                button: {
+                  extend: {
+                    borderRadius: '8px'
+                  }
+                },
+                text: {
+                  extend: {
+                    display: "inline-block",
+                    textAlign: "center"
+                  }
+                }
+              }}
+            >
+              <Box
+                justify="center"
+                align="center"
+                direction={size === "small" || size === "medium" ? "column" : "row"}
+                gap={size === "small" || size === "medium" ? "medium" : "small"}
+              >
+                <Anchor to={`/${locale}/rsvp`}>
+                  <Button
+                    label={<Text weight={500} size="large">{translator(data, locale)}</Text>}
+                    color="primary-12"
+                    size="large"
+                    primary
+                  />
+                </Anchor>
+                <Button
+                  label={<Text weight={500} size="large">{translator(honeyFundData, locale)}</Text>}
+                  color="secondary-12"
+                  size="large"
+                  primary
+                  target="_blank"
+                  href="http://www.honeyfund.com/wedding/che-marzejon-09-05-2021"
+                />
+              </Box>
+            </ThemeContext.Extend>
+          </Box>
+        )
+      }
+    </ResponsiveContext.Consumer>
+  )
+
   return (
     <>
       <Box margin={{ vertical: "xlarge" }} align="center">
@@ -60,7 +120,7 @@ const Rsvp = () => {
             }
           }}>
             <Anchor to={`/${locale}/rsvp`}>
-              <Button 
+              <Button
                 label={<Text weight={600}>{translator(data, locale)}</Text>}
                 color="primary-12"
                 size="large"

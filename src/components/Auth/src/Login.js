@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import queryString from 'query-string'
 import { useOptions } from '../../../state/hooks'
 import { translator } from '../../../utils'
-import { PageContent, PageHeader, LanguageBar } from '../../../components'
+import { PageContent, PageHeader, LanguageBar, AccessGiveActions } from '../../../components'
 import { LoginForm, CodeRequestForm } from '../index'
 
 const Login = ({ location }) => {
@@ -84,28 +84,16 @@ const Login = ({ location }) => {
       <PageHeader />
       <LanguageBar />
       <Box margin={{ vertical: "xlarge" }} align="center">
-        <Box width="medium">
-          <ThemeContext.Extend value={{
-            button: {
-              extend: {
-                borderRadius: '8px'
-              }
-            }
-          }}>
-            <Button 
-              label={<Text weight={600}>{translator(data, locale)}</Text>}
-              color="brand-12"
-              size="large"
-              primary
-              onClick={() => setActive(true)}
-            />
-          </ThemeContext.Extend>
-        </Box>
+        <AccessGiveActions
+          setActive={setActive}
+          data={data}
+          locale={locale}
+        />
       </Box>
       {
         active && !codeRequest && (
-          <LoginForm 
-            onClose={() => setActive(undefined)} 
+          <LoginForm
+            onClose={() => setActive(undefined)}
             onCodeRequest={onCodeRequest}
             inviteCode={inviteCode}
             location={location}
@@ -114,8 +102,8 @@ const Login = ({ location }) => {
       }
       {
         codeRequest && (
-          <CodeRequestForm 
-            onClose={() => setCodeRequest(undefined)} 
+          <CodeRequestForm
+            onClose={() => setCodeRequest(undefined)}
           />
         )
       }

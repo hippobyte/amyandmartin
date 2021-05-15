@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useOptions } from '../state/hooks'
-import { PageLayout, PageContent, PageHeader, LanguageBar } from '../components'
+import { PageLayout, PageContent, PageHeader, LanguageBar } from "../components"
 import { slugger } from '../utils'
 
 const Home = ({ location }) => {
@@ -61,8 +61,8 @@ const Home = ({ location }) => {
   `)
 
   const pages = data.allPagesJson.edges.map(item => item.node)
-  const pageNav = pages.map(item => ({ 
-    path: slugger(["/", 'en', item.templateKey]), 
+  const pageNav = pages.map(item => ({
+    path: slugger(["/", 'en', item.templateKey]),
     label: item.translations.find(item => item.languageTitle === 'English').menuTitle
   }))
 

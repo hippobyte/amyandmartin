@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, ResponsiveContext } from 'grommet'
 import { LanguageBar, Markdown, PageLayout, PageContent, PageHeading, PageHeader, Rsvp } from '../components'
- 
-const PageTemplate = ({ location, pageContext }) => { 
+
+const PageTemplate = ({ location, pageContext }) => {
   const { pageNav, page, language } = pageContext
 
   const pageHeading = page.translations && page.translations.find(item => item.languageTitle === language.title) && page.translations.find(item => item.languageTitle === language.title).title
