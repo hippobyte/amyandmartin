@@ -3,8 +3,6 @@ import { Box, Button, Text, ThemeContext, ResponsiveContext } from "grommet"
 import { translator } from "../../../utils"
 
 const AccessGiveActions = ({ data, locale, setActive }) => {
-  console.log(data)
-
   const honeyFundData = {
     translationsJson: {
       translations: [

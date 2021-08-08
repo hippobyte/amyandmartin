@@ -1,18 +1,33 @@
-import React, { useState } from 'react'
-import { Box, Button, Text, ThemeContext } from 'grommet'
+import React, { useEffect, useState } from "react"
+import { Box } from 'grommet'
 import { useStaticQuery, graphql } from 'gatsby'
 import queryString from 'query-string'
 import { useOptions } from '../../../state/hooks'
-import { translator } from '../../../utils'
-import { PageContent, PageHeader, LanguageBar, AccessGiveActions } from '../../../components'
+import { PageContent, PageHeader, LanguageBar, AccessGiveActions, WeddingDay } from '../../../components'
 import { LoginForm, CodeRequestForm } from '../index'
 
 const Login = ({ location }) => {
   const params = queryString.parse(location.search ? location.search : {})
-  const inviteCode = params.invitecode
   const { locale } = useOptions()
-  const [active, setActive] = useState(inviteCode)
+  const [active, setActive] = useState(undefined)
+  const [inviteCode, setInviteCode] = useState(undefined)
   const [codeRequest, setCodeRequest] = useState()
+
+  useEffect(() => {
+    let code = localStorage.getItem("inviteCode")
+
+    if (params.invitecode) {
+      localStorage.setItem("inviteCode", params.invitecode)
+      setInviteCode(params.invitecode)
+      setActive(params.invitecode)
+      return
+    }
+
+    if (code) {
+      setInviteCode(code)
+      setActive(code)
+    }
+  }, [])
 
   const onCodeRequest = () => {
     setActive(undefined)

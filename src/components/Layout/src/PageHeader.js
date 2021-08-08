@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment-with-locales-es6'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Box, Heading, ThemeContext } from 'grommet'
+import { Box, Heading } from 'grommet'
 import { useOptions } from '../../../state/hooks'
 import { LanguageBar } from '../..'
 
@@ -15,16 +15,11 @@ const PageHeader = ({ languageBar, ...rest }) => {
         ceremonyDate
         location
         directions  
-      },
-      dayofWedding: settingsJson(templateKey: {eq: "dayofWedding"}) {
-          title
       }
     }
   `)
 
-  const { title, ceremonyDate, location, directions } = request.settings
-
-  console.log("request", request)
+  const { title, ceremonyDate, location } = request.settings
 
   return (
     <Box
@@ -40,18 +35,6 @@ const PageHeader = ({ languageBar, ...rest }) => {
         <Box pad={{ horizontal: "xsmall" }} margin={{ vertical: "xsmall" }}>
           <Heading level={2} margin="none" color="dark-7">{location}</Heading>
         </Box>
-      </Box>
-      <Box alignSelf="center" margin={{ top: "small" }}>
-        <a
-          href={directions}
-          style={{
-            textDecoration: "none"
-          }}
-        >
-          <Heading level={5} margin="none" color="primary">
-            DRIVING DIRECTIONS
-          </Heading>
-        </a>
       </Box>
       {
         languageBar && (

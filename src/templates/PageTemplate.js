@@ -1,6 +1,15 @@
 import React from 'react'
 import { Box, ResponsiveContext } from 'grommet'
-import { LanguageBar, Markdown, PageLayout, PageContent, PageHeading, PageHeader, Rsvp } from '../components'
+import {
+  LanguageBar,
+  Markdown,
+  PageLayout,
+  PageContent,
+  PageHeading,
+  PageHeader,
+  Rsvp,
+  WeddingDay
+} from "../components"
 
 const PageTemplate = ({ location, pageContext }) => {
   const { pageNav, page, language } = pageContext
@@ -30,6 +39,9 @@ const PageTemplate = ({ location, pageContext }) => {
             <PageHeader />
             <LanguageBar />
             <Box pad={{ bottom: "6em" }}>
+              <WeddingDay
+                pageContext={pageContext}
+              />
               <Rsvp />
             </Box>
             </>

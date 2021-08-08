@@ -11,9 +11,11 @@ const LoginForm = ({ inviteCode, onClose, onCodeRequest }) => {
   const { createValidations } = useFormValidations()
 
   useEffect(() => {
-    inviteCode && setSearchTerm({
-      inviteCode: inviteCode
-    })
+    if (inviteCode) {
+      setSearchTerm({
+        inviteCode: inviteCode
+      })
+    }
   })
 
   const formItems = [
@@ -64,16 +66,17 @@ const LoginForm = ({ inviteCode, onClose, onCodeRequest }) => {
       }
     }
   ]
-  
+
   const validations = createValidations(formItems)
   const language = options.language.title
 
   const onSubmit = (formData) => {
-    formData 
-      && formData.inviteCode 
-      && setSearchTerm({
+    if (formData && formData.inviteCode) {
+      setSearchTerm({
         inviteCode: formData.inviteCode
       })
+      localStorage.setItem("inviteCode", formData.inviteCode)
+    }
   }
 
   const onReset = () => {
@@ -88,7 +91,7 @@ const LoginForm = ({ inviteCode, onClose, onCodeRequest }) => {
       onClickOutside={onClose}
     >
       <Box width="large">
-        <Box 
+        <Box
           background="brand-12"
           direction="row"
           pad="medium"
@@ -96,23 +99,23 @@ const LoginForm = ({ inviteCode, onClose, onCodeRequest }) => {
           border={{ size: "hairline", color: "dark-2", side: "bottom" }}
         >
           <Text size="xlarge" weight={400}>
-            Let's verify your identity... 
+            Let's verify your identity...
           </Text>
         </Box>
         {
           searchTerm ? (
-            <LoginResult 
+            <LoginResult
               searchTerm={searchTerm}
               onReset={onReset}
               onCodeRequest={onCodeRequest}
               language={language}
             />
           ) : (
-            <Box 
-              border={{ size: "xsmall", side: "top", color: "light-5" }} 
+            <Box
+              border={{ size: "xsmall", side: "top", color: "light-5" }}
               pad={{ top: "large", horizontal: "medium" }}
             >
-              <Form 
+              <Form
                 onSubmit={onSubmit}
                 validationSchema={validations}
               >
@@ -134,11 +137,11 @@ const LoginForm = ({ inviteCode, onClose, onCodeRequest }) => {
           )
         }
         <Box margin={{ top: "small", bottom: "medium", horizontal: "medium" }}>
-          <Anchor 
-            size="small" 
-            onClick={onClose} 
-            label="Go back" 
-            icon={<Previous size="small" />} 
+          <Anchor
+            size="small"
+            onClick={onClose}
+            label="Go back"
+            icon={<Previous size="small" />}
           />
         </Box>
       </Box>
