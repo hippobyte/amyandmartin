@@ -30,7 +30,18 @@ export const WeddingDay = ({ margin, pageContext }) => {
       }
   `)
 
-  const data = request.data.edges.map(item => item.node)
+  const data = request.data.edges.map(item => item.node).sort((a, b) => {
+    let fa = a.startTime.toLowerCase(),
+        fb = b.startTime.toLowerCase();
+
+    if (fa < fb) {
+      return -1;
+    }
+    if (fa > fb) {
+      return 1;
+    }
+    return 0;
+  });
   const directions = request.settings.directions
 
   const WeddingDayHeader = () => {
