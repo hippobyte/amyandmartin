@@ -13,7 +13,7 @@ backend:
 media_folder: static/content/media
 public_folder: "../media/"
 
-collections: 
+collections:
   - name: "pages"
     label: "Pages"
     files: [
@@ -252,11 +252,12 @@ collections:
       {label: "Template Key", name: "templateKey", widget: "hidden", default: "wedding-settings"},
       {label: "Couple", hint: "ex. Amy & Martin", name: "title", widget: "string"},
       {label: "Location", hint: "ex. San Diego, CA", name: "location", widget: "string"},
+      {label: "Directions", hint: "ex. Google Mamps link", name: "directions", widget: "string"},
       {label: "Ceremony Date", name: "ceremonyDate", widget: "date"},
       {label: "RSVP Date", name: "rsvpDate", widget: "date"}
     ]
 
-  - name: "language"  
+  - name: "language"
     label: "Language Options"
     folder: "static/content/settings"
     extension: "json"
@@ -277,7 +278,7 @@ collections:
       ]}
     ]
 
-  - name: "translations"  
+  - name: "translations"
     label: "Translation"
     folder: "static/content/translations"
     extension: "json"
@@ -293,4 +294,22 @@ collections:
         {label: "Locale", name: "locale", widget: "relation", collection: "language", searchFields: ["title"], valueField: "locale"},
         {label: "Translation", name: "translation", widget: "string"},
       ]}
+    ]
+
+  - name: "dayOfWedding"
+    label: "Day of Wedding"
+    folder: "static/content/dayOfWedding"
+    extension: "json"
+    create: true
+    slug: "{{slug}}"
+    filter: { field: "templateKey", value: "dayOfWedding" }
+    summary: "{{title}}"
+    sortableFields: [ 'title', commit_date' ]
+    fields: [
+      { label: "Template Key", name: "templateKey", widget: "hidden", default: "dayOfWedding" },
+      { label: "Event", name: "title", widget: "string" },
+      { label: "Start", name: "startTime", widget: "string" },
+      { label: "End", name: "endTime", widget: "string" },
+      { label: "Location", name: "location", widget: "string", required: false },
+      { label: "Directions", name: "directions", widget: "string", required: false }
     ]

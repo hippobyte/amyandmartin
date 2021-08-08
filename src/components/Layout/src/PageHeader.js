@@ -10,15 +10,21 @@ const PageHeader = ({ languageBar, ...rest }) => {
 
   const request = useStaticQuery(graphql`
     query WeddingSettings {
-      settingsJson(templateKey: {eq: "wedding-settings"}) {
+      settings: settingsJson(templateKey: {eq: "wedding-settings"}) {
         title
         ceremonyDate
         location
+        directions  
+      },
+      dayofWedding: settingsJson(templateKey: {eq: "dayofWedding"}) {
+          title
       }
     }
   `)
 
-  const { title, ceremonyDate, location } = request.settingsJson
+  const { title, ceremonyDate, location, directions } = request.settings
+
+  console.log("request", request)
 
   return (
     <Box
@@ -35,9 +41,21 @@ const PageHeader = ({ languageBar, ...rest }) => {
           <Heading level={2} margin="none" color="dark-7">{location}</Heading>
         </Box>
       </Box>
+      <Box alignSelf="center" margin={{ top: "small" }}>
+        <a
+          href={directions}
+          style={{
+            textDecoration: "none"
+          }}
+        >
+          <Heading level={5} margin="none" color="primary">
+            DRIVING DIRECTIONS
+          </Heading>
+        </a>
+      </Box>
       {
         languageBar && (
-          <LanguageBar 
+          <LanguageBar
             margin={{ top: "large" }}
           />
         )
