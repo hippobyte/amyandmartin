@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { Box, Button, ResponsiveContext, Text } from 'grommet'
-import { Menu, Close, Previous } from 'grommet-icons'
+import { Menu, Close, Previous, Next } from 'grommet-icons'
 import { Anchor, LanguageBar } from '../..'
 
 const PageNav = ({ items }) => {
-  console.log(items)
   return (
     <ResponsiveContext.Consumer>
       {
@@ -23,6 +22,32 @@ const PageNav = ({ items }) => {
         }
       }
     </ResponsiveContext.Consumer>
+  )
+}
+
+const LogOut = (props) => {
+  const onLogOut = () => {
+    localStorage.removeItem("inviteCode")
+    window.location.reload();
+  }
+
+  return (
+    <>
+      {
+        props.screenSize === "small" ? (
+          <Button
+            plain
+            label="Log Out"
+            onClick={onLogOut}
+            margin={{ top: "medium" }}
+          />
+        ) : (
+          <Box onClick={onLogOut}>
+            <Text color="primary-8" weight={600}>Log Out</Text>
+          </Box>
+        )
+      }
+    </>
   )
 }
 
@@ -61,6 +86,7 @@ const MenuBar = ({ data }) => (
         />
       ))
     }
+    <LogOut />
   </Box>
 )
 
@@ -92,13 +118,20 @@ const DropContent = ({ data, close }) => {
       }
       <Box margin={{ top: "medium" }} align="start">
         <LanguageBar size="small" />
-        <Button
-          plain
-          label="Back to site"
-          onClick={close}
-          margin={{ top: "medium" }}
-          icon={<Previous size="16px" />}
-        />
+      </Box>
+      <Box direction="row" justify="between">
+        <Box>
+          <Button
+            plain
+            label="Back to site"
+            onClick={close}
+            margin={{ top: "medium" }}
+            icon={<Previous size="16px" />}
+          />
+        </Box>
+        <Box>
+          <LogOut screenSize="small" />
+        </Box>
       </Box>
     </Box>
   )
