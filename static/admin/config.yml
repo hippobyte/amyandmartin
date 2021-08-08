@@ -296,17 +296,17 @@ collections:
       ]}
     ]
 
-  - name: "dayOfWedding"
+  - name: "wedding-day"
     label: "Day of Wedding"
-    folder: "static/content/dayOfWedding"
+    folder: "static/content/settings"
     extension: "json"
     create: true
     slug: "{{slug}}"
-    filter: { field: "templateKey", value: "dayOfWedding" }
+    filter: { field: "templateKey", value: "wedding-day" }
     summary: "{{title}}"
     sortableFields: [ 'title', commit_date' ]
     fields: [
-      { label: "Template Key", name: "templateKey", widget: "hidden", default: "dayOfWedding" },
+      { label: "Template Key", name: "templateKey", widget: "hidden", default: "wedding-day" },
       { label: "Event", name: "title", widget: "string" },
       { label: "Start", name: "startTime", widget: "string" },
       { label: "End", name: "endTime", widget: "string" },
