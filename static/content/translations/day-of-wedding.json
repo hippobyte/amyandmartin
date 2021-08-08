@@ -1,0 +1,18 @@
+{
+  "templateKey": "translations",
+  "title": "Day of Wedding",
+  "translations": [
+    {
+      "locale": "en",
+      "translation": "Day of Wedding"
+    },
+    {
+      "locale": "zh-cn",
+      "translation": "婚禮日"
+    },
+    {
+      "locale": "pl",
+      "translation": "Dzień Ślubu"
+    }
+  ]
+}
