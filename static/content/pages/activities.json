@@ -24,6 +24,17 @@
   "sections": [
     {
       "order": 0,
+      "featuredimage": "../media/svam-tram-original_1920x661.jpeg",
+      "content": [
+        {
+          "languageTitle": "English",
+          "title": "Scenic Aerial Tram",
+          "description": "[More Information](https://www.squawalpine.com/?season=summer&utm_source=google&utm_medium=paidsearch&utm_content=aa117643392650-cc522620885162&utm_keyword=squaw+valley+gondola&utm_campaign=SA_Activities-S-ECM-LCL_SEA_B_LW_EXM&gclid=CjwKCAjwgb6IBhAREiwAgMYKRo-xLLwoKCHuabYSBvOCrlBuyyWcNYsuxcZyIopstLcQfNh2Oir4mBoC80cQAvD_BwE&gclsrc=aw.ds)"
+        }
+      ]
+    },
+    {
+      "order": 0,
       "featuredimage": "../media/3590eee3-5e61-4b64-8564-f96de012eafa.jpg",
       "content": [
         {
@@ -35,17 +46,6 @@
           "languageTitle": "Polish",
           "title": "Parki Narodowe",
           "description": "[Park Narodowy Redwood](https://www.tysiacstronswiata.pl/park-narodowy-redwood/)\n\nTo właśnie tu rosną sekwoje wieczniezielone (*Sequoia sempervirens*) które są **najwyższymi drzewami na Ziemi**. Drzewa te osiągają średnio od 60 do 100 m wysokości. Są również takie, które na tym nie poprzestały. I tak właśnie **Hyperion – najwyższe drzewo na świecie** – ma obecnie ponad **115 metrów** i wciąż rośnie.\n\n[Park Narodowy Doliny Śmierci](https://pl.wikipedia.org/wiki/Park_Narodowy_Doliny_%C5%9Amierci)\n\nPark narodowy położony w hrabstwie Inyo stanu Kalifornia i częściowo w hrabstwie Nye stanu Nevada. Zajmuje powierzchnię 13 628 km², obejmując kamienną pustynię z najniżej położonym miejscem na półkuli zachodniej."
-        }
-      ]
-    },
-    {
-      "order": 0,
-      "featuredimage": "../media/svam-tram-original_1920x661.jpeg",
-      "content": [
-        {
-          "languageTitle": "English",
-          "title": "Scenic Aerial Tram",
-          "description": "[More Information](https://www.squawalpine.com/?season=summer&utm_source=google&utm_medium=paidsearch&utm_content=aa117643392650-cc522620885162&utm_keyword=squaw+valley+gondola&utm_campaign=SA_Activities-S-ECM-LCL_SEA_B_LW_EXM&gclid=CjwKCAjwgb6IBhAREiwAgMYKRo-xLLwoKCHuabYSBvOCrlBuyyWcNYsuxcZyIopstLcQfNh2Oir4mBoC80cQAvD_BwE&gclsrc=aw.ds)"
         }
       ]
     }

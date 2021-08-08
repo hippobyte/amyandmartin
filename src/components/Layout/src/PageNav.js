@@ -4,6 +4,7 @@ import { Menu, Close, Previous } from 'grommet-icons'
 import { Anchor, LanguageBar } from '../..'
 
 const PageNav = ({ items }) => {
+  console.log(items)
   return (
     <ResponsiveContext.Consumer>
       {
@@ -45,18 +46,18 @@ const MenuButton = ({ data }) => {
 }
 
 const MenuBar = ({ data }) => (
-  <Box 
-    direction="row" 
-    margin={{ horizontal: "large", vertical: "medium" }} 
-    gap="medium" 
+  <Box
+    direction="row"
+    margin={{ horizontal: "large", vertical: "medium" }}
+    gap="medium"
     border={{ side: "between", color: "light-5" }}
   >
     {
       data.map(item => (
-        <Anchor 
-          color="dark-8" 
-          label={<Text weight={600}>{item.label}</Text>} 
-          path={item.path} 
+        <Anchor
+          color="dark-8"
+          label={<Text weight={600}>{item.label}</Text>}
+          path={item.path}
         />
       ))
     }
@@ -71,7 +72,7 @@ const DropContent = ({ data, close }) => {
       height="100vh"
       background="white"
       style={{ position: 'absolute', top: '0', left: '0', zIndex: '1000' }}
-    > 
+    >
       <Button
         plain
         icon={<Close />}
@@ -81,10 +82,10 @@ const DropContent = ({ data, close }) => {
       {
         data.map(item => (
           <Box border={{ side: "bottom" }}>
-            <Anchor 
-              color="dark-8" 
-              label={<Box pad={{ vertical: "large" }}>{item.label}</Box>} 
-              path={item.path} 
+            <Anchor
+              color="dark-8"
+              label={<Box pad={{ vertical: "large" }}>{item.label}</Box>}
+              path={item.path}
             />
           </Box>
         ))
@@ -95,12 +96,12 @@ const DropContent = ({ data, close }) => {
           plain
           label="Back to site"
           onClick={close}
-          margin={{ top: "medium" }} 
+          margin={{ top: "medium" }}
           icon={<Previous size="16px" />}
         />
       </Box>
     </Box>
   )
 }
- 
+
 export default PageNav
