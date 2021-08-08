@@ -59,6 +59,17 @@
           "description": "Enjoy a round of golf surrounded by exquisite views of Squaw Valley when you play at the Resort At Squaw Creek.\n\nLooking to play at other locations around the lake? \n\nJust ten minutes away, you can tee of at the [Tahoe City Golf Course](https://golftahoecity.com/), which offers great family-friendly options, or at the beautiful [Old Brockway Golf Course](https://www.oldbrockway.com/) in King's Beach that offers a lake view."
         }
       ]
+    },
+    {
+      "order": 0,
+      "featuredimage": "../media/ropes-course.jpeg",
+      "content": [
+        {
+          "languageTitle": "English",
+          "description": "The Ropes Course at Squaw Valley consists of 3 different towers reaching up to 50' and 2 circuit courses including a total of 8 bridges and 7 short zip lines. The Ropes Course is a mix of vertical climbing events along with a variety of bridges and zip lines.\\\n\\\nThe vertical climbing events require the participant to be connected to a climbing rope with the rope held by a qualified belayer. Either our staff or a trained participant aged 16+ in your group can belay.\\\n\\\nMore information and tickets [available here.](https://tahoetreetop.com/)",
+          "title": "Ropes Course for Kids"
+        }
+      ]
     }
   ],
   "descriptions": [
