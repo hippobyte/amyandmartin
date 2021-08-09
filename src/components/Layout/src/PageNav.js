@@ -43,7 +43,7 @@ const LogOut = (props) => {
           />
         ) : (
           <Box onClick={onLogOut}>
-            <Text color="primary-8" weight={600}>Log Out</Text>
+            <Text size={"small"} color="primary-8" weight={600}>Log Out</Text>
           </Box>
         )
       }
@@ -81,7 +81,7 @@ const MenuBar = ({ data }) => (
       data.map(item => (
         <Anchor
           color="dark-8"
-          label={<Text weight={600}>{item.label}</Text>}
+          label={<Text size="small" weight={600}>{item.label}</Text>}
           path={item.path}
         />
       ))
