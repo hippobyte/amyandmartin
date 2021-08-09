@@ -1,18 +1,18 @@
 {
   "templateKey": "translations",
-  "title": "Day of Wedding",
+  "title": "Day of Celebration",
   "translations": [
     {
       "locale": "en",
-      "translation": "Day of Wedding"
+      "translation": "Day of Celebration"
     },
     {
       "locale": "zh-cn",
-      "translation": "婚禮日"
+      "translation": "慶祝日"
     },
     {
       "locale": "pl",
-      "translation": "Dzień Ślubu"
+      "translation": "Dzień Świętowania"
     }
   ]
 }

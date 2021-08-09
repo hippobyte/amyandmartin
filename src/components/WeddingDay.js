@@ -1,7 +1,8 @@
 import React from 'react'
 import {Box, Heading, Text} from 'grommet'
 import { graphql, useStaticQuery } from "gatsby"
-import {translator} from "../utils/index"
+import moment from "moment"
+import {Anchor, LanguageBar} from "../components"
 
 export const WeddingDay = ({ margin, pageContext }) => {
   const request = useStaticQuery(graphql`
@@ -19,15 +20,10 @@ export const WeddingDay = ({ margin, pageContext }) => {
               }
           }
           settings: settingsJson(templateKey: {eq: "wedding-settings"}) {
+              ceremonyDate
               directions
               locationDetail
               address
-          }
-          translationsJson(title: {eq: "Day of Wedding"}) {
-              translations {
-                  translation
-                  locale
-              }
           }
       }
   `)
@@ -52,34 +48,48 @@ export const WeddingDay = ({ margin, pageContext }) => {
 
     return (
       <>
-        <Heading level={1} textAlign={"center"} size="medium">
-          {translator(request, pageContext.language.locale)}
+        <Heading level={1} textAlign={"center"} size="medium" margin="none">
+          {settings.locationDetail}
           <Box margin={{top: "small"}}>
-            <Text>
-              {settings.locationDetail}
-            </Text>
-            <Text size="xsmall">
-              <a
+            <Text size="small">
+              <Anchor
                 href={settings.directions}
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                }}
+                color="black"
+                weight={900}
               >
                 {settings.address}
-              </a>
+              </Anchor>
             </Text>
           </Box>
           <Box
-            direction="row" gap="small"
             margin={{ top: "medium" }}
-            justify="center"
           >
-            <Text>{start}</Text>
-            <Text>to</Text>
-            <Text>{end}</Text>
+            <Text>
+              {moment(settings.ceremonyDate).locale(pageContext.language.locale).format('LL')}
+            </Text>
+            <Box
+              direction="row" gap="small"
+              justify="center"
+            >
+              <Text>{start}</Text>
+              <Text>to</Text>
+              <Text>{end}</Text>
+            </Box>
+            <Text margin={{top: "xsmall"}} size="small">
+              <Anchor
+                color="primary"
+                weight={600}
+                href="https://hippo-public-assets.s3-us-west-2.amazonaws.com/assets/che-marzejon-wedding.ics">
+                Add to Calendar
+              </Anchor>
+            </Text>
           </Box>
         </Heading>
+        <LanguageBar
+          size="small"
+          helpText={false}
+          margin={{ top: "none", bottom: "medium"}}
+        />
       </>
     )
   }
@@ -107,7 +117,6 @@ export const WeddingDay = ({ margin, pageContext }) => {
       <Box
         margin={margin}
         width="80%"
-        border={{ color: "light-5" }}
         pad={{bottom: "medium"}}
         round="small"
         align="center"

@@ -36,8 +36,6 @@ const PageTemplate = ({ location, pageContext }) => {
         {
           templateKey === "index" ? (
             <>
-            <PageHeader />
-            <LanguageBar />
             <Box pad={{ bottom: "6em" }}>
               <WeddingDay
                 pageContext={pageContext}
