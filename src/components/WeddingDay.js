@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from "react"
 import {Box, Heading, Text} from 'grommet'
 import { graphql, useStaticQuery } from "gatsby"
-import moment from "moment"
+import moment from 'moment-with-locales-es6'
 import {Anchor, LanguageBar} from "../components"
 
 export const WeddingDay = ({ margin, pageContext }) => {
