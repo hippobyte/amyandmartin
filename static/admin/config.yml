@@ -252,7 +252,8 @@ collections:
       {label: "Template Key", name: "templateKey", widget: "hidden", default: "wedding-settings"},
       {label: "Couple", hint: "ex. Amy & Martin", name: "title", widget: "string"},
       {label: "Location", hint: "ex. San Diego, CA", name: "location", widget: "string"},
-      {label: "Directions", hint: "ex. Google Mamps link", name: "directions", widget: "string"},
+      {label: "Location Detail", name: "locationDetail", widget: "string", required: false },
+      {label: "Directions", hint: "ex. Google Mamps link", name: "directions", widget: "string", required: false},
       {label: "Ceremony Date", name: "ceremonyDate", widget: "date"},
       {label: "RSVP Date", name: "rsvpDate", widget: "date"}
     ]

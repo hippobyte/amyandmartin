@@ -20,6 +20,8 @@ export const WeddingDay = ({ margin, pageContext }) => {
           }
           settings: settingsJson(templateKey: {eq: "wedding-settings"}) {
               directions
+              locationDetail
+              address
           }
           translationsJson(title: {eq: "Day of Wedding"}) {
               translations {
@@ -42,7 +44,7 @@ export const WeddingDay = ({ margin, pageContext }) => {
     }
     return 0;
   });
-  const directions = request.settings.directions
+  const settings = request.settings
 
   const WeddingDayHeader = () => {
     const start = data[0].startTime
@@ -52,21 +54,31 @@ export const WeddingDay = ({ margin, pageContext }) => {
       <>
         <Heading level={1} textAlign={"center"} size="medium">
           {translator(request, pageContext.language.locale)}
-          <Box direction="row" gap="small" margin={{ top: "medium", bottom: "small" }} justify="center">
-            <Text size="small">{start}</Text>
-            <Text size="small">to</Text>
-            <Text size="small">{end}</Text>
+          <Box margin={{top: "small"}}>
+            <Text>
+              {settings.locationDetail}
+            </Text>
+            <Text size="xsmall">
+              <a
+                href={settings.directions}
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                {settings.address}
+              </a>
+            </Text>
           </Box>
-          <a
-            href={directions}
-            style={{
-              textDecoration: "none"
-            }}
+          <Box
+            direction="row" gap="small"
+            margin={{ top: "medium" }}
+            justify="center"
           >
-            <Heading level={5} margin="none" color="primary">
-              DRIVING DIRECTIONS
-            </Heading>
-          </a>
+            <Text>{start}</Text>
+            <Text>to</Text>
+            <Text>{end}</Text>
+          </Box>
         </Heading>
       </>
     )
@@ -96,6 +108,7 @@ export const WeddingDay = ({ margin, pageContext }) => {
         margin={margin}
         width="80%"
         border={{ color: "light-5" }}
+        pad={{bottom: "medium"}}
         round="small"
         align="center"
       >
@@ -106,8 +119,7 @@ export const WeddingDay = ({ margin, pageContext }) => {
               <Box
                 key={item.id}
                 direction="row"
-                margin={{ bottom: "small" }}
-                pad={{ vertical: "xsmall" }}
+                pad={{ bottom: "xsmall" }}
               >
                 <Timestamp start={item.startTime} end={item.endTime} />
                 <Description title={item.title} location={item.location} directions={item.directions} />
