@@ -48,7 +48,7 @@ export const WeddingDay = ({ margin, pageContext }) => {
       <>
         <Heading level={1} textAlign={"center"} size="medium" margin="none">
           {settings.locationDetail}
-          <Box margin={{top: "small"}}>
+          <Box margin={{top: "small"}} border={{ side: "bottom" }}>
             <Text size="small">
               <Anchor
                 href={settings.directions}
@@ -89,6 +89,9 @@ export const WeddingDay = ({ margin, pageContext }) => {
           helpText={false}
           margin={{ top: "none", bottom: "medium"}}
         />
+        <Anchor href="https://hippo-public-assets.s3.us-west-2.amazonaws.com/assets/2018-Map-Village-Directory-page-001-1.jpeg">
+          Don't get lost, get the Village Map.
+        </Anchor>
       </>
     )
   }
