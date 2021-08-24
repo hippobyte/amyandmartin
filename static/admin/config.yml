@@ -308,6 +308,7 @@ collections:
     sortableFields: [ 'title', commit_date' ]
     fields: [
       { label: "Template Key", name: "templateKey", widget: "hidden", default: "wedding-day" },
+      { label: "Order", name: "order", widget: "number" },
       { label: "Event", name: "title", widget: "string" },
       { label: "Start", name: "startTime", widget: "string" },
       { label: "End", name: "endTime", widget: "string" },

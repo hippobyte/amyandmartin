@@ -7,7 +7,16 @@ import {Anchor, LanguageBar} from "../components"
 export const WeddingDay = ({ margin, pageContext }) => {
   const request = useStaticQuery(graphql`
       query WeddingDay {
-          data: allSettingsJson(filter: {templateKey: {eq: "wedding-day"}}) {
+          data: allSettingsJson(
+              filter: {
+                  templateKey: {
+                      eq: "wedding-day"
+                  }
+              },
+              sort: {
+                  fields: order,
+                  order: ASC
+              }) {
               edges {
                   node {
                       id

@@ -3,5 +3,6 @@
   "title": "Toasts and Dancing",
   "startTime": "7:00pm",
   "endTime": "10:00pm",
-  "location": "High Camp"
+  "location": "High Camp",
+  "order": 4
 }

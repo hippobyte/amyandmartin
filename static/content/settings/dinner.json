@@ -3,5 +3,6 @@
   "title": "Dinner",
   "startTime": "5:30pm",
   "endTime": "7:00pm",
-  "location": "High Camp"
+  "location": "High Camp",
+  "order": 3
 }
