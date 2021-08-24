@@ -48,7 +48,7 @@ export const WeddingDay = ({ margin, pageContext }) => {
       <>
         <Heading level={1} textAlign={"center"} size="medium" margin="none">
           {settings.locationDetail}
-          <Box margin={{top: "small"}} border={{ side: "bottom" }}>
+          <Box margin={{top: "small"}}>
             <Text size="small">
               <Anchor
                 href={settings.directions}
