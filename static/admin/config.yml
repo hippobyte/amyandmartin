@@ -312,5 +312,5 @@ collections:
       { label: "Start", name: "startTime", widget: "string" },
       { label: "End", name: "endTime", widget: "string" },
       { label: "Location", name: "location", widget: "string", required: false },
-      { label: "Directions", name: "directions", widget: "string", required: false }
+      { label: "Directions", name: "directions", widget: "string", required: false },
     ]

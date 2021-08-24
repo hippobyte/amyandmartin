@@ -68,7 +68,8 @@ export const WeddingDay = ({ margin, pageContext }) => {
               {moment(settings.ceremonyDate).locale(pageContext.language.locale).format('LL')}
             </Text>
             <Box
-              direction="row" gap="small"
+              direction="row"
+              gap="xsmall"
               justify="center"
             >
               <Text>{start}</Text>
@@ -106,8 +107,22 @@ export const WeddingDay = ({ margin, pageContext }) => {
 
   const Description = (props) => {
     return (
-      <Box pad={{ horizontal: "small" }} round="small" direction="row">
-        <Text weight={500}>{props.title}</Text>
+      <Box pad={{ horizontal: "small" }} round="small" align="center">
+        <Text textAlign="center" weightgit ={500}>{props.title}</Text>
+        {
+          props.location && (
+            <Box align="center">
+              <Text size="small" textAlign="center" weight={500}>{props.location}</Text>
+            </Box>
+          )
+        }
+        {
+          props.directions && (
+            <Box align="center" margin={{ top: "xsmall" }}>
+              <Text size="small" textAlign="center" weight={400}>{props.directions}</Text>
+            </Box>
+          )
+        }
       </Box>
     )
   }
@@ -122,13 +137,24 @@ export const WeddingDay = ({ margin, pageContext }) => {
         align="center"
       >
         <WeddingDayHeader />
+        <Box
+          width="100%"
+          margin={{
+            top: "large"
+          }}
+        >
         {
           data && data.map(item => {
             return (
               <Box
                 key={item.id}
-                direction="row"
-                pad={{ bottom: "xsmall" }}
+                pad={{ vertical: "medium" }}
+                align="center"
+                border={{
+                  side: "bottom",
+                  size: "xsmall",
+                  color: "light-4"
+                }}
               >
                 <Timestamp start={item.startTime} end={item.endTime} />
                 <Description title={item.title} location={item.location} directions={item.directions} />
@@ -136,6 +162,7 @@ export const WeddingDay = ({ margin, pageContext }) => {
             )
           })
         }
+        </Box>
       </Box>
     </Box>
   )
