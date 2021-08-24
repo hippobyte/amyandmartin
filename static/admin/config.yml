@@ -305,10 +305,10 @@ collections:
     slug: "{{slug}}"
     filter: { field: "templateKey", value: "wedding-day" }
     summary: "{{title}}"
-    sortableFields: [ 'title', commit_date' ]
+    sortableFields: [ 'order', order' ]
     fields: [
       { label: "Template Key", name: "templateKey", widget: "hidden", default: "wedding-day" },
-      { label: "Order", name: "order", widget: "number" },
+      { label: "Order", name: "order", widget: "number", valueType: "int" },
       { label: "Event", name: "title", widget: "string" },
       { label: "Start", name: "startTime", widget: "string" },
       { label: "End", name: "endTime", widget: "string" },
