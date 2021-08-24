@@ -37,18 +37,7 @@ export const WeddingDay = ({ margin, pageContext }) => {
       }
   `)
 
-  const data = request.data.edges.map(item => item.node).sort((a, b) => {
-    let fa = a.startTime.toLowerCase(),
-        fb = b.startTime.toLowerCase();
-
-    if (fa < fb) {
-      return -1;
-    }
-    if (fa > fb) {
-      return 1;
-    }
-    return 0;
-  });
+  const data = request.data.edges.map(item => item.node)
   const settings = request.settings
 
   const WeddingDayHeader = () => {
@@ -107,9 +96,9 @@ export const WeddingDay = ({ margin, pageContext }) => {
   const Timestamp = (props) => {
     return (
       <Box pad={{ horizontal: "small" }} round="small" direction="row">
-        <Text weight={500}>{props.start}</Text>
-        <Text weight={500} margin={{ horizontal: "xsmall" }}>-</Text>
-        <Text weight={500}>{props.end}</Text>
+        <Text weight={600}>{props.start}</Text>
+        <Text weight={600} margin={{ horizontal: "xsmall" }}>-</Text>
+        <Text weight={600}>{props.end}</Text>
       </Box>
     )
   }
@@ -117,14 +106,16 @@ export const WeddingDay = ({ margin, pageContext }) => {
   const Description = (props) => {
     return (
       <Box pad={{ horizontal: "small" }} round="small" align="center">
-        <Text textAlign="center" weightgit ={500}>{props.title}</Text>
-        {
-          props.location && (
-            <Box align="center">
-              <Text size="small" textAlign="center" weight={500}>{props.location}</Text>
-            </Box>
-          )
-        }
+        <Text textAlign="center" weightgit ={500}>
+          {props.title}
+          {
+            props.location && (
+              <Text margin={{left: "xsmall"}} size="small" textAlign="center" weight={500}>
+                ({props.location})
+              </Text>
+            )
+          }
+        </Text>
         {
           props.directions && (
             <Box align="center" margin={{ top: "xsmall" }}>
@@ -157,11 +148,12 @@ export const WeddingDay = ({ margin, pageContext }) => {
             return (
               <Box
                 key={item.id}
-                pad={{ vertical: "medium" }}
+                pad="small"
                 align="center"
+                margin={{bottom: "large"}}
+                round={"small"}
                 border={{
-                  side: "bottom",
-                  size: "xsmall",
+                  size: "small",
                   color: "light-4"
                 }}
               >
