@@ -98,7 +98,7 @@ const Rsvp = () => {
                   size="large"
                   primary
                   target="_blank"
-                  href="http://www.honeyfund.com/wedding/che-marzejon-09-05-2021"
+                  href="https://www.honeyfund.com/wedding/che-marzejon-04-23-2022"
                 />
               </Box>
             </ThemeContext.Extend>
