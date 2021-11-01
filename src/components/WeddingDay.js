@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import {Box, Heading, Text} from 'grommet'
 import { graphql, useStaticQuery } from "gatsby"
 import moment from 'moment-with-locales-es6'
-import {Anchor, LanguageBar} from "../components"
+import {Anchor, LanguageBar, Rsvp} from "../components"
 
 export const WeddingDay = ({ margin, pageContext }) => {
   const request = useStaticQuery(graphql`
@@ -139,7 +139,8 @@ export const WeddingDay = ({ margin, pageContext }) => {
         round="small"
         align="center"
       >
-        {/*<WeddingDayHeader />*/}
+        <WeddingDayHeader />
+        <Rsvp />
         <Box
           width="100%"
           margin={{

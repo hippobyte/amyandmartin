@@ -101,6 +101,14 @@ const Rsvp = () => {
                   href="https://www.honeyfund.com/wedding/che-marzejon-04-23-2022"
                 />
               </Box>
+              <Text
+                color="dark-6"
+                weight={500}
+                size="small"
+                margin={{ top: "medium" }}
+              >
+                {translator({ translationsJson: data.rsvpTranslation }, locale)} {moment(data.settingsJson.rsvpDate).locale(locale).format('LL')}
+              </Text>
             </ThemeContext.Extend>
           </Box>
         )

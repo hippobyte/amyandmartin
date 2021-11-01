@@ -1,13 +1,10 @@
 import React from 'react'
 import { Box, ResponsiveContext } from 'grommet'
 import {
-  LanguageBar,
   Markdown,
   PageLayout,
   PageContent,
   PageHeading,
-  PageHeader,
-  Rsvp,
   WeddingDay
 } from "../components"
 
@@ -40,7 +37,6 @@ const PageTemplate = ({ location, pageContext }) => {
               <WeddingDay
                 pageContext={pageContext}
               />
-              <Rsvp />
             </Box>
             </>
           ) : (
