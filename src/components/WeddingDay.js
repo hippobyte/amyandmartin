@@ -139,7 +139,7 @@ export const WeddingDay = ({ margin, pageContext }) => {
         round="small"
         align="center"
       >
-        <WeddingDayHeader />
+        {/*<WeddingDayHeader />*/}
         <Box
           width="100%"
           margin={{
